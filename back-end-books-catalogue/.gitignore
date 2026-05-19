@@ -1,0 +1,70 @@
+# =========================
+# Java / Maven
+# =========================
+target/
+*/target/
+*.class
+
+# =========================
+# IntelliJ IDEA
+# =========================
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Si por error se generó un .iml dentro de resources
+**/src/main/resources/*.iml
+
+# =========================
+# VS Code / Editores
+# =========================
+.vscode/
+.settings/
+.project
+.classpath
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+*/logs/
+
+# =========================
+# Sistema operativo
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Variables de entorno / secretos
+# =========================
+.env
+.env.*
+!.env.example
+application-local.yml
+application-local.properties
+
+# =========================
+# Archivos temporales
+# =========================
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# =========================
+# Archivos generados
+# =========================
+*.jar
+*.war
+*.ear
+
+# =========================
+# Postman / Insomnia locales
+# =========================
+.postman/
+.insomnia/
