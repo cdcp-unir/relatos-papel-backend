@@ -1,6 +1,6 @@
-# back-end-supplies-orders
+# back-end-books-orders
 
-Microservicio de pedidos de la aplicación **UNIR Supplies**. Gestiona la creación y consulta de órdenes de compra, comunicándose con el microservicio de catálogo para validar productos y actualizar stock.
+Microservicio de pedidos de la aplicación **Relatos de papel**. Pieza principal que ejecuta el registro de compras de libros y consulta de órdenes de compra de un usuario. Consultará vía peticiones HTTP al microservicio de catalogue para consultar el estado, stock y visibilidad del libro.
 
 ## Tabla de contenidos
 
@@ -20,11 +20,10 @@ Microservicio de pedidos de la aplicación **UNIR Supplies**. Gestiona la creaci
 El microservicio sigue una arquitectura en capas con un patrón **Facade** para la comunicación inter-servicio:
 
 ```
-Controller → Service → Facade (WebClient) → supplies-catalogue
-                     → Repository → Base de datos MySQL
+Controller → Service → Facade (WebClient) → books-catalogue → Repository → Base de datos MySQL
 ```
 
-Se registra en **Eureka** como `supplies-orders` y utiliza **WebClient** con `@LoadBalanced` para resolver las URLs de otros microservicios vía Service Discovery. Escucha en el **puerto 8081**.
+Se registra en **Eureka** como `books-orders` y utiliza **WebClient** con `@LoadBalanced` para resolver las URLs de otros microservicios vía Service Discovery. Escucha en el **puerto 8081**.
 
 ---
 
@@ -111,18 +110,6 @@ Manejo de errores HTTP:
 
 Modelo simplificado del producto recibido del catálogo: `id`, `name`, `description`, `price`, `stock`.
 
-### Configuración del WebClient
-
-```java
-@LoadBalanced
-@Bean
-public WebClient.Builder webClient() { ... }
-```
-
-La anotación `@LoadBalanced` permite resolver el nombre del servicio (`supplies-catalogue`) registrado en Eureka en lugar de usar URLs hardcodeadas.
-
----
-
 ## Capa de acceso a datos
 
 ### `OrderJpaRepository`
@@ -139,7 +126,7 @@ Hereda de `JpaRepository<Order, Integer>`.
 | Entidad     | Tabla         | Campos principales                                                          |
 |-------------|---------------|-----------------------------------------------------------------------------|
 | `Order`     | `orders`      | `id`, `name`, `orderDate`, `total`, `comment`, `status` (enum), `ownerId`  |
-| `OrderItem` | `order_item`  | `id`, `order` (FK), `idCatalogue`, `quantity`, `subTotal`                   |
+| `OrderItem` | `order_item`  | `id`, `order` (FK), `book_id`, `quantity`, `subTotal`                   |
 
 ### `OrderStatus` (Enum)
 
@@ -151,7 +138,7 @@ EN_PROCESO, CANCELADO, ENTREGADO
 
 - **`Order` → `OrderItem`**: Relación **1:N** con `CascadeType.ALL` y `orphanRemoval = true`. Los ítems se persisten y eliminan automáticamente con la orden.
 - **`OrderItem` → `Order`**: `@ManyToOne` (Lazy).
-- **`OrderItem.idCatalogue`**: Referencia lógica (no FK) al ID del producto en el microservicio de catálogo.
+- **`OrderItem.bookId`**: Referencia lógica (no FK) al ID del libro en el microservicio de catálogo.
 
 ---
 
@@ -165,7 +152,7 @@ EN_PROCESO, CANCELADO, ENTREGADO
 │ name        VARCHAR(255)     │      │
 │ order_date  TIMESTAMP        │      │
 │ total       DECIMAL(10,2)    │      │
-│ comment     TEXT              │      │
+│ comment     TEXT             │      │
 │ status      ENUM             │      │
 │   (EN_PROCESO|CANCELADO|     │      │
 │    ENTREGADO)                │      │
@@ -177,20 +164,20 @@ EN_PROCESO, CANCELADO, ENTREGADO
                                  1:N  │
                                       ▼
                     ┌──────────────────────────────┐
-                    │        order_item             │
+                    │        order_item            │
                     ├──────────────────────────────┤
-                    │ id           INTEGER (PK)     │
-                    │ order_id     INTEGER (FK)      │
-                    │ id_catalogue INTEGER           │  ← Ref. lógica a supplies-catalogue
-                    │ quantity     INTEGER (≥ 0)     │
-                    │ sub_total    DECIMAL(10,2)     │
+                    │ id           INTEGER (PK)    │
+                    │ order_id     INTEGER (FK)    │
+                    │ book_id      INTEGER         │  ← Referencia al id de libro comprado en books-catalogue
+                    │ quantity     INTEGER (≥ 0)   │
+                    │ sub_total    DECIMAL(10,2)   │
                     └──────────────────────────────┘
 ```
 
 ### Relaciones
 
 - **`orders` → `order_item`**: Relación **1:N**. Cascade `ON DELETE CASCADE`. Cada orden puede tener múltiples ítems.
-- **`order_item.id_catalogue`**: Referencia lógica al `supply.id` del microservicio de catálogo (no hay FK física, ya que están en bases de datos distintas).
+- **`order_item.book_id`**: Referencia lógica al `book.id` del microservicio de catálogo.
 
 ---
 
@@ -204,31 +191,15 @@ El script SQL se encuentra en `src/main/resources/db/schema.sql`.
 mysql -u root -p < src/main/resources/db/schema.sql
 ```
 
-Este script:
-- Crea el schema `supplies_orders`.
-- Crea la tabla `orders` con campo `status` de tipo ENUM.
-- Crea la tabla `order_item` con FK a `orders` y constraint CHECK en `quantity`.
-
-### Reconstrucción desde cero
-
-```bash
-mysql -u root -p -e "DROP SCHEMA IF EXISTS supplies_orders;" && \
-mysql -u root -p < src/main/resources/db/schema.sql
-```
-
-> **Nota**: Este microservicio no incluye script de datos de ejemplo (`ejemplos.sql`). Las órdenes se crean mediante la API REST.
-
----
-
 ## Configuración
 
 Variables de entorno configurables (`application.yml`):
 
-| Variable                  | Valor por defecto                                | Descripción                                  |
-|---------------------------|--------------------------------------------------|----------------------------------------------|
-| `DB_URL`                  | `jdbc:mysql://localhost:3307/supplies_orders`    | URL de conexión JDBC (puerto 3307)           |
-| `DB_DRIVER`               | `com.mysql.cj.jdbc.Driver`                       | Driver JDBC                                  |
-| `DB_USER`                 | `root`                                           | Usuario de base de datos                     |
-| `DB_PASSWORD`             | `mysql`                                          | Contraseña de base de datos                  |
-| `EUREKA_URL`              | `http://localhost:8761/eureka`                   | URL del servidor Eureka                      |
-| `SUPPLIES_CATALOGUE_URL`  | `http://supplies-catalogue/api/v1`               | URL base del microservicio de catálogo (resuelta vía Eureka) |
+| Variable                  | Valor por defecto                                | Descripción                                                  |
+|---------------------------|--------------------------------------------------|--------------------------------------------------------------|
+| `DB_URL`                  | `jdbc:mysql://localhost:3307/books_orders`       | URL de conexión JDBC (puerto 3307)                           |
+| `DB_DRIVER`               | `com.mysql.cj.jdbc.Driver`                       | Driver JDBC                                                  |
+| `DB_USER`                 | `root`                                           | Usuario de base de datos                                     |
+| `DB_PASSWORD`             | `mysql`                                          | Contraseña de base de datos                                  |
+| `EUREKA_URL`              | `http://localhost:8761/eureka`                   | URL del servidor Eureka                                      |
+| `BOOK_CATALOGUE_URL`      | `http://books-catalogue/api/v1`                  | URL base del microservicio de catálogo (resuelta vía Eureka) |
