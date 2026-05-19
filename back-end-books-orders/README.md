@@ -40,14 +40,14 @@ Se registra en **Eureka** como `books-orders` y utiliza **WebClient** con `@Load
 
 | Excepción                       | HTTP Status              | Descripción                                        |
 |---------------------------------|--------------------------|----------------------------------------------------|
-| `SupplyNotFoundException`       | `404 Not Found`          | El producto solicitado no existe en el catálogo     |
-| `BadSupplyModificationException`| `400 Bad Request`        | Error al intentar modificar el stock del producto   |
+| `BookNotFoundException`       | `404 Not Found`          | El libro solicitado no existe en el catálogo     |
+| `BadBookModificationException`| `400 Bad Request`        | Error al intentar modificar el stock del libro   |
 | `InternalErrorException`        | `500 Internal Server Error` | Error interno al comunicarse con el catálogo     |
 
 Respuesta de error:
 ```json
 {
-  "details": "Supply with ID 42 not found"
+  "details": "Book with ID 42 not found"
 }
 ```
 
@@ -55,8 +55,8 @@ Respuesta de error:
 
 | DTO                        | Uso                                                              |
 |----------------------------|------------------------------------------------------------------|
-| `CreateOrderRequestDto`    | Cuerpo de creación de orden: lista de `RequestedSupply`          |
-| `RequestedSupply`          | Producto solicitado: `id` (del catálogo) y `quantity`            |
+| `CreateOrderRequestDto`    | Cuerpo de creación de orden: lista de `RequestedBook`          |
+| `RequestedBook`          | Libro solicitado: `id` (del catálogo) y `quantity`            |
 | `CreateOrderResponseDto`   | Respuesta de creación: `name` (identificador de la orden)        |
 | `GetOrdersResponseDto`     | Lista de `RecentOrder` (órdenes recientes)                       |
 | `RecentOrder`              | Detalle de orden: `id`, `date`, `status`, `total`, `comment`, `items` |
@@ -71,44 +71,44 @@ Respuesta de error:
 
 Orquesta el flujo completo de creación de una orden (`@Transactional`):
 
-1. **Valida** que la solicitud contenga al menos un producto.
-2. **Para cada producto solicitado**:
+1. **Valida** que la solicitud contenga al menos un libro.
+2. **Para cada libro solicitado**:
    - Valida que la cantidad sea > 0.
-   - Consulta el catálogo vía `SuppliesCatalogueFacade.getSupply()` para obtener precio y stock actual.
+   - Consulta el catálogo vía `BooksCatalogueFacade.getBook()` para obtener precio y stock actual.
    - Verifica que haya stock suficiente.
    - Calcula el subtotal (`precio × cantidad`).
 3. **Genera** un nombre de orden único (`ORDER-{timestamp}`).
 4. **Persiste** la orden con sus ítems (cascade).
-5. **Actualiza el stock** de cada producto en el catálogo vía `SuppliesCatalogueFacade.updateSupplyStock()` (PATCH).
+5. **Actualiza el stock** de cada libro en el catálogo vía `BooksCatalogueFacade.updateBookStock()` (PATCH).
 6. **Retorna** el nombre de la orden creada.
 
 > **Nota**: El `ownerId` está hardcodeado a `1`. Debería obtenerse del contexto de seguridad.
 
 ### `GetOrdersService`
 
-- `getRecentOrders()`: Obtiene las **5 órdenes más recientes** del usuario (ordenadas por fecha descendente). Para cada ítem de la orden, consulta al catálogo para obtener el nombre y precio actual del producto.
+- `getRecentOrders()`: Obtiene las **5 órdenes más recientes** del usuario (ordenadas por fecha descendente). Para cada ítem de la orden, consulta al catálogo para obtener el nombre y precio actual del libro.
 
 ---
 
 ## Facade — Comunicación entre microservicios
 
-### `SuppliesCatalogueFacade`
+### `BooksCatalogueFacade`
 
-Componente que encapsula las llamadas HTTP al microservicio **supplies-catalogue** usando `WebClient` (reactivo, con `@LoadBalanced` para service discovery):
+Componente que encapsula las llamadas HTTP al microservicio **books-catalogue** usando `WebClient` (reactivo, con `@LoadBalanced` para service discovery):
 
 | Método                                  | HTTP        | Endpoint del catálogo              | Descripción                              |
 |-----------------------------------------|-------------|------------------------------------|------------------------------------------|
-| `getSupply(Integer supplyId)`           | `GET`       | `/api/v1/supplies/{id}`            | Obtiene datos de un producto             |
-| `updateSupplyStock(Integer id, Integer stock)` | `PATCH` | `/api/v1/supplies/{id}`       | Actualiza el stock (JSON Merge Patch)    |
+| `getBook(Integer bookId)`           | `GET`       | `/api/v1/books/{id}`            | Obtiene datos de un libro             |
+| `updateBookStock(Integer id, Integer stock)` | `PATCH` | `/api/v1/books/{id}`       | Actualiza el stock (JSON Merge Patch)    |
 
 Manejo de errores HTTP:
-- **404** → `SupplyNotFoundException`
-- **400** → `BadSupplyModificationException`
+- **404** → `BookNotFoundException`
+- **400** → `BadBookModificationException`
 - **500** → `InternalErrorException`
 
-### `SupplyDto` (Facade Model)
+### `BookDto` (Facade Model)
 
-Modelo simplificado del producto recibido del catálogo: `id`, `name`, `description`, `price`, `stock`.
+Modelo simplificado del libro recibido del catálogo: `id`, `name`, `description`, `price`, `stock`.
 
 ## Capa de acceso a datos
 
