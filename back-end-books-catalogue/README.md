@@ -1,274 +1,651 @@
 # back-end-books-catalogue
 
-Microservicio de catálogo de la aplicación **Relatos de papel**. Gestiona el CRUD completo de libros
+Microservicio de catálogo para la aplicación **Relatos de Papel**.
+
+Este servicio gestiona el catálogo de libros de la plataforma. Permite crear, consultar, actualizar, eliminar y buscar libros por distintos atributos como título, autor, fecha de publicación, categoría, ISBN, valoración y visibilidad.
+
+Forma parte de la arquitectura de microservicios del proyecto y está preparado para registrarse en **Eureka Server** para que pueda ser consumido por otros servicios, como `orders-service`, y por el `cloud-gateway`.
+
+---
 
 ## Tabla de contenidos
 
-- [Arquitectura general](#arquitectura-general)
-- [Capa controladora (Controller)](#capa-controladora)
-- [Capa de servicio (Service)](#capa-de-servicio)
-- [Capa de acceso a datos (Repository)](#capa-de-acceso-a-datos)
-- [Modelo relacional de base de datos](#modelo-relacional-de-base-de-datos)
-- [Reconstrucción de la base de datos para pruebas](#reconstrucción-de-la-base-de-datos-para-pruebas)
-- [Configuración](#configuración)
+- [Tecnologías utilizadas](#tecnologías-utilizadas)
+- [Arquitectura del microservicio](#arquitectura-del-microservicio)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Modelo de datos](#modelo-de-datos)
+- [Scripts SQL](#scripts-sql)
+- [Configuración del proyecto](#configuración-del-proyecto)
+- [Cómo iniciar el proyecto](#cómo-iniciar-el-proyecto)
+- [Endpoints disponibles](#endpoints-disponibles)
+- [Ejemplos de uso](#ejemplos-de-uso)
+- [Manejo de errores](#manejo-de-errores)
+- [Eureka Client](#eureka-client)
+- [Comandos útiles](#comandos-útiles)
+- [Notas de entrega](#notas-de-entrega)
 
 ---
 
-## Arquitectura general
+## Tecnologías utilizadas
 
-El microservicio sigue una arquitectura en capas clásica de Spring Boot:
-
-```
-Controller → Service → Repository → Base de datos MySQL
-```
-
-Se registra en **Eureka** como `books-catalogue` y utiliza **Spring Data JPA** con **Hibernate** para el acceso a datos. La validación del esquema se realiza con `ddl-auto: validate`.
+- Java 17
+- Spring Boot 4.0.6
+- Spring Web
+- Spring Data JPA
+- Hibernate
+- Jakarta Validation
+- PostgreSQL
+- Maven
+- Spring Cloud Netflix Eureka Client
+- Spring Boot DevTools
 
 ---
 
-## Capa controladora
+## Arquitectura del microservicio
 
-Existen **tres controladores REST**, cada uno expuesto bajo una versión diferente de la API. Todos permiten CORS desde cualquier origen.
+El microservicio sigue una arquitectura por capas:
 
-### `BooksController` — `/api/v1/`
+```txt
+Controller -> Service -> Repository -> Base de datos PostgreSQL
+```
 
-Controlador principal con operaciones CRUD completas.
+| Capa | Responsabilidad |
+|---|---|
+| `controller` | Expone los endpoints REST del catálogo |
+| `service` | Contiene la lógica de negocio |
+| `repository` | Acceso a datos mediante Spring Data JPA |
+| `entity` | Define la entidad persistente `Book` |
+| `dto` | Define objetos de entrada y salida de la API |
+| `exception` | Manejo centralizado de errores |
 
-| Método   | Endpoint             | Descripción                                               | Request Body             | Response              |
-|----------|----------------------|-----------------------------------------------------------|--------------------------|-----------------------|
-| `GET`    | `/api/v1/books`      | Lista todos los libros con stock > 0                      | —                        | `GetBooksResponseDto` |
-| `GET`    | `/api/v1/books/{id}` | Obtiene un libro por ID (con specs e imágenes)            | —                        | `GetBookResponseDto`  |
-| `POST`   | `/api/v1/books`      | Crea un nuevo libro                                       | `WriteSupplyRequestDto`  | `GetBookResponseDto`  |
-| `PUT`    | `/api/v1/books/{id}` | Reemplaza completamente un libro                          | `WriteSupplyRequestDto`  | `GetBookResponseDto`  |
-| `PATCH`  | `/api/v1/books/{id}` | Actualización parcial vía **JSON Merge Patch** (RFC 7386) | JSON parcial (String)    | `GetBookResponseDto`  |
-| `DELETE` | `/api/v1/books/{id}` | Elimina un libro                                          | —                        | `204 No Content`      |
+---
 
-### `BooksControllerGetWithPredicate` — `/api/v2/`
+## Estructura del proyecto
 
-Búsqueda con filtros dinámicos usando **JPA Specifications**.
+```txt
+back-end-books-catalogue/
+│
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/relatosdepapel/catalogueservice/
+│       │       ├── CatalogueServiceApplication.java
+│       │       ├── controller/
+│       │       │   └── BookController.java
+│       │       ├── dto/
+│       │       │   ├── BookRequest.java
+│       │       │   ├── BookResponse.java
+│       │       │   └── PaginatedResponse.java
+│       │       ├── entity/
+│       │       │   └── Book.java
+│       │       ├── exception/
+│       │       │   ├── ApiError.java
+│       │       │   ├── BadRequestException.java
+│       │       │   ├── GlobalExceptionHandler.java
+│       │       │   └── ResourceNotFoundException.java
+│       │       ├── repository/
+│       │       │   ├── BookRepository.java
+│       │       │   └── BookSpecification.java
+│       │       └── service/
+│       │           └── BookService.java
+│       │
+│       └── resources/
+│           └── application.yml
+│
+├── pom.xml
+├── mvnw
+├── mvnw.cmd
+└── README.md
+```
 
-| Método | Endpoint        | Parámetros opcionales                                              |
-|--------|-----------------|--------------------------------------------------------------------|
-| `GET`  | `/api/v2/books` | `name`, `description`, `fullDescription`, `type`, `price`, `stock` |
+Los scripts de base de datos se encuentran en la raíz del repositorio general:
 
-- Los campos de texto (`name`, `description`, `fullDescription`) filtran con **LIKE** (coincidencia parcial, case-insensitive).
-- `type` filtra con **igualdad exacta**.
-- `price` filtra con **≤** (menor o igual).
-- `stock` filtra con **≥** (mayor o igual).
+```txt
+relatos-papel-backend/
+└── database/
+    └── catalogue/
+        ├── 01_catalogue_ddl.sql
+        └── 02_catalogue_dml.sql
+```
 
-### `BooksControllerGetWithPredicateAndPagination` — `/api/v3/`
+---
 
-Igual que v2 pero con **paginación**.
+## Modelo de datos
 
-| Método | Endpoint        | Parámetros adicionales                          |
-|--------|-----------------|-------------------------------------------------|
-| `GET`  | `/api/v3/books` | `pageSize` (default: 5), `page` (default: 0)    |
+El microservicio utiliza una única tabla principal: `books`.
 
-### Manejo de errores — `BooksControllerAdvice`
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | `BIGSERIAL` | Identificador interno de base de datos |
+| `external_id` | `UUID` | Identificador público usado por la API |
+| `title` | `VARCHAR(200)` | Título del libro |
+| `author` | `VARCHAR(150)` | Autor del libro |
+| `publication_date` | `DATE` | Fecha de publicación |
+| `category` | `VARCHAR(100)` | Categoría del libro |
+| `isbn` | `VARCHAR(20)` | Código ISBN único |
+| `rating` | `INTEGER` | Valoración entre 1 y 5 |
+| `visible` | `BOOLEAN` | Indica si el libro debe mostrarse al cliente |
+| `stock` | `INTEGER` | Cantidad disponible |
+| `price` | `NUMERIC(10,2)` | Precio del libro |
+| `created_at` | `TIMESTAMP` | Fecha de creación del registro |
 
-El `@ControllerAdvice` captura `BookNotFoundException` y devuelve un **404 Not Found** con un cuerpo `ErrorResponse`:
+### Reglas principales
+
+- `external_id` es único y se utiliza como identificador público.
+- `isbn` es único.
+- `rating` debe estar entre 1 y 5.
+- `stock` no puede ser negativo.
+- `price` no puede ser negativo.
+- `visible` permite ocultar libros que no deberían aparecer en el catálogo público.
+
+---
+
+## Scripts SQL
+
+La actividad requiere entregar scripts DDL y DML para reconstruir la base de datos usada durante el desarrollo.
+
+Los archivos se encuentran en:
+
+```txt
+database/catalogue/
+```
+
+### `01_catalogue_ddl.sql`
+
+Contiene la definición de la base de datos y de la tabla `books`.
+
+Incluye:
+
+- Creación de la base de datos `catalogue_db`.
+- Creación de la tabla `books`.
+- Restricciones `UNIQUE`.
+- Restricciones `CHECK`.
+- Índices para mejorar búsquedas por título, autor, categoría, fecha, valoración y visibilidad.
+
+Ejemplo de ejecución en PostgreSQL:
+
+```bash
+psql -U postgres -f database/catalogue/01_catalogue_ddl.sql
+```
+
+Si el script contiene `CREATE DATABASE catalogue_db`, primero se crea la base y luego se debe ejecutar el resto del script conectado a `catalogue_db`.
+
+En `psql`:
+
+```bash
+psql -U postgres
+```
+
+Luego:
+
+```sql
+CREATE DATABASE catalogue_db;
+\c catalogue_db
+```
+
+Después ejecutar las sentencias de creación de tabla.
+
+### `02_catalogue_dml.sql`
+
+Contiene datos iniciales para poblar el catálogo. Incluye más de 100 libros de prueba con `external_id`, título, autor, fecha de publicación, categoría, ISBN, valoración, visibilidad, stock, precio y fecha de creación.
+
+Ejemplo de ejecución:
+
+```bash
+psql -U postgres -d catalogue_db -f database/catalogue/02_catalogue_dml.sql
+```
+
+Este archivo permite disponer de un catálogo amplio para probar filtros, paginación y ordenamiento.
+
+---
+
+## Configuración del proyecto
+
+Archivo:
+
+```txt
+src/main/resources/application.yml
+```
+
+Configuración base:
+
+```yaml
+server:
+  port: 8081
+
+spring:
+  application:
+    name: catalogue-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalogue_db
+    username: postgres
+    password: TU_PASSWORD
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+eureka:
+  client:
+    enabled: false
+```
+
+Durante el desarrollo individual del microservicio, Eureka puede estar desactivado. Cuando el proyecto `back-end-eureka` esté levantado, se puede activar el registro en Eureka:
+
+```yaml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+```
+
+---
+
+## Cómo iniciar el proyecto
+
+### 1. Crear la base de datos
+
+En PostgreSQL:
+
+```sql
+CREATE DATABASE catalogue_db;
+```
+
+### 2. Ejecutar DDL
+
+Ejecutar el archivo:
+
+```txt
+database/catalogue/01_catalogue_ddl.sql
+```
+
+### 3. Ejecutar DML
+
+Ejecutar el archivo:
+
+```txt
+database/catalogue/02_catalogue_dml.sql
+```
+
+### 4. Configurar credenciales
+
+Editar:
+
+```txt
+src/main/resources/application.yml
+```
+
+Actualizar usuario y contraseña:
+
+```yaml
+spring:
+  datasource:
+    username: postgres
+    password: TU_PASSWORD
+```
+
+### 5. Compilar el proyecto
+
+Desde la carpeta del microservicio:
+
+```bash
+cd back-end-books-catalogue
+```
+
+En Windows PowerShell:
+
+```bash
+.\mvnw.cmd clean compile
+```
+
+O sin ejecutar tests:
+
+```bash
+.\mvnw.cmd clean install -DskipTests
+```
+
+### 6. Iniciar el microservicio
+
+```bash
+.\mvnw.cmd spring-boot:run
+```
+
+El servicio quedará disponible en:
+
+```txt
+http://localhost:8081
+```
+
+---
+
+## Endpoints disponibles
+
+Base URL:
+
+```txt
+http://localhost:8081/api/books
+```
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| `POST` | `/api/books` | Crea un nuevo libro |
+| `GET` | `/api/books` | Lista libros con filtros, paginación y ordenamiento |
+| `GET` | `/api/books/{externalId}` | Obtiene un libro por su identificador público |
+| `PUT` | `/api/books/{externalId}` | Actualiza completamente un libro |
+| `PATCH` | `/api/books/{externalId}` | Actualiza parcialmente un libro |
+| `DELETE` | `/api/books/{externalId}` | Elimina un libro |
+
+---
+
+## Ejemplos de uso
+
+### Crear libro
+
+```http
+POST http://localhost:8081/api/books
+Content-Type: application/json
+```
+
+Body:
 
 ```json
 {
-  "details": "Book not found with id: 42"
+  "title": "Cien años de soledad",
+  "author": "Gabriel García Márquez",
+  "publicationDate": "1967-05-30",
+  "category": "Novela",
+  "isbn": "9780307474728",
+  "rating": 5,
+  "visible": true,
+  "stock": 10,
+  "price": 19.99
 }
 ```
 
-### DTOs
+### Listar libros
 
-| DTO                   | Uso                                                                    |
-|-----------------------|------------------------------------------------------------------------|
-| `GetBooksResponseDto` | Lista de libros (vista resumida sin specs ni imágenes)                 |
-| `GetBookResponseDto`  | Detalle completo de un libro (con specs e imágenes)                    |
-| `BookDto`             | Vista resumida de un libro (id, name, description, type, price, stock) |
-| `WriteBookRequestDto` | Cuerpo de creación/actualización (incluye specs e imágenes)            |
-| `SpecificationDto`    | Par clave-valor de una especificación (`specKey`, `specValue`)         |
-| `ErrorResponse`       | Respuesta de error genérica                                            |
-
----
-
-## Capa de servicio
-
-Cada operación de negocio está separada en su propio servicio:
-
-### `GetBooksService`
-
-- `getBooks()`: Obtiene todos los libros con stock > 0 usando `findAvailableBooks()` (JPQL).
-- `getBook(Integer id)`: Obtiene un libro por ID con detalle completo (especificaciones e imágenes). Lanza `BookNotFoundException` si no existe.
-
-### `GetBooksWithPredicateService`
-
-- `getBooks(name, description, fullDescription, type, price, stock)`: Si se proporciona al menos un filtro, construye una `Specification` dinámica; si no, devuelve todos los disponibles.
-
-### `GetBooksWithPredicateAndPaginationService`
-
-- Igual que el anterior pero delega en `BookRepository.getBooks(...)` con parámetros `pageSize` y `page` para paginación.
-
-### `CreateBooksService`
-
-- `createBook(WriteBookRequestDto)`: Crea la entidad `Book` junto con sus `BookSpecification` e `BookImage` asociadas. Gracias a `CascadeType.ALL`, las entidades hijas se persisten automáticamente. Operación `@Transactional`.
-
-### `ModifyBooksService`
-
-- `modifyBookInteger id, WriteBookRequestDto)`: **PUT** — Reemplaza completamente el libro. Elimina las specs e imágenes antiguas y crea las nuevas.
-- `modifyBook(Integer id, String jsonPart)`: **PATCH** — Aplica un **JSON Merge Patch** (RFC 7386) usando la librería `json-patch`. Convierte el libro existente a JSON, aplica el merge patch y persiste el resultado.
-
-### `DeleteBooksService`
-
-- `deleteBook(int id)`: Verifica existencia y elimina. Las specs e imágenes se eliminan por cascada (`ON DELETE CASCADE`). Lanza `BookNotFoundException` si no existe.
-
-### `BookMapper` (Utilidad)
-
-Componente de mapeo entre entidades JPA y DTOs. Gestiona también la eliminación y re-creación de especificaciones e imágenes al actualizar un libro (borra las antiguas con `deleteByBookId` y crea las nuevas).
-
----
-
-## Capa de acceso a datos
-
-### Repositorios JPA
-
-| Repositorio                  | Entidad             | Hereda de                                                            | Funcionalidad destacada                                |
-|------------------------------|---------------------|----------------------------------------------------------------------|--------------------------------------------------------|
-| `BookJpaRepository`          | `Book`              | `JpaRepository`, `JpaSpecificationExecutor`, `PagingAndSortingRepository` | Consultas JPQL, nativas, derivadas y Specifications    |
-| `SpecificationJpaRepository` | `BookSpecification` | `JpaRepository`                                                      | `findBySupplyId`, `deleteBySupplyId` (query nativa)    |
-| `ImageJpaRepository`         | `BookImage`         | `JpaRepository`                                                      | `findBySupplyId`, `deleteBySupplyId` (query nativa)    |
-
-### `BookRepository` (Repositorio compuesto)
-
-Clase `@Repository` que encapsula la lógica de construcción de `Specification` dinámicas y paginación. Métodos principales:
-
-- `getBooks()` — Devuelve libros disponibles (stock > 0).
-- `getBooks(size, page)` — Paginación simple sin filtros.
-- `getBooks(name, description, ..., stock)` — Búsqueda con filtros dinámicos.
-- `getBooks(name, description, ..., stock, pageSize, page)` — Búsqueda con filtros + paginación.
-
-### Consultas disponibles en `BookJpaRepository`
-
-| Método                          | Tipo        | Descripción                                        |
-|---------------------------------|-------------|----------------------------------------------------|
-| `findAvailableSupplies()`       | JPQL        | Suministros con stock > 0                          |
-| `findAvailableSuppliesNative()` | SQL nativa  | Equivalente nativa de la anterior                  |
-| `findAllWithDetails()`          | JPQL        | Todos los suministros con JOIN FETCH de specs e imágenes |
-| `findAllWithDetailsNative()`    | SQL nativa  | Equivalente nativa con LEFT JOIN                   |
-| `findByTypeIgnoreCase(type)`    | Derivada    | Filtro por tipo (case-insensitive)                 |
-| `findByNameContainingIgnoreCase(name)` | Derivada | Búsqueda parcial por nombre                  |
-
-### Sistema de predicados dinámicos (JPA Specifications)
-
-El paquete `repository.predicate` implementa un motor de consultas dinámicas:
-
-- **`SearchCriteria<T>`**: Implementa `Specification<T>`, acumula `SearchStatement` y genera predicados JPA en `toPredicate()`.
-- **`SearchStatement`**: Tripleta `(key, value, operation)`.
-- **`SearchOperation`**: Enum con operaciones: `GREATER_THAN`, `LESS_THAN`, `GREATER_THAN_EQUAL`, `LESS_THAN_EQUAL`, `NOT_EQUAL`, `EQUAL`, `MATCH` (LIKE), `MATCH_END`.
-- **`SearchFields`**: Constantes con los nombres de campos de la entidad `Supply`.
-
----
-
-## Modelo relacional de base de datos
-
-```
-┌──────────────────────────┐
-│         category         │
-├──────────────────────────┤
-│ id          INTEGER (PK) │──────┐
-│ name        VARCHAR(255) │      │
-└──────────────────────────┘      │
-        ┌─────────────────────────┼
-        │ 1:N             
-        ▼                                          
-┌────────────────────────┐
-│        book            │
-├─────────────────────── ┤
-│ id, nombre        INTEGER (PK) 
-│ book_id   INTEGER (FK) │
-│ spec_key  VARCHAR(100) │
-│ spec_value VARCHAR(255)│
-├────────────────────────┤
-│ UK(book  _id, spec_key)│
-└────────────────────────┘
+```http
+GET http://localhost:8081/api/books?page=1&limit=10
 ```
 
-### Relaciones
+Respuesta esperada:
 
-- **`book` → `spec`**: Relación **1:N**. Cada libro puede tener múltiples especificaciones. Clave única compuesta `(supply_id, spec_key)` para evitar duplicados. Cascade `ON DELETE CASCADE`.
-- **`book` → `image`**: Relación **1:N**. Cada suministro puede tener múltiples imágenes. Cascade `ON DELETE CASCADE`.
-
-### Entidades JPA
-
-| Entidad              | Tabla    | Relaciones                                                  |
-|----------------------|----------|-------------------------------------------------------------|
-| `Supply`             | `supply` | `@OneToMany` → `SupplySpecification`, `@OneToMany` → `SupplyImage` (Lazy, CascadeType.ALL) |
-| `SupplySpecification`| `spec`   | `@ManyToOne` → `Supply` (Lazy)                              |
-| `SupplyImage`        | `image`  | `@ManyToOne` → `Supply` (Lazy)                              |
-
----
-
-## Reconstrucción de la base de datos para pruebas
-
-Los scripts SQL se encuentran en `src/main/resources/db/`. Deben ejecutarse en el siguiente orden sobre una instancia de **MySQL**:
-
-### Paso 1: Crear el esquema y las tablas
-
-```bash
-mysql -u root -p < src/main/resources/db/schema.sql
+```json
+{
+  "data": [
+    {
+      "externalId": "00000000-0000-0000-0000-000000000001",
+      "title": "Cien años de soledad",
+      "author": "Gabriel García Márquez",
+      "publicationDate": "1967-05-30",
+      "category": "Novela",
+      "isbn": "9780307474728",
+      "rating": 5,
+      "visible": true,
+      "stock": 10,
+      "price": 19.99,
+      "createdAt": "2026-05-19T15:30:00"
+    }
+  ],
+  "meta": {
+    "count": 1,
+    "page": 1,
+    "limit": 10,
+    "totalPages": 1,
+    "hasNext": false,
+    "hasPrevious": false
+  }
+}
 ```
 
-Este script:
-- Crea el schema `supplies_catalogue`.
-- Crea las tablas `supply`, `spec` e `image` con sus claves foráneas y restricciones.
+### Filtros disponibles
 
-### Paso 2: (Opcional) Crear índices de rendimiento
-
-```bash
-mysql -u root -p supplies_catalogue < src/main/resources/db/indices.sql
+```http
+GET http://localhost:8081/api/books?title=cien&page=1&limit=10
+GET http://localhost:8081/api/books?author=garcia&page=1&limit=10
+GET http://localhost:8081/api/books?category=novela&rating=5&page=1&limit=10
+GET http://localhost:8081/api/books?visible=true&page=1&limit=10
+GET http://localhost:8081/api/books?publicationDate=1967-05-30&page=1&limit=10
 ```
 
-Crea índices en:
-- `supply`: `type`, `name`, `stock`, `price`
-- `spec`: `supply_id`, `spec_key`
-- `image`: `supply_id`
+### Ordenar resultados
 
-### Paso 3: Insertar datos de ejemplo
-
-```bash
-mysql -u root -p supplies_catalogue < src/main/resources/db/ejemplos.sql
+```http
+GET http://localhost:8081/api/books?page=1&limit=10&sortBy=createdAt&sortDirection=DESC
 ```
 
-Inserta **100 suministros de oficina** con:
-- 2 especificaciones por suministro (200 registros en `spec`)
-- 1 imagen por suministro (100 registros en `image`)
+Campos permitidos para ordenamiento:
 
-### Script completo (one-liner)
-
-```bash
-mysql -u root -p < src/main/resources/db/schema.sql && \
-mysql -u root -p supplies_catalogue < src/main/resources/db/indices.sql && \
-mysql -u root -p supplies_catalogue < src/main/resources/db/ejemplos.sql
+```txt
+title
+author
+publicationDate
+category
+isbn
+rating
+visible
+stock
+price
+createdAt
 ```
 
-### Reconstrucción desde cero (drop + create)
+### Obtener libro por externalId
 
-Si la base de datos ya existe y quieres reconstruirla:
+```http
+GET http://localhost:8081/api/books/00000000-0000-0000-0000-000000000001
+```
 
-```bash
-mysql -u root -p -e "DROP SCHEMA IF EXISTS supplies_catalogue;" && \
-mysql -u root -p < src/main/resources/db/schema.sql && \
-mysql -u root -p supplies_catalogue < src/main/resources/db/indices.sql && \
-mysql -u root -p supplies_catalogue < src/main/resources/db/ejemplos.sql
+### Actualizar libro completo
+
+```http
+PUT http://localhost:8081/api/books/00000000-0000-0000-0000-000000000001
+Content-Type: application/json
+```
+
+```json
+{
+  "title": "Cien años de soledad",
+  "author": "Gabriel García Márquez",
+  "publicationDate": "1967-05-30",
+  "category": "Novela latinoamericana",
+  "isbn": "9780307474728",
+  "rating": 5,
+  "visible": true,
+  "stock": 15,
+  "price": 21.50
+}
+```
+
+### Actualizar libro parcialmente
+
+```http
+PATCH http://localhost:8081/api/books/00000000-0000-0000-0000-000000000001
+Content-Type: application/json
+```
+
+```json
+{
+  "stock": 25,
+  "price": 22.99
+}
+```
+
+### Eliminar libro
+
+```http
+DELETE http://localhost:8081/api/books/00000000-0000-0000-0000-000000000001
 ```
 
 ---
 
-## Configuración
+## Manejo de errores
 
-Variables de entorno configurables (`application.yml`):
+El microservicio incluye un manejador global de excepciones mediante `@RestControllerAdvice`.
 
-| Variable      | Valor por defecto                              | Descripción                  |
-|---------------|------------------------------------------------|------------------------------|
-| `DB_URL`      | `jdbc:mysql://localhost:3306/supplies_catalogue`| URL de conexión JDBC         |
-| `DB_DRIVER`   | `com.mysql.cj.jdbc.Driver`                     | Driver JDBC                  |
-| `DB_USER`     | `root`                                         | Usuario de base de datos     |
-| `DB_PASSWORD` | `mysql`                                        | Contraseña de base de datos  |
-| `EUREKA_URL`  | `http://localhost:8761/eureka`                 | URL del servidor Eureka      |
+### Error por recurso no encontrado
 
-El servicio se registra en Eureka con el nombre de instancia `unir-supplies-catalogue`.
+```json
+{
+  "timestamp": "2026-05-19T15:30:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "Libro no encontrado con externalId: 00000000-0000-0000-0000-000000000001",
+  "path": "/api/books/00000000-0000-0000-0000-000000000001"
+}
+```
+
+### Error por ISBN duplicado
+
+```json
+{
+  "timestamp": "2026-05-19T15:30:00",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Ya existe un libro con el ISBN: 9780307474728",
+  "path": "/api/books"
+}
+```
+
+### Error de validación
+
+```json
+{
+  "timestamp": "2026-05-19T15:30:00",
+  "status": 400,
+  "error": "Validation Error",
+  "message": "rating: La valoracion maxima es 5",
+  "path": "/api/books"
+}
+```
+
+---
+
+## Eureka Client
+
+El microservicio está preparado para registrarse en Eureka Server.
+
+Para ello, el `pom.xml` incluye:
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+```
+
+Y el archivo `application.yml` debe contener:
+
+```yaml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+```
+
+Cuando `back-end-eureka` esté ejecutándose, `catalogue-service` se registrará con el nombre:
+
+```txt
+catalogue-service
+```
+
+Ese nombre corresponde a:
+
+```yaml
+spring:
+  application:
+    name: catalogue-service
+```
+
+Esto permitirá que otros microservicios, como `orders-service`, puedan comunicarse con el catálogo usando el nombre lógico del servicio y no una IP o puerto fijo.
+
+---
+
+## Comandos útiles
+
+Compilar:
+
+```bash
+.\mvnw.cmd clean compile
+```
+
+Ejecutar:
+
+```bash
+.\mvnw.cmd spring-boot:run
+```
+
+Generar build:
+
+```bash
+.\mvnw.cmd clean install -DskipTests
+```
+
+Limpiar carpeta generada:
+
+```bash
+.\mvnw.cmd clean
+```
+
+---
+
+## Notas de entrega
+
+Para la entrega de la actividad, se debe incluir este proyecto dentro del ZIP final, sin la carpeta `target`.
+
+Estructura recomendada:
+
+```txt
+relatos-papel-backend/
+├── back-end-books-catalogue/
+├── back-end-books-orders/
+├── back-end-eureka/
+├── back-end-gateway/
+└── database/
+    └── catalogue/
+        ├── 01_catalogue_ddl.sql
+        └── 02_catalogue_dml.sql
+```
+
+No incluir:
+
+```txt
+target/
+.idea/
+*.iml
+out/
+logs/
+```
+---
+
+## Uso de inteligencia artificial
+
+Durante el desarrollo del microservicio `catalogue-service` se utilizó IA generativa como apoyo para acelerar tareas de diseño, implementación y documentación técnica.
+
+El uso de IA se aplicó principalmente en:
+
+- Apoyo para estructurar la arquitectura por capas del microservicio.
+- Generación inicial de clases DTO, entidad, repositorio, servicio y controlador.
+- Apoyo en la construcción de filtros dinámicos con Spring Data JPA Specifications.
+- Generación de ejemplos de datos para el archivo `02_catalogue_dml.sql`.
+- Revisión de errores de Maven, configuración de JDK, dependencias y ejecución local.
+
+### Estimación del uso de IA
+
+| Métrica solicitada | Estimación aproximada |
+|---|---:|
+| Porcentaje de respuestas correctas o parcialmente correctas | 85 % |
+| Porcentaje de respuestas incorrectas o que requirieron corrección | 15 % |
+| Número aproximado de líneas de código generadas usando IA | 450 - 600 líneas |
+| Estimación del tiempo ahorrado en codificación y documentación | 6 - 8 horas |
+
+### Observaciones
+
+Las respuestas generadas por IA fueron revisadas y adaptadas manualmente antes de integrarse al proyecto. Algunas recomendaciones iniciales tuvieron que ajustarse al paquete real del proyecto, a la estructura del repositorio, al uso de `externalId` como identificador público y a la configuración local de Maven, JDK y PostgreSQL.
+
+La IA fue utilizada como herramienta de apoyo, pero la integración final, pruebas con Postman, configuración del entorno y validación del funcionamiento del microservicio fueron realizadas manualmente.
+
