@@ -1,5 +1,7 @@
 package com.relatosdepapel.orders.repository.model;
 
+import lombok.Getter;
+
 /**
  * Enum que representa los posibles estados de una orden de compra.
  * <p>
@@ -8,6 +10,7 @@ package com.relatosdepapel.orders.repository.model;
  * - CANCELADO: Orden cancelada por el cliente o por el sistema.
  * - ENTREGADO: Orden completada y entregada al cliente.
  */
+@Getter
 public enum OrderStatus {
     EN_PROCESO("En Proceso"),
     CANCELADO("Cancelado"),
@@ -19,7 +22,4 @@ public enum OrderStatus {
         this.displayName = displayName;
     }
 
-    public String getDisplayName() {
-        return displayName;
-    }
 }
