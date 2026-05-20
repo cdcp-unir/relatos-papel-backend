@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/dto/BookRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/dto/BookResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/entity/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/catalogue/01_catalogue_ddl.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/catalogue/02_catalogue_dml.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,20 +14,26 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ssamaeldev"
-  }
+  "lastFilter": {}
 }]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/cdcp-unir/relatos-papel-backend.git",
-    "accountId": "2426fddc-4e0e-497d-931e-c0d644f57f15"
+    "accountId": "352adcbd-6efc-4406-9e46-276b9e0bb6d7"
   }
 }]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0,
   &quot;fromUser&quot;: false
@@ -54,14 +48,15 @@
     "Application.CatalogueServiceApplication.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "cdcp",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/dev/relatos-papel-backend",
+    "last_opened_file_path": "C:/Users/Cristian/Documents/Personal/Maestria/Desarrollo full stack/relatos-papel-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -113,10 +108,34 @@
       <updated>1779219269502</updated>
       <workItem from="1779219270613" duration="495000" />
       <workItem from="1779223586366" duration="110000" />
+      <workItem from="1779246140198" duration="320000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="cdcp" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
