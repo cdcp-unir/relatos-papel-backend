@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Init ms project orders" />
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Init ms project orders">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/net/unir/dwfs/relatosdepapel/orders/OrdersApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/OrdersApplication.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,15 +22,26 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {}
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/cdcp-unir/relatos-papel-backend.git",
-    "accountId": "1ba8e8c4-f625-4c74-acfa-7381eebfb35a"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/cdcp-unir/relatos-papel-backend.git&quot;,
+    &quot;accountId&quot;: &quot;1ba8e8c4-f625-4c74-acfa-7381eebfb35a&quot;
   }
+}</component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
 }]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -36,6 +51,9 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3DxMSm9fSGK9lEqQuX9c4uJgDpN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -44,14 +62,19 @@
   "keyToString": {
     "Application.CatalogueServiceApplication.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.orders-service.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "will",
+    "git-widget-placeholder": "#3 on will",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -62,8 +85,8 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -74,27 +97,44 @@
       <recent name="V:\master_software\relatos-papel-backend\orders\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="CatalogueServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../Program Files/Eclipse Adoptium/jdk-17.0.19.10-hotspot" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.relatosdepapel.catalogueservice.CatalogueServiceApplication" />
+  <component name="RunManager" selected="Spring Boot.orders-service">
+    <configuration default="true" type="JetRunConfigurationType">
       <module name="relatos-papel-backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.relatosdepapel.catalogueservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.CatalogueServiceApplication" />
-      </list>
-    </recent_temporary>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="relatos-papel-backend" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="catalogue-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="catalogue-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.catalogueservice.CatalogueServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="eureka-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="relatos-de-papel-eureka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="relatos_de_papel_eureka.BackEndEurekaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="orders-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="orders-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.orders.OrdersApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.catalogue-service" />
+      <item itemvalue="Spring Boot.eureka-service" />
+      <item itemvalue="Spring Boot.orders-service" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -115,6 +155,7 @@
       <workItem from="1779223586366" duration="110000" />
       <workItem from="1779242833049" duration="401000" />
       <workItem from="1779243734091" duration="1225000" />
+      <workItem from="1779251953863" duration="489000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />

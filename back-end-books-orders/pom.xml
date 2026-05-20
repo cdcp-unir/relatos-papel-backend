@@ -8,7 +8,7 @@
         <version>4.0.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>net.unir.dwfs.relatosdepapel</groupId>
+    <groupId>com.relatosdepapel</groupId>
     <artifactId>orders</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Backend Books Orders</name>

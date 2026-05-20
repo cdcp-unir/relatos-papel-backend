@@ -1,4 +1,4 @@
-package net.unir.dwfs.relatosdepapel.orders;
+package com.relatosdepapel.orders;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
