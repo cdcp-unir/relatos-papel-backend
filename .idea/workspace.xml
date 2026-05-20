@@ -5,20 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/dto/BookRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/dto/BookResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/entity/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/catalogue/01_catalogue_ddl.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/catalogue/02_catalogue_dml.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-books-orders/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-books-orders/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-books-orders/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-books-orders/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-books-orders/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-books-orders/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/net/unir/dwfs/relatosdepapel/orders/OrdersApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-books-orders/src/test/java/net/unir/dwfs/relatosdepapel/orders/OrdersApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,18 +24,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ssamaeldev"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ssamaeldev&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/cdcp-unir/relatos-papel-backend.git",
-    "accountId": "2426fddc-4e0e-497d-931e-c0d644f57f15"
+    "accountId": "1ba8e8c4-f625-4c74-acfa-7381eebfb35a"
   }
 }]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0,
   &quot;fromUser&quot;: false
@@ -49,31 +49,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CatalogueServiceApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/dev/relatos-papel-backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CatalogueServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;V:/master_software/relatos-papel-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="V:\master_software\relatos-papel-backend\orders" />
+      <recent name="V:\master_software\relatos-papel-backend\orders\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="CatalogueServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../Program Files/Eclipse Adoptium/jdk-17.0.19.10-hotspot" />
@@ -99,8 +108,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.37" />
       </set>
     </attachedChunks>
   </component>
@@ -113,6 +122,8 @@
       <updated>1779219269502</updated>
       <workItem from="1779219270613" duration="495000" />
       <workItem from="1779223586366" duration="110000" />
+      <workItem from="1779242833049" duration="401000" />
+      <workItem from="1779243734091" duration="1028000" />
     </task>
     <servers />
   </component>
