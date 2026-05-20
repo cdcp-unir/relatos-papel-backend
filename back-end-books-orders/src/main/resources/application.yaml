@@ -8,15 +8,15 @@ spring:
 
   ## Database Configuration
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3307/supplies_orders}
-    driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.Driver}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/orders}
+    driver-class-name: ${DB_DRIVER:org.postgresql.Driver}
     username: ${DB_USER:root}
-    password: ${DB_PASSWORD:mysql}
+    password: ${DB_PASSWORD:password}
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: validate
-    database-platform: org.hibernate.dialect.MySQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
         format_sql: true
