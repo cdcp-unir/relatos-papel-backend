@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/db/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/orders/01_orders_ddl.sql/01_orders_ddl.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +33,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/back-end-books-orders/README.md" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -80,6 +76,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.catalogue-service.executor": "Run",
     "Spring Boot.eureka-service.executor": "Run",
     "Spring Boot.orders-service.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
@@ -97,6 +94,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   },
@@ -116,6 +114,28 @@
       <recent name="V:\master_software\relatos-papel-backend\orders\src\main\resources" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="catalogue-service" value="STOPPED" />
+              <entry key="orders-service" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="RunManager" selected="Spring Boot.orders-service">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="relatos-papel-backend" />
@@ -129,7 +149,13 @@
       <method v="2" />
     </configuration>
     <configuration name="catalogue-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="envFilePaths">
+        <option value="$PROJECT_DIR$/back-end-books-catalogue/.env" />
+      </option>
       <module name="catalogue-service" />
+      <selectedOptions>
+        <option name="environmentVariables" />
+      </selectedOptions>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.catalogueservice.CatalogueServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -143,7 +169,13 @@
       </method>
     </configuration>
     <configuration name="orders-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="orders-service" />
+      <option name="envFilePaths">
+        <option value="$PROJECT_DIR$/back-end-books-orders/.env" />
+      </option>
+      <module name="orders" />
+      <selectedOptions>
+        <option name="environmentVariables" />
+      </selectedOptions>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.orders.OrdersApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -175,6 +207,7 @@
       <workItem from="1779242833049" duration="401000" />
       <workItem from="1779243734091" duration="1225000" />
       <workItem from="1779251953863" duration="2998000" />
+      <workItem from="1779255048382" duration="239000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
