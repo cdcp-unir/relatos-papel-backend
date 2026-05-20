@@ -210,7 +210,7 @@ Los scripts SQL se encuentran en `src/main/resources/db/`. Deben ejecutarse en e
 ### Paso 1: Crear el esquema y las tablas
 
 ```bash
-mysql -u root -p < src/main/resources/db/schema.sql
+mysql -u root -p < src/main/resources/db/01_orders_ddl.sql
 ```
 
 Este script:
@@ -241,7 +241,7 @@ Inserta **100 suministros de oficina** con:
 ### Script completo (one-liner)
 
 ```bash
-mysql -u root -p < src/main/resources/db/schema.sql && \
+mysql -u root -p < src/main/resources/db/01_orders_ddl.sql && \
 mysql -u root -p supplies_catalogue < src/main/resources/db/indices.sql && \
 mysql -u root -p supplies_catalogue < src/main/resources/db/ejemplos.sql
 ```
@@ -252,7 +252,7 @@ Si la base de datos ya existe y quieres reconstruirla:
 
 ```bash
 mysql -u root -p -e "DROP SCHEMA IF EXISTS supplies_catalogue;" && \
-mysql -u root -p < src/main/resources/db/schema.sql && \
+mysql -u root -p < src/main/resources/db/01_orders_ddl.sql && \
 mysql -u root -p supplies_catalogue < src/main/resources/db/indices.sql && \
 mysql -u root -p supplies_catalogue < src/main/resources/db/ejemplos.sql
 ```

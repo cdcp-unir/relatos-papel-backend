@@ -183,7 +183,7 @@ EN_PROCESO, CANCELADO, ENTREGADO
 
 ## Reconstrucción de la base de datos para pruebas
 
-El script SQL se encuentra en `src/main/resources/db/schema.sql`.
+El script SQL se encuentra en `src/main/resources/db/01_orders_ddl.sql`.
 
 ## Configuración
 

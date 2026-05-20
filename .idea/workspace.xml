@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Refactor de com y ejecución de servicios disponibles">
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end-books-orders/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/db/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/db/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/db/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/orders/01_orders_ddl.sql/01_orders_ddl.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +34,9 @@
     &quot;accountId&quot;: &quot;1ba8e8c4-f625-4c74-acfa-7381eebfb35a&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/back-end-books-orders/README.md" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
   <component name="KubernetesApiProvider"><![CDATA[{
   "isMigrated": true
@@ -49,7 +53,7 @@
     <urls />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0,
@@ -84,7 +88,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "V:/master_software/relatos-papel-backend",
+    "last_opened_file_path": "V:/master_software/relatos-papel-backend/back-end-books-catalogue",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -103,8 +107,12 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="V:\master_software\relatos-papel-backend\back-end-books-catalogue" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="V:\master_software\relatos-papel-backend\orders" />
+      <recent name="V:\master_software\relatos-papel-backend\orders\01_orders_ddl.sql" />
       <recent name="V:\master_software\relatos-papel-backend\orders\src\main\resources" />
     </key>
   </component>
@@ -166,7 +174,7 @@
       <workItem from="1779223586366" duration="110000" />
       <workItem from="1779242833049" duration="401000" />
       <workItem from="1779243734091" duration="1225000" />
-      <workItem from="1779251953863" duration="1597000" />
+      <workItem from="1779251953863" duration="2998000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -184,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779252666788</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Cambio de librería a postgresSQL">
+      <option name="closed" value="true" />
+      <created>1779253736315</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1779253736315</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +220,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init ms project orders" />
     <MESSAGE value="Refactor de com y ejecución de servicios disponibles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor de com y ejecución de servicios disponibles" />
+    <MESSAGE value="Cambio de librería a postgresSQL" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambio de librería a postgresSQL" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
