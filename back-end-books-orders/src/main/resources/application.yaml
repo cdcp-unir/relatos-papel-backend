@@ -1,3 +1,42 @@
+
+server:
+  port: 8081
+
 spring:
   application:
-    name: orders
+    name: books-orders
+
+  ## Database Configuration
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3307/supplies_orders}
+    driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.Driver}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:mysql}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        format_sql: true
+
+## Logging Configuration
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.data.jpa: DEBUG
+
+## Eureka Client Configuration
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+    hostname: unir-supplies-catalogue
+
+## Microservices Configuration
+ordersCatalogue:
+  url: ${SUPPLIES_CATALOGUE_URL:http://orders-catalogue/api/v1}
