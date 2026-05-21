@@ -1,5 +1,6 @@
 package com.relatosdepapel.catalogueservice.service;
 
+import com.relatosdepapel.catalogueservice.dto.BookPatchRequest;
 import com.relatosdepapel.catalogueservice.dto.BookRequest;
 import com.relatosdepapel.catalogueservice.entity.Book;
 import com.relatosdepapel.catalogueservice.exception.BadRequestException;
@@ -90,52 +91,51 @@ public class BookService {
         return bookRepository.save(book);
     }
 
-    public Book partialUpdate(UUID externalId, Book data) {
+    public Book partialUpdate(UUID externalId, BookPatchRequest request) {
         Book book = findByExternalId(externalId);
 
-        if (data.getTitle() != null) {
-            book.setTitle(data.getTitle());
+        if (request.getTitle() != null) {
+            book.setTitle(request.getTitle());
         }
 
-        if (data.getAuthor() != null) {
-            book.setAuthor(data.getAuthor());
+        if (request.getAuthor() != null) {
+            book.setAuthor(request.getAuthor());
         }
 
-        if (data.getPublicationDate() != null) {
-            book.setPublicationDate(data.getPublicationDate());
+        if (request.getPublicationDate() != null) {
+            book.setPublicationDate(request.getPublicationDate());
         }
 
-        if (data.getCategory() != null) {
-            book.setCategory(data.getCategory());
+        if (request.getCategory() != null) {
+            book.setCategory(request.getCategory());
         }
 
-        if (data.getIsbn() != null) {
-            if (!book.getIsbn().equals(data.getIsbn()) && bookRepository.existsByIsbn(data.getIsbn())) {
-                throw new BadRequestException("Ya existe otro libro con el ISBN: " + data.getIsbn());
+        if (request.getIsbn() != null) {
+            if (!book.getIsbn().equals(request.getIsbn()) && bookRepository.existsByIsbn(request.getIsbn())) {
+                throw new BadRequestException("Ya existe otro libro con el ISBN: " + request.getIsbn());
             }
 
-            book.setIsbn(data.getIsbn());
+            book.setIsbn(request.getIsbn());
         }
 
-        if (data.getRating() != null) {
-            book.setRating(data.getRating());
+        if (request.getRating() != null) {
+            book.setRating(request.getRating());
         }
 
-        if (data.getVisible() != null) {
-            book.setVisible(data.getVisible());
+        if (request.getVisible() != null) {
+            book.setVisible(request.getVisible());
         }
 
-        if (data.getStock() != null) {
-            book.setStock(data.getStock());
+        if (request.getStock() != null) {
+            book.setStock(request.getStock());
         }
 
-        if (data.getPrice() != null) {
-            book.setPrice(data.getPrice());
+        if (request.getPrice() != null) {
+            book.setPrice(request.getPrice());
         }
 
         return bookRepository.save(book);
     }
-
     public void delete(UUID externalId) {
         Book book = findByExternalId(externalId);
         bookRepository.delete(book);
