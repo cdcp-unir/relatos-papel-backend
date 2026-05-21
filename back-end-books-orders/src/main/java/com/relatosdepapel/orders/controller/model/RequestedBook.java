@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import java.util.UUID;
 
 /**
  * DTO que representa un libro solicitado en una orden de compra.
@@ -29,7 +29,7 @@ public class RequestedBook {
      * ID del libro en el microservicio de catálogo.
      */
     @JsonProperty("id")
-    private Integer id;
+    private UUID externalId;
 
     /**
      * Cantidad de libros solicitados.

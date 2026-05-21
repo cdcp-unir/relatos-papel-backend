@@ -34,54 +34,60 @@ public class CreateOrderService {
 
         BigDecimal totalAmount = new BigDecimal(0);
         List<OrderItem> orderItemList = new ArrayList<>();
-        Map<Integer, BookDto> bookDtoMap = new HashMap<>();
+        Map<UUID, BookDto> bookDtoMap = new HashMap<>();
 
         // Recuperar listado de libros
         for (RequestedBook requestedBook : requestedBookList) {
-            BookDto bookDto = booksCatalogueFacade.getBook(requestedBook.getId());
-            bookDtoMap.put(bookDto.getId(), bookDto);
+            BookDto bookDto = booksCatalogueFacade.getBook(requestedBook.getExternalId());
+            bookDtoMap.put(bookDto.getExternalId(), bookDto);
         }
 
         for (RequestedBook requestedBook : requestedBookList) {
-            BookDto bookDto = bookDtoMap.get(requestedBook.getId());
+            BookDto bookDto = bookDtoMap.get(requestedBook.getExternalId());
 
             // validar que exista stock suficiente
             if (bookDto.getStock() < requestedBook.getQuantity()) {
-                throw new IllegalArgumentException("Stock insuficiente para el libro con ID " + requestedBook.getId());
+                throw new IllegalArgumentException("Stock insuficiente para el libro con ID " + requestedBook.getExternalId());
             }
+
+            BigDecimal subtotal = getSubtotal(bookDto.getPrice(), requestedBook.getQuantity());
+
             OrderItem orderItem = OrderItem.builder()
-                    .bookId(requestedBook.getId())
+                    .externalId(requestedBook.getExternalId())
                     .quantity(requestedBook.getQuantity())
-                    .subTotal(getSubtotal(bookDto.getPrice(), requestedBook.getQuantity()))
+                    .subTotal(subtotal)
                     .build();
             // acumular las ordenes listas
             orderItemList.add(orderItem);
 
             // acumular total
-            totalAmount = totalAmount.add(orderItem.getSubTotal());
+            totalAmount = totalAmount.add(subtotal);
         }
-
 
         Order order = Order.builder()
                 .name("ORDER-" + System.currentTimeMillis())
                 .orderDate(LocalDateTime.now())
-                .items(orderItemList)
                 .total(totalAmount)
                 .status(OrderStatus.EN_PROCESO)
-                .ownerId(1)// FIXME: cambiar por el usuario ID cuando exista autenticacion
+                .ownerId(1) // TODO: obtener id de usuario cuando tenga autenticación
                 .build();
+
+        // Agregar items a la orden usando el método helper que mantiene la relación bidireccional
+        for (OrderItem item : orderItemList) {
+            order.addItem(item);
+        }
 
         // guardar la orden generada
         orderJpaRepository.save(order);
 
 
         for (RequestedBook requestedBook : requestedBookList) {
-            BookDto bookDto = bookDtoMap.get(requestedBook.getId());
+            BookDto bookDto = bookDtoMap.get(requestedBook.getExternalId());
             int newStock = bookDto.getStock() - requestedBook.getQuantity();
             if (newStock < 0) {
-                throw new IllegalArgumentException("Error crítico: el stock resultante sería negativo para el producto ID: " + requestedBook.getId());
+                throw new IllegalArgumentException("Error crítico: el stock resultante sería negativo para el producto ID: " + requestedBook.getExternalId());
             }
-            booksCatalogueFacade.updateBookStock(requestedBook.getId(), newStock);
+            booksCatalogueFacade.updateBookStock(requestedBook.getExternalId(), newStock);
 
         }
 

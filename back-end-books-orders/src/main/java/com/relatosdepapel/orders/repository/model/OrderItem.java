@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 /**
  * Entidad JPA que representa un item (línea) dentro de una orden de compra.
@@ -57,7 +58,7 @@ public class OrderItem {
      * No es una relación FK en esta BD, es una referencia al microservicio de catálogo.
      */
     @Column(name = "book_id", nullable = false)
-    private Integer bookId;
+    private UUID externalId;
 
     /**
      * Cantidad de libros en este item de la orden.

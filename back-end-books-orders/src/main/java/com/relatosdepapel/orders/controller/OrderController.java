@@ -1,5 +1,7 @@
-package com.relatosdepapel.orders.controller.model;
+package com.relatosdepapel.orders.controller;
 
+import com.relatosdepapel.orders.controller.model.CreateOrderRequestDto;
+import com.relatosdepapel.orders.controller.model.CreateOrderResponseDto;
 import com.relatosdepapel.orders.service.CreateOrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

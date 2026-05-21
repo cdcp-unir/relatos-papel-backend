@@ -1,5 +1,5 @@
 ### Obtener libro 1
-GET http://localhost:8081//api/books/00000000-0000-0000-0000-000000000034
+GET http://localhost:8081/api/v1/books/00000000-0000-0000-0000-000000000034
 Content-Type: application/json
 
 
@@ -10,11 +10,7 @@ Content-Type: application/json
 {
   "items": [
     {
-      "id": 1,
-      "quantity": 1
-    },
-    {
-      "id": 2,
+      "id": "00000000-0000-0000-0000-000000000034",
       "quantity": 2
     }
   ]

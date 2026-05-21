@@ -11,6 +11,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.util.Map;
+import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor
@@ -21,35 +22,35 @@ public class BooksCatalogueFacade {
     @Value("${booksCatalogue.url}")
     private String suppliesCatalogueUrl;
 
-    public BookDto getBook(Integer bookId) {
+    public BookDto getBook(UUID externalId) {
         try {
             return webClientBuilder.build()
                     .get()
-                    .uri(suppliesCatalogueUrl + "/books/{id}", bookId)
+                    .uri(suppliesCatalogueUrl + "/books/{id}", externalId)
                     .retrieve()
                     .bodyToMono(BookDto.class)
                     .block();
         } catch (WebClientResponseException.NotFound e) {
-            throw new OrderNotFoundException("Libro con ID " + bookId + " no encontrado", e);
+            throw new OrderNotFoundException("Libro con ID " + externalId + " no encontrado", e);
         } catch (WebClientResponseException.InternalServerError e) {
-            throw new InternalServerException("Error al obtener el libro con ID " + bookId, e);
+            throw new InternalServerException("Error al obtener el libro con ID " + externalId, e);
         }
     }
 
-    public void updateBookStock(Integer bookId, Integer stock) {
+    public void updateBookStock(UUID externalId, Integer stock) {
         try {
             webClientBuilder.build().patch()
-                    .uri(suppliesCatalogueUrl + "/books/{id}", bookId)
+                    .uri(suppliesCatalogueUrl + "/books/{id}", externalId)
                     .bodyValue(Map.of("stock", stock))
                     .retrieve()
                     .bodyToMono(Void.class)
                     .block();
         } catch (WebClientResponseException.NotFound e) {
-            throw new OrderNotFoundException("Libro con ID " + bookId + " no encontrado", e);
+            throw new OrderNotFoundException("Libro con ID " + externalId + " no encontrado", e);
         } catch (WebClientResponseException.BadRequest e) {
-            throw new BadOrderModificationException("Solicitud inválida para actualizar el stock del libro con ID " + bookId, e);
+            throw new BadOrderModificationException("Solicitud inválida para actualizar el stock del libro con ID " + externalId, e);
         } catch (WebClientResponseException.InternalServerError e) {
-            throw new InternalServerException("Error al actualizar el stock del libro con ID" + bookId, e);
+            throw new InternalServerException("Error al actualizar el stock del libro con ID" + externalId, e);
         }
     }
 

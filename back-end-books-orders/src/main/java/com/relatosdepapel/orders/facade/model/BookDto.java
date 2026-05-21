@@ -5,15 +5,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Data
 public class BookDto {
 
-    @JsonProperty("id")
-    private Integer id;
+    @JsonProperty("externalId")
+    private UUID externalId;
 
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("title")
+    private String title;
 
     @JsonProperty("price")
     private BigDecimal price;
