@@ -38,5 +38,5 @@ eureka:
     hostname: unir-supplies-catalogue
 
 ## Microservices Configuration
-ordersCatalogue:
-  url: ${SUPPLIES_CATALOGUE_URL:http://orders-catalogue/api/v1}
+booksCatalogue:
+  url: ${BOOKS_CATALOGUE_URL:http://orders-catalogue/api/v1}
