@@ -1,6 +1,10 @@
 server:
   port: ${PORT:8761}
 
+spring:
+  application:
+    name: eureka-server
+
 eureka:
   client:
     register-with-eureka: false
@@ -9,3 +13,21 @@ eureka:
     hostname: ${EUREKA_HOST:localhost}
   server:
     renewal-percent-threshold: 0.90
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: relatos-de-papel-eureka
+    description: Servidor Eureka para descubrimiento de microservicios de Relatos de Papel
+    version: 1.0.0
