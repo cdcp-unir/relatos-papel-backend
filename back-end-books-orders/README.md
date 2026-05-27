@@ -20,7 +20,7 @@ Microservicio de pedidos de la aplicación **Relatos de papel**. Pieza principal
 El microservicio sigue una arquitectura en capas con un patrón **Facade** para la comunicación inter-servicio:
 
 ```
-Controller → Service → Facade (WebClient) → books-catalogue → Repository → Base de datos MySQL
+Controller → Service → Facade (WebClient) → books-catalogue → Repository → Base de datos Postgres
 ```
 
 Se registra en **Eureka** como `books-orders` y utiliza **WebClient** con `@LoadBalanced` para resolver las URLs de otros microservicios vía Service Discovery. Escucha en el **puerto 8081**.
@@ -130,7 +130,7 @@ Hereda de `JpaRepository<Order, Integer>`.
 
 ### `OrderStatus` (Enum)
 
-```java
+```md
 EN_PROCESO, CANCELADO, ENTREGADO
 ```
 
@@ -183,23 +183,17 @@ EN_PROCESO, CANCELADO, ENTREGADO
 
 ## Reconstrucción de la base de datos para pruebas
 
-El script SQL se encuentra en `src/main/resources/db/schema.sql`.
-
-### Paso 1: Crear el esquema y las tablas
-
-```bash
-mysql -u root -p < src/main/resources/db/schema.sql
-```
+El script SQL se encuentra en `src/main/resources/db/01_orders_ddl.sql`.
 
 ## Configuración
 
 Variables de entorno configurables (`application.yml`):
 
-| Variable                  | Valor por defecto                                | Descripción                                                  |
-|---------------------------|--------------------------------------------------|--------------------------------------------------------------|
-| `DB_URL`                  | `jdbc:mysql://localhost:3307/books_orders`       | URL de conexión JDBC (puerto 3307)                           |
-| `DB_DRIVER`               | `com.mysql.cj.jdbc.Driver`                       | Driver JDBC                                                  |
-| `DB_USER`                 | `root`                                           | Usuario de base de datos                                     |
-| `DB_PASSWORD`             | `mysql`                                          | Contraseña de base de datos                                  |
-| `EUREKA_URL`              | `http://localhost:8761/eureka`                   | URL del servidor Eureka                                      |
-| `BOOK_CATALOGUE_URL`      | `http://books-catalogue/api/v1`                  | URL base del microservicio de catálogo (resuelta vía Eureka) |
+| Variable                  | Valor por defecto                             | Descripción                                                  |
+|---------------------------|-----------------------------------------------|--------------------------------------------------------------|
+| `DB_URL`                  | `jdbc:postgres://localhost:5432/books_orders` | URL de conexión JDBC (puerto 3307)                           |
+| `DB_DRIVER`               | `org.postgresql.Driver`                       | Driver JDBC                                                  |
+| `DB_USER`                 | `root`                                        | Usuario de base de datos                                     |
+| `DB_PASSWORD`             | `password`                                    | Contraseña de base de datos                                  |
+| `EUREKA_URL`              | `http://localhost:8761/eureka`                | URL del servidor Eureka                                      |
+| `BOOK_CATALOGUE_URL`      | `http://books-catalogue/api/v1`               | URL base del microservicio de catálogo (resuelta vía Eureka) |

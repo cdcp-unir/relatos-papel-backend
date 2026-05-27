@@ -20,7 +20,7 @@ import com.relatosdepapel.catalogueservice.dto.PaginatedResponse;
 import org.springframework.data.domain.Page;
 import java.util.Set;
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("api/v1/books")
 public class BookController {
 
     private static final int MAX_PAGE_SIZE = 100;

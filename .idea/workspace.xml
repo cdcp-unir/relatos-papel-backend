@@ -6,12 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/http/createOrder.http" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/http/createOrder.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/model/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/model/RequestedBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/model/RequestedBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/facade/BooksCatalogueFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/facade/BooksCatalogueFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/facade/model/BookDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/facade/model/BookDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/repository/model/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/repository/model/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -21,24 +37,58 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {}
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GitHubPullRequestState"><![CDATA[{
+  "prStates": [
+    {
+      "id": {
+        "id": "PR_kwDOShhh-87dVedy",
+        "number": 3
+      },
+      "lastSeen": 1779326365477
+    }
+  ]
 }]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/cdcp-unir/relatos-papel-backend.git",
-    "accountId": "352adcbd-6efc-4406-9e46-276b9e0bb6d7"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/cdcp-unir/relatos-papel-backend.git&quot;,
+    &quot;accountId&quot;: &quot;1ba8e8c4-f625-4c74-acfa-7381eebfb35a&quot;
   }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/back-end-books-orders/README.md" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="HttpClientOnboardingState"><![CDATA[{
+  "isOnboardingCommentShown": true
 }]]></component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0,
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3DxMSm9fSGK9lEqQuX9c4uJgDpN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -46,56 +96,158 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CatalogueServiceApplication.executor": "Run",
+    "HTTP Request.createOrder | #1.executor": "Run",
+    "HTTP Request.createOrder | Crear orden.executor": "Run",
+    "HTTP Request.createOrder | Obtener libro 1.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.catalogue-service.executor": "Run",
+    "Spring Boot.eureka-service.executor": "Run",
+    "Spring Boot.orders-service.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "cdcp",
+    "git-widget-placeholder": "#3 on will",
+    "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Cristian/Documents/Personal/Maestria/Desarrollo full stack/relatos-papel-backend",
+    "last_opened_file_path": "V:/master_software/relatos-papel-backend/back-end-books-catalogue",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="CatalogueServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../Program Files/Eclipse Adoptium/jdk-17.0.19.10-hotspot" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.relatosdepapel.catalogueservice.CatalogueServiceApplication" />
-      <module name="relatos-papel-backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.relatosdepapel.catalogueservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.relatosdepapel.orders.facade" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="V:\master_software\relatos-papel-backend\back-end-books-catalogue" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="V:\master_software\relatos-papel-backend\orders" />
+      <recent name="V:\master_software\relatos-papel-backend\orders\01_orders_ddl.sql" />
+      <recent name="V:\master_software\relatos-papel-backend\orders\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.relatosdepapel.orders.controller" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <map>
+              <entry key="createOrder | #1" value="STOPPED" />
+              <entry key="createOrder | Crear orden" value="STOPPED" />
+              <entry key="createOrder | Obtener libro 1" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="catalogue-service" value="STOPPED" />
+              <entry key="orders-service" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.orders-service">
+    <configuration name="createOrder | Crear orden" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/back-end-books-orders/http/createOrder.http" executionIdentifier="Crear orden" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="createOrder | Obtener libro 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/back-end-books-orders/http/createOrder.http" executionIdentifier="Obtener libro 1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="createOrder | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/back-end-books-orders/http/createOrder.http" executionIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="catalogue-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="envFilePaths">
+        <option value="$PROJECT_DIR$/back-end-books-catalogue/.env" />
+      </option>
+      <module name="catalogue-service" />
+      <selectedOptions>
+        <option name="environmentVariables" />
+      </selectedOptions>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.catalogueservice.CatalogueServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="eureka-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="relatos-de-papel-eureka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="relatos_de_papel_eureka.BackEndEurekaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="orders-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="envFilePaths">
+        <option value="$PROJECT_DIR$/back-end-books-orders/.env" />
+      </option>
+      <module name="orders" />
+      <selectedOptions>
+        <option name="environmentVariables" />
+      </selectedOptions>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.orders.OrdersApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="HTTP Request.createOrder | #1" />
+      <item itemvalue="HTTP Request.createOrder | Crear orden" />
+      <item itemvalue="HTTP Request.createOrder | Obtener libro 1" />
+      <item itemvalue="Spring Boot.catalogue-service" />
+      <item itemvalue="Spring Boot.eureka-service" />
+      <item itemvalue="Spring Boot.orders-service" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CatalogueServiceApplication" />
+        <item itemvalue="HTTP Request.createOrder | Crear orden" />
+        <item itemvalue="HTTP Request.createOrder | Obtener libro 1" />
+        <item itemvalue="HTTP Request.createOrder | #1" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.37" />
       </set>
     </attachedChunks>
   </component>
@@ -108,34 +260,100 @@
       <updated>1779219269502</updated>
       <workItem from="1779219270613" duration="495000" />
       <workItem from="1779223586366" duration="110000" />
-      <workItem from="1779246140198" duration="320000" />
+      <workItem from="1779242833049" duration="401000" />
+      <workItem from="1779243734091" duration="1225000" />
+      <workItem from="1779251953863" duration="2998000" />
+      <workItem from="1779255048382" duration="2438000" />
+      <workItem from="1779319193174" duration="10272000" />
     </task>
+    <task id="LOCAL-00001" summary="Init ms project orders">
+      <option name="closed" value="true" />
+      <created>1779244861124</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1779244861124</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Refactor de com y ejecución de servicios disponibles">
+      <option name="closed" value="true" />
+      <created>1779252666788</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1779252666788</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Cambio de librería a postgresSQL">
+      <option name="closed" value="true" />
+      <created>1779253736315</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1779253736315</updated>
+    </task>
+    <task id="LOCAL-00004" summary="env variables config">
+      <option name="closed" value="true" />
+      <created>1779255432081</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1779255432081</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add service repo and base classes">
+      <option name="closed" value="true" />
+      <created>1779256415309</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1779256415309</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add Service and Facade">
+      <option name="closed" value="true" />
+      <created>1779323926551</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1779323926551</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="cdcp" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init ms project orders" />
+    <MESSAGE value="Refactor de com y ejecución de servicios disponibles" />
+    <MESSAGE value="Cambio de librería a postgresSQL" />
+    <MESSAGE value="env variables config" />
+    <MESSAGE value="Add service repo and base classes" />
+    <MESSAGE value="Add Service and Facade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Service and Facade" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
