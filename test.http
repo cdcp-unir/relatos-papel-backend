@@ -1,0 +1,1 @@
+POST http://localhost:8762/catalogue-service/v1/books

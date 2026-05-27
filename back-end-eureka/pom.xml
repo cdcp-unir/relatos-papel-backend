@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.relatospapel.eureka</groupId>
-	<artifactId>relatos-de-papel-eureka</artifactId>
+    <artifactId>eureka-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>
