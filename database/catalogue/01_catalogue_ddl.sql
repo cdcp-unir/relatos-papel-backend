@@ -5,10 +5,7 @@
 -- =========================================================
 
 CREATE DATABASE catalogue_db;
-
--- Conectarse manualmente a catalogue_db antes de ejecutar lo siguiente.
--- En pgAdmin: selecciona catalogue_db y ejecuta desde ahí.
--- En psql: \c catalogue_db
+\connect catalogue_db;
 
 CREATE TABLE IF NOT EXISTS books (
     id BIGSERIAL PRIMARY KEY,

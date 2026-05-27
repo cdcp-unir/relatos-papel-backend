@@ -28,6 +28,6 @@ management:
 
 info:
   app:
-    name: relatos-de-papel-eureka
+    name: eureka-service
     description: Servidor Eureka para descubrimiento de microservicios de Relatos de Papel
     version: 1.0.0

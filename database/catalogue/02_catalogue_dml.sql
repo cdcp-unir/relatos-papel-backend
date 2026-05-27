@@ -6,6 +6,8 @@
 -- Ejecutar después de 01_catalogue_ddl.sql.
 -- =========================================================
 
+\connect catalogue_db;
+
 INSERT INTO books (
     external_id,
     title,

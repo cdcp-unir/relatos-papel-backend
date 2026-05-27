@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.relatosdepapel</groupId>
-    <artifactId>orders</artifactId>
+    <artifactId>orders-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Backend Books Orders</name>
     <description>

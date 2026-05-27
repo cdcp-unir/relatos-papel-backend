@@ -1,4 +1,4 @@
-package net.unir.dwfs.relatosdepapel.orders;
+package com.relatosdepapel.orders;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
