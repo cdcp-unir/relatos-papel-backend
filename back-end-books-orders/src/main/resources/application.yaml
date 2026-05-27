@@ -1,10 +1,9 @@
-
 server:
   port: 8080
 
 spring:
   application:
-    name: books-orders
+    name: orders-service
 
   ## Database Configuration
   datasource:
@@ -12,10 +11,11 @@ spring:
     driver-class-name: ${DB_DRIVER:org.postgresql.Driver}
     username: ${DB_USER:root}
     password: ${DB_PASSWORD:password}
+
   jpa:
-    show-sql: true
     hibernate:
       ddl-auto: validate
+    show-sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
@@ -34,9 +34,27 @@ eureka:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
   instance:
-    preferIpAddress: true
-    hostname: unir-supplies-catalogue
+    preferIpAddress: false
+    hostname: orders_service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
 
 ## Microservices Configuration
 booksCatalogue:
-  url: ${BOOKS_CATALOGUE_URL:http://orders-catalogue/api/v1}
+  url: ${BOOKS_CATALOGUE_URL:http://gateway:5678/catalogue/api/v1}
+
+info:
+  app:
+    name: orders-service
+    description: Microservicio de órdenes para Relatos de Papel
+    version: 1.0.0
