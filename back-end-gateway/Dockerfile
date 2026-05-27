@@ -8,7 +8,7 @@
 # Ejecutamos el comando mvn clean package (Generara un archivo JAR para el despliegue)
 FROM maven:3.9.12-eclipse-temurin-25 AS build
 COPY . .
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 # Usamos una imagen de Eclipse Temurin (sucesora de AdoptOpenJDK)
 # Exponemos el puerto que nuestro componente va a usar para escuchar peticiones

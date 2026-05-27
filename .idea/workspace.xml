@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Fix docker compose &amp; docker files errors">
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/GatewayApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/test/java/com/relatosdepapel/gateway/DemoApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Add gateway">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/test/java/com/relatosdepapel/gateway/DemoApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +324,7 @@
       <workItem from="1779251953863" duration="2998000" />
       <workItem from="1779255048382" duration="2438000" />
       <workItem from="1779319193174" duration="10272000" />
-      <workItem from="1779848840797" duration="9974000" />
+      <workItem from="1779848840797" duration="10963000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -398,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779858064524</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add gateway">
+      <option name="closed" value="true" />
+      <created>1779860095522</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1779860095522</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +427,8 @@
     <MESSAGE value="Add Service and Facade" />
     <MESSAGE value="Update configurations" />
     <MESSAGE value="Fix docker compose &amp; docker files errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix docker compose &amp; docker files errors" />
+    <MESSAGE value="Add gateway" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add gateway" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
