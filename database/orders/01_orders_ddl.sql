@@ -1,4 +1,11 @@
+-- =========================================================
+-- Relatos de Papel - Orders Service
+-- DDL script
+-- Base de datos: orders_db
+-- =========================================================
 
+CREATE DATABASE orders_db;
+\connect orders_db;
 
 -- ===============================================
 -- Tabla: orders
