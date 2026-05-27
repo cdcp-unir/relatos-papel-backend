@@ -4,21 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Update configurations">
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-orders/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-eureka/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Fix docker compose &amp; docker files errors">
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/GatewayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/test/java/com/relatosdepapel/gateway/DemoApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/test/java/net/unir/dwfs/relatosdepapel/orders/OrdersApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/test/java/com/relatosdepapel/orders/OrdersApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-eureka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-eureka/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-eureka/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-eureka/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/catalogue/01_catalogue_ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/catalogue/01_catalogue_ddl.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/catalogue/02_catalogue_dml.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/catalogue/02_catalogue_dml.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +105,7 @@
     "HTTP Request.createOrder | #1.executor": "Run",
     "HTTP Request.createOrder | Crear orden.executor": "Run",
     "HTTP Request.createOrder | Obtener libro 1.executor": "Run",
+    "HTTP Request.test | #1.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -126,7 +125,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "V:/master_software/relatos-papel-backend/back-end-books-catalogue",
+    "last_opened_file_path": "V:/master_software/relatos-papel-backend/back-end-gateway",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -134,7 +133,7 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.2251462",
     "run.configurations.included.in.services": "true",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
@@ -150,6 +149,7 @@
       <recent name="com.relatosdepapel.orders.facade" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="V:\master_software\relatos-papel-backend\back-end-gateway" />
       <recent name="V:\master_software\relatos-papel-backend\back-end-books-catalogue" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -177,7 +177,7 @@
           <value>
             <map>
               <entry key="createOrder | Crear orden" value="STOPPED" />
-              <entry key="createOrder | Obtener libro 1" value="STOPPED" />
+              <entry key="test | #1" value="STOPPED" />
             </map>
           </value>
         </entry>
@@ -193,12 +193,19 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.eureka: Compose Deployment">
+  <component name="RunManager" selected="Spring Boot.gateway-service">
     <configuration name="createOrder | Crear orden" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/back-end-books-orders/http/createOrder.http" executionIdentifier="Crear orden" index="2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="createOrder | Obtener libro 1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/back-end-books-orders/http/createOrder.http" executionIdentifier="Obtener libro 1" runType="Run single request">
+    <configuration name="test | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="gateway-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="catalogue-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="envFilePaths">
@@ -216,6 +223,16 @@
     <configuration name="eureka-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="relatos-de-papel-eureka" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="relatos_de_papel_eureka.BackEndEurekaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gateway-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gateway-service" />
+      <selectedOptions>
+        <option name="environmentVariables" />
+      </selectedOptions>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateway.GatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -275,19 +292,21 @@
       <item itemvalue="Docker.docker-compose.yml.catalogue1: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.eureka: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="HTTP Request.test | #1" />
       <item itemvalue="HTTP Request.createOrder | Crear orden" />
-      <item itemvalue="HTTP Request.createOrder | Obtener libro 1" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
+      <item itemvalue="Spring Boot.gateway-service" />
       <item itemvalue="Spring Boot.catalogue-service" />
       <item itemvalue="Spring Boot.eureka-service" />
       <item itemvalue="Spring Boot.orders-service" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.test | #1" />
         <item itemvalue="Docker.docker-compose.yml.eureka: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.catalogue1: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="HTTP Request.createOrder | Crear orden" />
-        <item itemvalue="HTTP Request.createOrder | Obtener libro 1" />
       </list>
     </recent_temporary>
   </component>
@@ -313,7 +332,7 @@
       <workItem from="1779251953863" duration="2998000" />
       <workItem from="1779255048382" duration="2438000" />
       <workItem from="1779319193174" duration="10272000" />
-      <workItem from="1779848840797" duration="8075000" />
+      <workItem from="1779848840797" duration="9974000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -371,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779853065448</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fix docker compose &amp; docker files errors">
+      <option name="closed" value="true" />
+      <created>1779858064524</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1779858064524</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,7 +426,8 @@
     <MESSAGE value="Add service repo and base classes" />
     <MESSAGE value="Add Service and Facade" />
     <MESSAGE value="Update configurations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update configurations" />
+    <MESSAGE value="Fix docker compose &amp; docker files errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix docker compose &amp; docker files errors" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
