@@ -22,7 +22,7 @@ public class OrderController {
         return createOrderService.CreateOrder(dto);
     }
 
-    @GetMapping("/{ownerId}")
+    @GetMapping("/users/{ownerId}/recent")
     public ResponseEntity<GetOrdersResponseDto> GetOrderByOwnerId(@PathVariable Integer ownerId) {
         return ResponseEntity.ok(getOrderServices.getOrderByOwnerId(ownerId));
     }
