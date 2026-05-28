@@ -10,7 +10,6 @@ import com.relatosdepapel.orders.repository.model.OrderStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -96,23 +95,5 @@ public class CreateOrderService {
 
     private BigDecimal getSubtotal(BigDecimal price, Integer quantity) {
         return price.multiply(BigDecimal.valueOf(quantity));
-    }
-
-    public GetOrdersResponseDto getOrderByOwnerId(Integer ownerId) {
-
-        List<Order> orders = orderJpaRepository.findByOwnerIdOrderByOrderDateDesc(ownerId);
-
-        List<RecentOrder> recentOrders = orders.stream()
-                .map(order -> RecentOrder.builder()
-                        .id(order.getId())
-                        .total(order.getTotal())
-                        .status(order.getStatus())
-                        .date(order.getOrderDate())
-                        .build())
-                .toList();
-
-        return GetOrdersResponseDto.builder()
-                .orders(recentOrders)
-                .build();
     }
 }
