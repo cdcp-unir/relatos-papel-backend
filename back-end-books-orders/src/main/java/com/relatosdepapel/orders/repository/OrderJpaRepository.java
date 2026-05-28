@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface OrderJpaRepository extends JpaRepository<Order, Integer> {
-    List<Order> findByOwnerIdOrderByOrderDateDesc(Integer ownerId, Limit limit);
+    List<Order> findByOwnerIdOrderByOrderDateDesc(Integer ownerId);
 
     List<Order> findByStatus(OrderStatus status);
 }

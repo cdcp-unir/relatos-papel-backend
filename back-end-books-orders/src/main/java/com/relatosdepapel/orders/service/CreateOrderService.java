@@ -1,8 +1,6 @@
 package com.relatosdepapel.orders.service;
 
-import com.relatosdepapel.orders.controller.model.CreateOrderRequestDto;
-import com.relatosdepapel.orders.controller.model.CreateOrderResponseDto;
-import com.relatosdepapel.orders.controller.model.RequestedBook;
+import com.relatosdepapel.orders.controller.model.*;
 import com.relatosdepapel.orders.facade.BooksCatalogueFacade;
 import com.relatosdepapel.orders.facade.model.BookDto;
 import com.relatosdepapel.orders.repository.OrderJpaRepository;
@@ -98,5 +96,23 @@ public class CreateOrderService {
 
     private BigDecimal getSubtotal(BigDecimal price, Integer quantity) {
         return price.multiply(BigDecimal.valueOf(quantity));
+    }
+
+    public GetOrdersResponseDto getOrderByOwnerId(Integer ownerId) {
+
+        List<Order> orders = orderJpaRepository.findByOwnerIdOrderByOrderDateDesc(ownerId);
+
+        List<RecentOrder> recentOrders = orders.stream()
+                .map(order -> RecentOrder.builder()
+                        .id(order.getId())
+                        .total(order.getTotal())
+                        .status(order.getStatus())
+                        .date(order.getOrderDate())
+                        .build())
+                .toList();
+
+        return GetOrdersResponseDto.builder()
+                .orders(recentOrders)
+                .build();
     }
 }
