@@ -1,1 +1,8 @@
-POST http://localhost:8762/catalogue-service/v1/books
+###
+GET http://localhost:8762/catalogue-service/api/v1/books
+
+###
+POST http://localhost:8762/catalogue-service/api/v1/books
+
+### test books
+GET http://localhost:8080/api/v1/books

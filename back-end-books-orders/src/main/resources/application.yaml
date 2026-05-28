@@ -33,8 +33,7 @@ eureka:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
   instance:
-    preferIpAddress: false
-    hostname: orders_service
+    preferIpAddress: true
 
 management:
   endpoints:
