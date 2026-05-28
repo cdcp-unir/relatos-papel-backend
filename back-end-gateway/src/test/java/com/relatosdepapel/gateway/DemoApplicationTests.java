@@ -1,4 +1,4 @@
-package com.example.gateway;
+package com.relatosdepapel.gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
