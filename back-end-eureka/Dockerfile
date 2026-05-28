@@ -17,4 +17,8 @@ RUN mvn clean package
 FROM eclipse-temurin:25-jre
 EXPOSE 8761
 COPY --from=build /target/eureka-service-0.0.1-SNAPSHOT.jar app.jar
+
+ENV PORT=${PORT};
+ENV HOSTNAME=${EUREKA_HOST};
+
 ENTRYPOINT ["java", "-jar", "/app.jar"]

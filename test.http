@@ -1,8 +1,15 @@
-###
+### test books gateway
 GET http://localhost:8762/catalogue-service/api/v1/books
 
-###
-POST http://localhost:8762/catalogue-service/api/v1/books
+### create order from gateway
+POST http://localhost:8762/orders-service/api/v1/orders
+Content-Type: application/json
 
-### test books
-GET http://localhost:8080/api/v1/books
+{
+  "items": [
+    {
+      "id": "00000000-0000-0000-0000-000000000032",
+      "quantity": 1
+    }
+  ]
+}
