@@ -8,7 +8,20 @@ Content-Type: application/json
 {
   "items": [
     {
-      "id": "00000000-0000-0000-0000-000000000032",
+      "id": "00000000-0000-0000-0000-000000000034",
+      "quantity": 1
+    }
+  ]
+}
+
+###
+POST http://localhost:8762/orders-service/api/v1/orders
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "id": "00000000-0000-0000-0000-000000000034",
       "quantity": 1
     }
   ]

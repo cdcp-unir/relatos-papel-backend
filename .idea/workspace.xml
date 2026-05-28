@@ -5,40 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Update docker compose file">
-      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/dto/BookPatchRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/GetOrderServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/config/WebClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/proxy/catalogue/CatalogueBooksProxyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/proxy/catalogue/model/BookByIdProxyRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/proxy/catalogue/model/BookSearchProxyRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/proxy/catalogue/model/BookUpdateProxyRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end-books-orders/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/config/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/config/WebClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/facade/BooksCatalogueFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/facade/BooksCatalogueFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/repository/OrderJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/repository/OrderJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/catalogue/02_catalogue_dml.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/catalogue/02_catalogue_dml.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.http" beforeDir="false" afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ChangesViewManager">
-    <option name="groupingKeys">
-      <option value="directory" />
-      <option value="repository" />
-    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -118,6 +95,9 @@
     "Application.CatalogueServiceApplication.executor": "Run",
     "Docker.docker-compose.yml.catalogue1: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.eureka: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.orders1: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.orders2: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.orders3: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "HTTP Request.createOrder | #1.executor": "Run",
     "HTTP Request.createOrder | Crear orden.executor": "Run",
@@ -125,6 +105,7 @@
     "HTTP Request.test | #1.executor": "Run",
     "HTTP Request.test | #2.executor": "Run",
     "HTTP Request.test | create order from gateway.executor": "Run",
+    "HTTP Request.test | test books gateway.executor": "Run",
     "HTTP Request.test | test books.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
@@ -142,7 +123,7 @@
     "Spring Boot.orders-service.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "Merging will",
+    "git-widget-placeholder": "will",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -197,10 +178,8 @@
         <entry key="HttpClient.HttpRequestRunConfigurationType">
           <value>
             <map>
-              <entry key="test | #1" value="STOPPED" />
-              <entry key="test | #2" value="STOPPED" />
               <entry key="test | create order from gateway" value="STOPPED" />
-              <entry key="test | test books" value="STOPPED" />
+              <entry key="test | test books gateway" value="STOPPED" />
             </map>
           </value>
         </entry>
@@ -218,16 +197,10 @@
     </option>
   </component>
   <component name="RunManager" selected="HTTP Request.test | create order from gateway">
-    <configuration name="test | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="test | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="#2" index="2" runType="Run single request">
-      <method v="2" />
-    </configuration>
     <configuration name="test | create order from gateway" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="create order from gateway" index="2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="test | test books" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="test books" index="2" runType="Run single request">
+    <configuration name="test | test books gateway" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="test books gateway" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="catalogue-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -276,20 +249,51 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="docker-compose.yml.orders1: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
+          <option name="services">
+            <list>
+              <option value="orders1" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.orders2: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="orders2" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.orders3: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="orders3" />
+            </list>
+          </option>
           <option name="sourceFilePath" value="docker-compose.yml" />
         </settings>
       </deployment>
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.orders1: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.orders2: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.orders3: Compose Deployment" />
       <item itemvalue="HTTP Request.test | create order from gateway" />
-      <item itemvalue="HTTP Request.test | #2" />
-      <item itemvalue="HTTP Request.test | test books" />
-      <item itemvalue="HTTP Request.test | #1" />
+      <item itemvalue="HTTP Request.test | test books gateway" />
       <item itemvalue="Spring Boot.gateway-service" />
       <item itemvalue="Spring Boot.catalogue-service" />
       <item itemvalue="Spring Boot.eureka-service" />
@@ -298,10 +302,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.test | create order from gateway" />
-        <item itemvalue="HTTP Request.test | #1" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="HTTP Request.test | #2" />
-        <item itemvalue="HTTP Request.test | test books" />
+        <item itemvalue="HTTP Request.test | test books gateway" />
+        <item itemvalue="Docker.docker-compose.yml.orders1: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.orders2: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.orders3: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -330,7 +334,7 @@
       <workItem from="1779848840797" duration="11572000" />
       <workItem from="1779935152674" duration="1562000" />
       <workItem from="1779938323900" duration="1195000" />
-      <workItem from="1779939567663" duration="2933000" />
+      <workItem from="1779939567663" duration="5927000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -428,7 +432,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779941312594</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update docker compose file">
+      <option name="closed" value="true" />
+      <created>1779942812444</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1779942812444</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

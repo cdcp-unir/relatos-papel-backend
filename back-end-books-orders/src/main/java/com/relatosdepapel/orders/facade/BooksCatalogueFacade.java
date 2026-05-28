@@ -5,7 +5,6 @@ import com.relatosdepapel.orders.exception.InternalServerException;
 import com.relatosdepapel.orders.exception.OrderNotFoundException;
 import com.relatosdepapel.orders.facade.model.BookDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
@@ -17,16 +16,15 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class BooksCatalogueFacade {
 
-    private final WebClient.Builder webClientBuilder;
+    private static final String CATALOGUE_BASE_URL = "http://catalogue-service/api/v1";
 
-    @Value("${booksCatalogue.url}")
-    private String suppliesCatalogueUrl;
+    private final WebClient.Builder webClientBuilder;
 
     public BookDto getBook(UUID externalId) {
         try {
             return webClientBuilder.build()
                     .get()
-                    .uri(suppliesCatalogueUrl + "/books/{id}", externalId)
+                    .uri(CATALOGUE_BASE_URL + "/books/{id}", externalId)
                     .retrieve()
                     .bodyToMono(BookDto.class)
                     .block();
@@ -39,8 +37,9 @@ public class BooksCatalogueFacade {
 
     public void updateBookStock(UUID externalId, Integer stock) {
         try {
-            webClientBuilder.build().patch()
-                    .uri(suppliesCatalogueUrl + "/books/{id}", externalId)
+            webClientBuilder.build()
+                    .patch()
+                    .uri(CATALOGUE_BASE_URL + "/books/{id}", externalId)
                     .bodyValue(Map.of("stock", stock))
                     .retrieve()
                     .bodyToMono(Void.class)
