@@ -1,4 +1,4 @@
-package com.relatosdepapel.orders.config;
+package com.relatosdepapel.gateway.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ public class WebClientConfig {
 
     @Bean
     @LoadBalanced
-    public WebClient.Builder webClientBuilder() {
+    public WebClient.Builder loadBalancedWebClientBuilder() {
         return WebClient.builder();
     }
 }

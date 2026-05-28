@@ -4,17 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Fix gateway config">
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Update docker compose file">
+      <change afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/dto/BookPatchRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/GetOrderServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/config/WebClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/proxy/catalogue/CatalogueBooksProxyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/proxy/catalogue/model/BookByIdProxyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/proxy/catalogue/model/BookSearchProxyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/proxy/catalogue/model/BookUpdateProxyRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-eureka/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-eureka/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-eureka/src/test/java/relatos_de_papel_eureka/BackEndEurekaApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.http" beforeDir="false" afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/java/com/relatosdepapel/catalogueservice/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/config/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/config/WebClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/facade/BooksCatalogueFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/facade/BooksCatalogueFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/repository/OrderJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/repository/OrderJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/catalogue/02_catalogue_dml.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/catalogue/02_catalogue_dml.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -118,7 +142,7 @@
     "Spring Boot.orders-service.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "will",
+    "git-widget-placeholder": "Merging will",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -306,7 +330,7 @@
       <workItem from="1779848840797" duration="11572000" />
       <workItem from="1779935152674" duration="1562000" />
       <workItem from="1779938323900" duration="1195000" />
-      <workItem from="1779939567663" duration="1587000" />
+      <workItem from="1779939567663" duration="2933000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -396,7 +420,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779939948791</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Update docker compose file">
+      <option name="closed" value="true" />
+      <created>1779941312594</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1779941312594</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +460,8 @@
     <MESSAGE value="Add gateway" />
     <MESSAGE value="Refactor gateway deps" />
     <MESSAGE value="Fix gateway config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix gateway config" />
+    <MESSAGE value="Update docker compose file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update docker compose file" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -437,7 +470,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java</url>
-          <line>74</line>
+          <line>71</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

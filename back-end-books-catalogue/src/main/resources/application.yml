@@ -1,5 +1,5 @@
-#server:
-#port: 8081
+server:
+  port: ${PORT:0}
 
 spring:
   application:
@@ -19,18 +19,12 @@ spring:
       hibernate:
         format_sql: true
 
-## Logging Configuration
-logging:
-  level:
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.springframework.data.jpa: DEBUG
-
-## Eureka Client Configuration
 eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
   instance:
     prefer-ip-address: true
 
@@ -39,15 +33,3 @@ management:
     web:
       exposure:
         include: health,info
-  endpoint:
-    health:
-      show-details: always
-  info:
-    env:
-      enabled: true
-
-info:
-  app:
-    name: catalogue-service
-    description: Microservicio de catálogo para Relatos de Papel
-    version: 1.0.0

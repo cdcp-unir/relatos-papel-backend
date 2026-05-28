@@ -48,10 +48,12 @@ public class BooksCatalogueFacade {
         } catch (WebClientResponseException.NotFound e) {
             throw new OrderNotFoundException("Libro con ID " + externalId + " no encontrado", e);
         } catch (WebClientResponseException.BadRequest e) {
-            throw new BadOrderModificationException("Solicitud inválida para actualizar el stock del libro con ID " + externalId, e);
+            throw new BadOrderModificationException(
+                    "Solicitud inválida para actualizar el stock del libro con ID " + externalId,
+                    e
+            );
         } catch (WebClientResponseException.InternalServerError e) {
-            throw new InternalServerException("Error al actualizar el stock del libro con ID" + externalId, e);
+            throw new InternalServerException("Error al actualizar el stock del libro con ID " + externalId, e);
         }
     }
-
 }

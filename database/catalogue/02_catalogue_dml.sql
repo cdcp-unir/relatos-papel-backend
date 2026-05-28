@@ -21,8 +21,7 @@ INSERT INTO books (
     price,
     created_at
 ) VALUES
-(
-    '00000000-0000-0000-0000-000000000001',
+('3e231454-b10f-4e1c-acb0-b1e47683a4fc',
     'Cien años de soledad',
     'Gabriel García Márquez',
     '1967-05-30',
@@ -34,8 +33,7 @@ INSERT INTO books (
     19.99,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000002',
+('922b5975-d888-4c48-840e-46cba20f9eed',
     'El amor en los tiempos del cólera',
     'Gabriel García Márquez',
     '1985-09-05',
@@ -47,8 +45,7 @@ INSERT INTO books (
     18.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000003',
+('d9d5d6ee-2490-4775-a709-e257a60e1d24',
     'Crónica de una muerte anunciada',
     'Gabriel García Márquez',
     '1981-01-01',
@@ -60,8 +57,7 @@ INSERT INTO books (
     12.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000004',
+('ab292337-bec9-46c4-a734-63913d7d883b',
     'Don Quijote de la Mancha',
     'Miguel de Cervantes',
     '1605-01-16',
@@ -73,8 +69,7 @@ INSERT INTO books (
     24.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000005',
+('9117bf8a-0699-429c-b943-3d17818ecdbb',
     'La ciudad y los perros',
     'Mario Vargas Llosa',
     '1963-01-01',
@@ -86,8 +81,7 @@ INSERT INTO books (
     17.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000006',
+('ecf39c27-4952-46ab-af3d-804bb3131deb',
     'La casa de los espíritus',
     'Isabel Allende',
     '1982-01-01',
@@ -99,8 +93,7 @@ INSERT INTO books (
     16.75,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000007',
+('0ae8cb78-0b81-4fb5-9e2c-49eba3f9a69e',
     'Rayuela',
     'Julio Cortázar',
     '1963-06-28',
@@ -112,8 +105,7 @@ INSERT INTO books (
     20.00,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000008',
+('67f3fb02-efd5-4b96-846b-6755d43ce2f8',
     'Ficciones',
     'Jorge Luis Borges',
     '1944-01-01',
@@ -125,8 +117,7 @@ INSERT INTO books (
     15.80,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000009',
+('d94e1285-b5aa-4711-a250-cd95baddf80b',
     'El Aleph',
     'Jorge Luis Borges',
     '1949-01-01',
@@ -138,8 +129,7 @@ INSERT INTO books (
     14.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000010',
+('32816c0c-2c74-4ab7-a197-07f223a7756d',
     'Pedro Páramo',
     'Juan Rulfo',
     '1955-01-01',
@@ -151,8 +141,7 @@ INSERT INTO books (
     13.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000011',
+('897d3e53-17ba-4887-8d00-929e5e333e37',
     'Aura',
     'Carlos Fuentes',
     '1962-01-01',
@@ -164,8 +153,7 @@ INSERT INTO books (
     10.95,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000012',
+('942b734b-8e34-4cfb-9a6a-7074a2300da6',
     'La muerte de Artemio Cruz',
     'Carlos Fuentes',
     '1962-01-01',
@@ -177,8 +165,7 @@ INSERT INTO books (
     18.20,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000013',
+('8fc7df73-dd2c-4e84-8cf6-4d072c17c167',
     'El túnel',
     'Ernesto Sabato',
     '1948-01-01',
@@ -190,8 +177,7 @@ INSERT INTO books (
     12.40,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000014',
+('de055b0b-2cf2-4567-ad2c-a033ae533978',
     'Sobre héroes y tumbas',
     'Ernesto Sabato',
     '1961-01-01',
@@ -203,8 +189,7 @@ INSERT INTO books (
     21.30,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000015',
+('53c6b242-bbe9-4fcd-91c2-f676a867668a',
     'Doña Bárbara',
     'Rómulo Gallegos',
     '1929-01-01',
@@ -216,8 +201,7 @@ INSERT INTO books (
     13.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000016',
+('344519f9-98d5-4ca8-b0b6-620b3235e141',
     'Huasipungo',
     'Jorge Icaza',
     '1934-01-01',
@@ -229,8 +213,7 @@ INSERT INTO books (
     11.75,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000017',
+('b46d0eb8-4b0c-4bff-904c-0e50c81e4d15',
     'Cumandá',
     'Juan León Mera',
     '1879-01-01',
@@ -242,8 +225,7 @@ INSERT INTO books (
     9.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000018',
+('6fb7b603-9aaa-4fe3-8fe9-505e464a0a4c',
     'Las cruces sobre el agua',
     'Joaquín Gallegos Lara',
     '1946-01-01',
@@ -255,8 +237,7 @@ INSERT INTO books (
     12.60,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000019',
+('bd274039-90e7-4cad-ad41-e11e554c1add',
     'Polvo y ceniza',
     'Eliécer Cárdenas',
     '1979-01-01',
@@ -268,8 +249,7 @@ INSERT INTO books (
     13.25,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000020',
+('9bee7542-763d-49a5-941a-c94b4970bae2',
     'Entre Marx y una mujer desnuda',
     'Jorge Enrique Adoum',
     '1976-01-01',
@@ -281,8 +261,7 @@ INSERT INTO books (
     15.70,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000021',
+('8a27cd79-43ce-4fc8-b56b-04fa12c601d3',
     'El principito',
     'Antoine de Saint-Exupéry',
     '1943-04-06',
@@ -294,8 +273,7 @@ INSERT INTO books (
     12.99,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000022',
+('26abb14d-d8b7-4c0e-bdcd-53415a5cb9ca',
     'Alicia en el país de las maravillas',
     'Lewis Carroll',
     '1865-11-26',
@@ -307,8 +285,7 @@ INSERT INTO books (
     11.40,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000023',
+('8d3e929a-5e96-4505-9156-1ba385869cb7',
     'Momo',
     'Michael Ende',
     '1973-01-01',
@@ -320,8 +297,7 @@ INSERT INTO books (
     13.80,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000024',
+('c0463ec1-4ccf-4a63-b47b-fda6a425be1c',
     'La historia interminable',
     'Michael Ende',
     '1979-01-01',
@@ -333,8 +309,7 @@ INSERT INTO books (
     18.60,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000025',
+('9e9a3cdf-8f5c-4971-8b11-3f3a7a49ec73',
     'Harry Potter y la piedra filosofal',
     'J. K. Rowling',
     '1997-06-26',
@@ -346,8 +321,7 @@ INSERT INTO books (
     21.99,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000026',
+('9c572ccb-e951-4860-9419-8ffe81e0a051',
     'El hobbit',
     'J. R. R. Tolkien',
     '1937-09-21',
@@ -359,8 +333,7 @@ INSERT INTO books (
     19.95,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000027',
+('366fed40-da03-478c-9410-e028e8007603',
     'El señor de los anillos: La comunidad del anillo',
     'J. R. R. Tolkien',
     '1954-07-29',
@@ -372,8 +345,7 @@ INSERT INTO books (
     24.99,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000028',
+('b002dc52-cc02-46ef-91c6-55796ee7ebfb',
     'El nombre del viento',
     'Patrick Rothfuss',
     '2007-03-27',
@@ -385,8 +357,7 @@ INSERT INTO books (
     22.40,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000029',
+('991e2746-18cb-4d6f-bad9-734672c63b8e',
     'Dune',
     'Frank Herbert',
     '1965-08-01',
@@ -398,8 +369,7 @@ INSERT INTO books (
     23.75,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000030',
+('1f32eb93-3f3f-460e-abd5-458e7eb84730',
     'Fundación',
     'Isaac Asimov',
     '1951-01-01',
@@ -411,8 +381,7 @@ INSERT INTO books (
     17.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000031',
+('49cb4721-f370-41b2-aeaa-0b3b004a0c29',
     'Yo, robot',
     'Isaac Asimov',
     '1950-12-02',
@@ -424,8 +393,7 @@ INSERT INTO books (
     14.60,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000032',
+('8a6e62b3-4349-430a-bae6-f4385074679e',
     'Fahrenheit 451',
     'Ray Bradbury',
     '1953-10-19',
@@ -437,8 +405,7 @@ INSERT INTO books (
     15.40,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000033',
+('2b716908-ead6-4f74-ba48-78b394e1e237',
     'Crónicas marcianas',
     'Ray Bradbury',
     '1950-05-01',
@@ -450,8 +417,7 @@ INSERT INTO books (
     13.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000034',
+('aa3a275d-e828-4fa4-9ff5-6cc208a12a9f',
     '1984',
     'George Orwell',
     '1949-06-08',
@@ -463,8 +429,7 @@ INSERT INTO books (
     16.80,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000035',
+('035a5562-d6f9-4024-a6b8-70b110513814',
     'Rebelión en la granja',
     'George Orwell',
     '1945-08-17',
@@ -476,8 +441,7 @@ INSERT INTO books (
     10.75,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000036',
+('f40648b6-40a8-4c07-9aea-d078eb506842',
     'Un mundo feliz',
     'Aldous Huxley',
     '1932-01-01',
@@ -489,8 +453,7 @@ INSERT INTO books (
     15.99,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000037',
+('64d34b0d-0dfb-4512-bc1d-6eb4802f06cc',
     'La naranja mecánica',
     'Anthony Burgess',
     '1962-01-01',
@@ -502,8 +465,7 @@ INSERT INTO books (
     14.30,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000038',
+('10d144e8-c578-4e62-a7d4-7de85183756d',
     'Ensayo sobre la ceguera',
     'José Saramago',
     '1995-01-01',
@@ -515,8 +477,7 @@ INSERT INTO books (
     18.25,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000039',
+('f76a5684-65a5-4ca9-afcc-1ee0df873d66',
     'El evangelio según Jesucristo',
     'José Saramago',
     '1991-01-01',
@@ -528,8 +489,7 @@ INSERT INTO books (
     17.80,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000040',
+('8c34a8f5-b25d-45e6-b4c1-b95855203e00',
     'Memorial del convento',
     'José Saramago',
     '1982-01-01',
@@ -541,8 +501,7 @@ INSERT INTO books (
     16.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000041',
+('9e1f485b-357c-48a8-9f1a-cb3103299586',
     'La sombra del viento',
     'Carlos Ruiz Zafón',
     '2001-01-01',
@@ -554,8 +513,7 @@ INSERT INTO books (
     20.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000042',
+('0904223b-e7a5-4a9f-b8cd-d40f0a7df4a5',
     'El juego del ángel',
     'Carlos Ruiz Zafón',
     '2008-01-01',
@@ -567,8 +525,7 @@ INSERT INTO books (
     19.20,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000043',
+('94b5d7a8-70db-49a1-98d3-22b24a2738fc',
     'Marina',
     'Carlos Ruiz Zafón',
     '1999-01-01',
@@ -580,8 +537,7 @@ INSERT INTO books (
     14.75,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000044',
+('b7299aa2-bbf7-4b6d-afbf-afb5b4f152a5',
     'Los pilares de la Tierra',
     'Ken Follett',
     '1989-01-01',
@@ -593,8 +549,7 @@ INSERT INTO books (
     25.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000045',
+('53369ce1-65b5-40a9-b938-3b4ecdda7734',
     'La catedral del mar',
     'Ildefonso Falcones',
     '2006-01-01',
@@ -606,8 +561,7 @@ INSERT INTO books (
     21.00,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000046',
+('8c0fd84d-6d1f-428f-b462-0121f75c20b5',
     'El médico',
     'Noah Gordon',
     '1986-01-01',
@@ -619,8 +573,7 @@ INSERT INTO books (
     22.30,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000047',
+('5f4a1c4d-6a05-42ca-abc1-e8a336542fe2',
     'Sapiens',
     'Yuval Noah Harari',
     '2011-01-01',
@@ -632,8 +585,7 @@ INSERT INTO books (
     24.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000048',
+('088d6d7e-4ff4-4437-ad3d-78bdcc674a4b',
     'Homo Deus',
     'Yuval Noah Harari',
     '2015-01-01',
@@ -645,8 +597,7 @@ INSERT INTO books (
     23.40,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000049',
+('ef69de3a-0731-4eee-8ef0-943b88dafa4d',
     '21 lecciones para el siglo XXI',
     'Yuval Noah Harari',
     '2018-01-01',
@@ -658,8 +609,7 @@ INSERT INTO books (
     22.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000050',
+('5c2365ec-16a3-4c3b-93f8-fa202e99046f',
     'El arte de la guerra',
     'Sun Tzu',
     '0500-01-01',
@@ -671,8 +621,7 @@ INSERT INTO books (
     8.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000051',
+('144acf10-4aa3-481d-9021-c788b404779d',
     'Meditaciones',
     'Marco Aurelio',
     '0180-01-01',
@@ -684,8 +633,7 @@ INSERT INTO books (
     9.80,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000052',
+('0fe07a87-53df-4d71-93cc-288d04b48ec9',
     'Ética para Amador',
     'Fernando Savater',
     '1991-01-01',
@@ -697,8 +645,7 @@ INSERT INTO books (
     12.20,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000053',
+('3a57678a-79b9-4e69-8e56-f9bdcf86fb4e',
     'El mundo de Sofía',
     'Jostein Gaarder',
     '1991-01-01',
@@ -710,8 +657,7 @@ INSERT INTO books (
     16.40,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000054',
+('ae8cbfb1-62ab-4985-9043-9bf28fe5f0a2',
     'El hombre en busca de sentido',
     'Viktor Frankl',
     '1946-01-01',
@@ -723,8 +669,7 @@ INSERT INTO books (
     14.60,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000055',
+('d7892b9f-da72-4b91-aea9-691974fa52b1',
     'Pensar rápido, pensar despacio',
     'Daniel Kahneman',
     '2011-01-01',
@@ -736,8 +681,7 @@ INSERT INTO books (
     24.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000056',
+('ad320ee5-3cbd-4e61-9271-8b62e5afaa5f',
     'Hábitos atómicos',
     'James Clear',
     '2018-10-16',
@@ -749,8 +693,7 @@ INSERT INTO books (
     18.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000057',
+('b68339d6-fe73-4877-96c4-324e8a25ab13',
     'Los 7 hábitos de la gente altamente efectiva',
     'Stephen R. Covey',
     '1989-01-01',
@@ -762,8 +705,7 @@ INSERT INTO books (
     19.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000058',
+('ef2432b6-99de-479f-93a8-952a13450803',
     'Padre rico, padre pobre',
     'Robert Kiyosaki',
     '1997-01-01',
@@ -775,8 +717,7 @@ INSERT INTO books (
     15.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000059',
+('6c9fd07e-af43-4eb8-addb-4b5c663e670c',
     'El inversor inteligente',
     'Benjamin Graham',
     '1949-01-01',
@@ -788,8 +729,7 @@ INSERT INTO books (
     27.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000060',
+('3fcc2078-c562-476d-85c5-6d012c73a066',
     'Clean Code',
     'Robert C. Martin',
     '2008-08-01',
@@ -801,8 +741,7 @@ INSERT INTO books (
     35.99,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000061',
+('9af2fac3-7d5d-4f80-9eb2-f6de10482523',
     'Clean Architecture',
     'Robert C. Martin',
     '2017-09-20',
@@ -814,8 +753,7 @@ INSERT INTO books (
     38.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000062',
+('78e1d71f-0e88-4fa6-93a9-b616fd574940',
     'The Pragmatic Programmer',
     'Andrew Hunt',
     '1999-10-30',
@@ -827,8 +765,7 @@ INSERT INTO books (
     36.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000063',
+('4498306f-a5b8-4cf2-9454-7c1762c99444',
     'Design Patterns',
     'Erich Gamma',
     '1994-10-21',
@@ -840,8 +777,7 @@ INSERT INTO books (
     42.00,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000064',
+('0588ac14-0f02-4385-b736-3addd5b2a7d8',
     'Refactoring',
     'Martin Fowler',
     '1999-07-08',
@@ -853,8 +789,7 @@ INSERT INTO books (
     39.99,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000065',
+('c7c2888d-73b1-44c6-81ff-5ba1d89c40fc',
     'Domain-Driven Design',
     'Eric Evans',
     '2003-08-30',
@@ -866,8 +801,7 @@ INSERT INTO books (
     44.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000066',
+('5d36a59b-823e-4af4-a814-a7ef81379c92',
     'Spring in Action',
     'Craig Walls',
     '2005-01-01',
@@ -879,8 +813,7 @@ INSERT INTO books (
     33.75,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000067',
+('00974cba-105c-4931-b534-b761b0d77414',
     'Effective Java',
     'Joshua Bloch',
     '2001-01-01',
@@ -892,8 +825,7 @@ INSERT INTO books (
     41.20,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000068',
+('b1338352-32d4-4a3a-b71a-04324d11ed7f',
     'Java Concurrency in Practice',
     'Brian Goetz',
     '2006-05-09',
@@ -905,8 +837,7 @@ INSERT INTO books (
     45.00,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000069',
+('0395c396-e23a-4060-8b47-21099fd4f613',
     'You Don’t Know JS Yet',
     'Kyle Simpson',
     '2020-01-28',
@@ -918,8 +849,7 @@ INSERT INTO books (
     29.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000070',
+('63488f7e-b10d-46d9-925f-887fbead432e',
     'Eloquent JavaScript',
     'Marijn Haverbeke',
     '2011-01-01',
@@ -931,8 +861,7 @@ INSERT INTO books (
     28.40,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000071',
+('16b05eb3-9744-4cfe-8018-703d0faac680',
     'Learning React',
     'Alex Banks',
     '2017-01-01',
@@ -944,8 +873,7 @@ INSERT INTO books (
     31.10,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000072',
+('dd73c51b-cf30-42b9-9219-c7c7cb4e9696',
     'Microservices Patterns',
     'Chris Richardson',
     '2018-10-27',
@@ -957,8 +885,7 @@ INSERT INTO books (
     43.80,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000073',
+('1ce52894-c319-42cf-a25f-f76a297021fd',
     'Building Microservices',
     'Sam Newman',
     '2015-02-20',
@@ -970,8 +897,7 @@ INSERT INTO books (
     40.60,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000074',
+('be473da9-695c-4562-a357-d04a752fb9b7',
     'Kafka: The Definitive Guide',
     'Neha Narkhede',
     '2017-08-31',
@@ -983,8 +909,7 @@ INSERT INTO books (
     37.25,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000075',
+('417ffa84-30af-4fb3-b29e-5363ccbe65c3',
     'PostgreSQL: Up and Running',
     'Regina Obe',
     '2012-07-01',
@@ -996,8 +921,7 @@ INSERT INTO books (
     32.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000076',
+('cdb6f480-2168-49fc-b3fd-e9e4c076cc50',
     'El código Da Vinci',
     'Dan Brown',
     '2003-03-18',
@@ -1009,8 +933,7 @@ INSERT INTO books (
     16.30,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000077',
+('15c3eb18-df0e-4556-983f-630fd0d2105e',
     'Ángeles y demonios',
     'Dan Brown',
     '2000-05-01',
@@ -1022,8 +945,7 @@ INSERT INTO books (
     15.70,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000078',
+('13f77d5c-4912-4385-84ae-c01bf13af8e0',
     'La chica del tren',
     'Paula Hawkins',
     '2015-01-13',
@@ -1035,8 +957,7 @@ INSERT INTO books (
     14.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000079',
+('9bb6b283-fbbd-4f7d-a638-9c332cf2ee16',
     'Perdida',
     'Gillian Flynn',
     '2012-05-24',
@@ -1048,8 +969,7 @@ INSERT INTO books (
     15.80,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000080',
+('9ce5f6a4-6d93-4043-be5c-e81ba0fad233',
     'El silencio de los corderos',
     'Thomas Harris',
     '1988-01-01',
@@ -1061,8 +981,7 @@ INSERT INTO books (
     17.20,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000081',
+('2c8f3a6d-511f-4f26-82a9-cc17d7a06322',
     'Asesinato en el Orient Express',
     'Agatha Christie',
     '1934-01-01',
@@ -1074,8 +993,7 @@ INSERT INTO books (
     12.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000082',
+('6cd93791-eea0-49e6-ac71-6ccf35004d87',
     'Diez negritos',
     'Agatha Christie',
     '1939-11-06',
@@ -1087,8 +1005,7 @@ INSERT INTO books (
     12.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000083',
+('9e941d8c-7830-4721-921c-db6b00a779d8',
     'El sabueso de los Baskerville',
     'Arthur Conan Doyle',
     '1902-04-01',
@@ -1100,8 +1017,7 @@ INSERT INTO books (
     11.95,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000084',
+('061d22d5-b159-4a31-9adc-8824ea9a9acf',
     'Estudio en escarlata',
     'Arthur Conan Doyle',
     '1887-01-01',
@@ -1113,8 +1029,7 @@ INSERT INTO books (
     10.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000085',
+('afd3b0f3-25cb-44eb-a337-7be399834b88',
     'Orgullo y prejuicio',
     'Jane Austen',
     '1813-01-28',
@@ -1126,8 +1041,7 @@ INSERT INTO books (
     13.75,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000086',
+('2f35b79c-b816-444c-bec1-c8460a8dd805',
     'Jane Eyre',
     'Charlotte Brontë',
     '1847-10-16',
@@ -1139,8 +1053,7 @@ INSERT INTO books (
     14.80,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000087',
+('f624d104-029f-41cc-9c5d-6af9915106d1',
     'Cumbres borrascosas',
     'Emily Brontë',
     '1847-12-01',
@@ -1152,8 +1065,7 @@ INSERT INTO books (
     14.20,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000088',
+('abd4e164-5cc8-4b66-b745-106727f4f0c4',
     'Madame Bovary',
     'Gustave Flaubert',
     '1856-12-15',
@@ -1165,8 +1077,7 @@ INSERT INTO books (
     13.60,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000089',
+('a4e4f3ee-5f07-4dcf-83a3-773d11ecb100',
     'Los miserables',
     'Victor Hugo',
     '1862-01-01',
@@ -1178,8 +1089,7 @@ INSERT INTO books (
     23.99,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000090',
+('2059a54d-0dbd-4072-a8bd-d340d1b12492',
     'El conde de Montecristo',
     'Alexandre Dumas',
     '1844-08-28',
@@ -1191,8 +1101,7 @@ INSERT INTO books (
     22.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000091',
+('850dd051-7c69-4db4-a252-85ebae127647',
     'Crimen y castigo',
     'Fiódor Dostoyevski',
     '1866-01-01',
@@ -1204,8 +1113,7 @@ INSERT INTO books (
     18.70,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000092',
+('81d4466c-f38f-42bb-b39a-f3af5d5ceb6c',
     'Los hermanos Karamázov',
     'Fiódor Dostoyevski',
     '1880-01-01',
@@ -1217,8 +1125,7 @@ INSERT INTO books (
     21.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000093',
+('9e603235-a1bc-4fab-b06c-61585cc3e52c',
     'Anna Karénina',
     'León Tolstói',
     '1877-01-01',
@@ -1230,8 +1137,7 @@ INSERT INTO books (
     19.80,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000094',
+('2bc7a07a-87d9-41c5-a5d7-1a167539175f',
     'Guerra y paz',
     'León Tolstói',
     '1869-01-01',
@@ -1243,8 +1149,7 @@ INSERT INTO books (
     26.40,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000095',
+('bf38dfeb-4eca-429d-a1e5-97d1a33d2c63',
     'La metamorfosis',
     'Franz Kafka',
     '1915-01-01',
@@ -1256,8 +1161,7 @@ INSERT INTO books (
     9.99,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000096',
+('42408c45-e181-4fe5-a4ef-484fd2b32352',
     'El proceso',
     'Franz Kafka',
     '1925-01-01',
@@ -1269,8 +1173,7 @@ INSERT INTO books (
     13.90,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000097',
+('0bfc363c-72fc-4086-8d45-bb13fe328b14',
     'Drácula',
     'Bram Stoker',
     '1897-05-26',
@@ -1282,8 +1185,7 @@ INSERT INTO books (
     15.50,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000098',
+('8d737469-4df8-4e97-a23e-f7e3676c58ed',
     'Frankenstein',
     'Mary Shelley',
     '1818-01-01',
@@ -1295,8 +1197,7 @@ INSERT INTO books (
     13.99,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000099',
+('e8506c45-d9ae-4941-ae90-b7d4a31253dc',
     'It',
     'Stephen King',
     '1986-09-15',
@@ -1308,8 +1209,7 @@ INSERT INTO books (
     21.70,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000100',
+('a97a3da3-5e17-4e1c-b3bc-90f3c9cf38ed',
     'El resplandor',
     'Stephen King',
     '1977-01-28',
@@ -1321,8 +1221,7 @@ INSERT INTO books (
     17.60,
     CURRENT_TIMESTAMP
 ),
-(
-    '00000000-0000-0000-0000-000000000101',
+('d8666314-1fa8-41e9-a181-282dcee0fc11',
     'Libro oculto de pruebas internas',
     'Equipo Relatos de Papel',
     '2026-01-01',

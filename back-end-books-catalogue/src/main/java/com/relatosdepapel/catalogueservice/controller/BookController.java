@@ -1,5 +1,6 @@
 package com.relatosdepapel.catalogueservice.controller;
 
+import com.relatosdepapel.catalogueservice.dto.BookPatchRequest;
 import com.relatosdepapel.catalogueservice.dto.BookRequest;
 import com.relatosdepapel.catalogueservice.dto.BookResponse;
 import com.relatosdepapel.catalogueservice.entity.Book;
@@ -109,9 +110,9 @@ public class BookController {
     @PatchMapping("/{externalId}")
     public BookResponse partialUpdate(
             @PathVariable UUID externalId,
-            @RequestBody Book book
+            @Valid @RequestBody BookPatchRequest request
     ) {
-        Book updated = bookService.partialUpdate(externalId, book);
+        Book updated = bookService.partialUpdate(externalId, request);
         return new BookResponse(updated);
     }
 
