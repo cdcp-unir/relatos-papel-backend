@@ -8,8 +8,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: postgres
-    ports:
-      - "5432:5432"
     volumes:
       - ./database/catalogue/01_catalogue_ddl.sql:/docker-entrypoint-initdb.d/01_catalogue_ddl.sql
       - ./database/catalogue/02_catalogue_dml.sql:/docker-entrypoint-initdb.d/02_catalogue_dml.sql
@@ -25,8 +23,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: postgres
-    ports:
-      - "5432:5432"
     volumes:
       - ./database/orders/01_orders_ddl.sql:/docker-entrypoint-initdb.d/03_orders_ddl.sql
     healthcheck:

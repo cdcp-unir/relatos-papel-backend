@@ -4,9 +4,9 @@
 -- Base de datos: books_orders
 -- =========================================================
 
-CREATE DATABASE books_orders;
+CREATE DATABASE orders_db;
 
-\connect books_orders;
+\connect orders_db;
 
 -- ===============================================
 -- Tabla: orders

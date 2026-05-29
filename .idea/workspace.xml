@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Update docker compose file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/facade/BooksCatalogueFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/facade/BooksCatalogueFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.http" beforeDir="false" afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +91,7 @@
   "keyToString": {
     "Application.CatalogueServiceApplication.executor": "Run",
     "Docker.docker-compose.yml.catalogue1: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.db2: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.eureka: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.orders1: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.orders2: Compose Deployment.executor": "Run",
@@ -178,7 +176,6 @@
         <entry key="HttpClient.HttpRequestRunConfigurationType">
           <value>
             <map>
-              <entry key="test | create order from gateway" value="STOPPED" />
               <entry key="test | test books gateway" value="STOPPED" />
             </map>
           </value>
@@ -196,10 +193,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.test | create order from gateway">
-    <configuration name="test | create order from gateway" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="create order from gateway" index="2" runType="Run single request">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="HTTP Request.test | test books gateway">
     <configuration name="test | test books gateway" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="test books gateway" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -249,6 +243,19 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.db2: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="db2" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.yml.orders1: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -289,10 +296,10 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.docker-compose.yml.db2: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.orders1: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.orders2: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.orders3: Compose Deployment" />
-      <item itemvalue="HTTP Request.test | create order from gateway" />
       <item itemvalue="HTTP Request.test | test books gateway" />
       <item itemvalue="Spring Boot.gateway-service" />
       <item itemvalue="Spring Boot.catalogue-service" />
@@ -301,11 +308,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.test | create order from gateway" />
         <item itemvalue="HTTP Request.test | test books gateway" />
-        <item itemvalue="Docker.docker-compose.yml.orders1: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.orders2: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.orders3: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.orders2: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.orders1: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.db2: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -335,6 +342,7 @@
       <workItem from="1779935152674" duration="1562000" />
       <workItem from="1779938323900" duration="1195000" />
       <workItem from="1779939567663" duration="5927000" />
+      <workItem from="1780024375996" duration="5520000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -440,7 +448,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779942812444</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Update docker compose file">
+      <option name="closed" value="true" />
+      <created>1780028370295</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1780028370295</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
