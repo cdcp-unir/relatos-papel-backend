@@ -1,7 +1,6 @@
 server:
   port: ${PORT:8763}
 
-<<<<<<< HEAD
 ## Classic Eureka configuration
 eureka:
   instance:
@@ -17,12 +16,10 @@ eureka:
 
 ## Enable service discovery (with Eureka)
 ## lower-case-service-id is mandatory, otherwise is retrieved in upper case from Eureka
-=======
->>>>>>> origin/main
+
 spring:
   application:
     name: gateway
-
   cloud:
     gateway:
       server:
@@ -31,10 +28,8 @@ spring:
             locator:
               enabled: true
               lower-case-service-id: true
-
           default-filters:
             - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-
           globalcors:
             cors-configurations:
               '[/**]':
@@ -42,23 +37,6 @@ spring:
                 allowedHeaders: "*"
                 allowedMethods:
                   - POST
-<<<<<<< HEAD
-=======
-                  - PUT
-                  - DELETE
-                  - PATCH
-                  - OPTIONS
-
-eureka:
-  client:
-    service-url:
-      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    prefer-ip-address: true
->>>>>>> origin/main
-
 management:
   endpoints:
     web:
