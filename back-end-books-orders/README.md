@@ -23,7 +23,7 @@ El microservicio sigue una arquitectura en capas con un patrón **Facade** para 
 Controller → Service → Facade (WebClient) → books-catalogue → Repository → Base de datos Postgres
 ```
 
-Se registra en **Eureka** como `books-orders` y utiliza **WebClient** con `@LoadBalanced` para resolver las URLs de otros microservicios vía Service Discovery. Escucha en el **puerto 8081**.
+Se registra en **Eureka** como `books-orders` y utiliza **WebClient** con `@LoadBalanced` para resolver las URLs de otros microservicios vía Service Discovery. Escucha en el **puerto 8080**.
 
 ---
 
@@ -31,23 +31,23 @@ Se registra en **Eureka** como `books-orders` y utiliza **WebClient** con `@Load
 
 ### `OrdersController` — `/api/v1/`
 
-| Método | Endpoint           | Descripción                                       | Request Body             | Response                  | HTTP Status |
-|--------|--------------------|---------------------------------------------------|--------------------------|---------------------------|-------------|
-| `GET`  | `/api/v1/orders`   | Obtiene las 5 órdenes más recientes del usuario   | —                        | `GetOrdersResponseDto`    | `200 OK`    |
-| `POST` | `/api/v1/orders`   | Crea una nueva orden de compra                    | `CreateOrderRequestDto`  | `CreateOrderResponseDto`  | `201 Created` |
+| Método | Endpoint           | Descripción                     | Request Body             | Response                  | HTTP Status |
+|--------|--------------------|---------------------------------|--------------------------|---------------------------|-------------|
+| `GET`  | `api/v1/orders/users/{ownerId}/recent`   | Obtiene las ordenes del cliente | —                        | `GetOrdersResponseDto`    | `200 OK`    |
+| `POST` | `/api/v1/orders`   | Crea una nueva orden de compra  | `CreateOrderRequestDto`  | `CreateOrderResponseDto`  | `201 Created` |
 
 ### Manejo de errores — `OrdersControllerAdvice`
 
-| Excepción                       | HTTP Status              | Descripción                                        |
-|---------------------------------|--------------------------|----------------------------------------------------|
-| `BookNotFoundException`       | `404 Not Found`          | El libro solicitado no existe en el catálogo     |
-| `BadBookModificationException`| `400 Bad Request`        | Error al intentar modificar el stock del libro   |
-| `InternalErrorException`        | `500 Internal Server Error` | Error interno al comunicarse con el catálogo     |
+| Excepción                       | HTTP Status              | Descripción                                    |
+|---------------------------------|--------------------------|------------------------------------------------|
+| `OrderNotFoundException`        | `404 Not Found`          | Orden solicitada no existe                     |
+| `BadOrderModificationException` | `400 Bad Request`        | Error al intentar modificar el stock del libro |
+| `InternalErrorException`        | `500 Internal Server Error` | Error interno al comunicarse con el catálogo   |
 
 Respuesta de error:
 ```json
 {
-  "details": "Book with ID 42 not found"
+  "details": "Order with ID 42 not found"
 }
 ```
 
@@ -86,7 +86,7 @@ Orquesta el flujo completo de creación de una orden (`@Transactional`):
 
 ### `GetOrdersService`
 
-- `getRecentOrders()`: Obtiene las **5 órdenes más recientes** del usuario (ordenadas por fecha descendente). Para cada ítem de la orden, consulta al catálogo para obtener el nombre y precio actual del libro.
+- `getRecentOrders()`: Obtiene las ordenes** más recientes** del usuario (ordenadas por fecha descendente). Para cada ítem de la orden, consulta al catálogo para obtener el nombre y precio actual del libro.
 
 ---
 
@@ -98,8 +98,8 @@ Componente que encapsula las llamadas HTTP al microservicio **books-catalogue** 
 
 | Método                                  | HTTP        | Endpoint del catálogo              | Descripción                              |
 |-----------------------------------------|-------------|------------------------------------|------------------------------------------|
-| `getBook(Integer bookId)`           | `GET`       | `/api/v1/books/{id}`            | Obtiene datos de un libro             |
-| `updateBookStock(Integer id, Integer stock)` | `PATCH` | `/api/v1/books/{id}`       | Actualiza el stock (JSON Merge Patch)    |
+| `getBook(Integer externalId)`           | `GET`       | `/api/v1/books/{externalId}`            | Obtiene datos de un libro             |
+| `updateBookStock(Integer externalId, Integer stock)` | `PATCH` | `/api/v1/books/{externalId}`       | Actualiza el stock (JSON Merge Patch)    |
 
 Manejo de errores HTTP:
 - **404** → `BookNotFoundException`
@@ -114,10 +114,9 @@ Modelo simplificado del libro recibido del catálogo: `id`, `name`, `description
 
 ### `OrderJpaRepository`
 
-| Método                                                   | Tipo      | Descripción                                                 |
-|----------------------------------------------------------|-----------|-------------------------------------------------------------|
-| `findByOwnerIdOrderByOrderDateDesc(Integer, Limit)`     | Derivada  | Órdenes de un usuario, ordenadas por fecha desc, con límite |
-| `findByStatus(OrderStatus)`                              | Derivada  | Órdenes filtradas por estado                                |
+| Método                                                 | Tipo      | Descripción                                    |
+|--------------------------------------------------------|-----------|------------------------------------------------|
+| `findByOwnerIdOrderByOrderDateDesc(Integer)`     | Derivada  | Órdenes de un usuario, ordenadas por fecha desc|
 
 Hereda de `JpaRepository<Order, Integer>`.
 
