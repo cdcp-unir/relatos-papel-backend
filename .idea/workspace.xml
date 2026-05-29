@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Fix docker compose &amp; docker files errors">
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/GatewayApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/test/java/com/relatosdepapel/gateway/DemoApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Add gateway">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,35 +31,35 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {}
-}</component>
+    &quot;lastFilter&quot;: {}
+    }</component>
   <component name="GitHubPullRequestState">{
-  &quot;prStates&quot;: [
+    &quot;prStates&quot;: [
     {
-      &quot;id&quot;: {
-        &quot;id&quot;: &quot;PR_kwDOShhh-87dVedy&quot;,
-        &quot;number&quot;: 3
-      },
-      &quot;lastSeen&quot;: 1779331119081
+    &quot;id&quot;: {
+    &quot;id&quot;: &quot;PR_kwDOShhh-87dVedy&quot;,
+    &quot;number&quot;: 3
+    },
+    &quot;lastSeen&quot;: 1779331119081
     }
-  ]
-}</component>
+    ]
+    }</component>
   <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/cdcp-unir/relatos-papel-backend.git&quot;,
     &quot;accountId&quot;: &quot;1ba8e8c4-f625-4c74-acfa-7381eebfb35a&quot;
-  }
-}</component>
+    }
+    }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/back-end-books-orders/README.md" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="HttpClientOnboardingState">{
-  &quot;isOnboardingCommentShown&quot;: true
-}</component>
+    &quot;isOnboardingCommentShown&quot;: true
+    }</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
+    &quot;isMigrated&quot;: true
+    }</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -82,12 +72,12 @@
     <urls />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0,
-  &quot;fromUser&quot;: false
-}</component>
+    &quot;associatedIndex&quot;: 0,
+    &quot;fromUser&quot;: false
+    }</component>
   <component name="ProjectId" id="3DxMSm9fSGK9lEqQuX9c4uJgDpN" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -118,10 +108,11 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.catalogue-service.executor": "Run",
     "Spring Boot.eureka-service.executor": "Run",
+    "Spring Boot.gateway-service.executor": "Run",
     "Spring Boot.orders-service.executor": "Debug",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "will",
+    "git-widget-placeholder": "maikl",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -173,17 +164,10 @@
     </option>
     <option name="configurationStatuses">
       <map>
-        <entry key="HttpClient.HttpRequestRunConfigurationType">
-          <value>
-            <map>
-              <entry key="createOrder | Crear orden" value="STOPPED" />
-              <entry key="test | #1" value="STOPPED" />
-            </map>
-          </value>
-        </entry>
         <entry key="SpringBootApplicationConfigurationType">
           <value>
             <map>
+              <entry key="GatewayApplication" value="STOPPED" />
               <entry key="catalogue-service" value="STOPPED" />
               <entry key="eureka-service" value="STOPPED" />
               <entry key="orders-service" value="STOPPED" />
@@ -201,7 +185,7 @@
       <method v="2" />
     </configuration>
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="gateway-service" />
+      <module name="demo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.gateway.GatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -228,7 +212,7 @@
       </method>
     </configuration>
     <configuration name="gateway-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="gateway-service" />
+      <module name="demo" />
       <selectedOptions>
         <option name="environmentVariables" />
       </selectedOptions>
@@ -241,7 +225,7 @@
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/back-end-books-orders/.env" />
       </option>
-      <module name="orders" />
+      <module name="orders-service" />
       <selectedOptions>
         <option name="environmentVariables" />
       </selectedOptions>
@@ -251,7 +235,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -332,7 +318,7 @@
       <workItem from="1779251953863" duration="2998000" />
       <workItem from="1779255048382" duration="2438000" />
       <workItem from="1779319193174" duration="10272000" />
-      <workItem from="1779848840797" duration="9974000" />
+      <workItem from="1779848840797" duration="10963000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -398,7 +384,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779858064524</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add gateway">
+      <option name="closed" value="true" />
+      <created>1779860095522</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1779860095522</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +421,8 @@
     <MESSAGE value="Add Service and Facade" />
     <MESSAGE value="Update configurations" />
     <MESSAGE value="Fix docker compose &amp; docker files errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix docker compose &amp; docker files errors" />
+    <MESSAGE value="Add gateway" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add gateway" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -436,10 +431,19 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java</url>
-          <line>74</line>
+          <line>71</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="profile != null" />
+        <watch expression="profile != null ? profile : &quot;default&quot;" />
+        <watch expression="System.setProperty(&quot;spring.profiles.active&quot;, profile != null ? profile : &quot;default&quot;)" />
+        <watch expression="mutatedRequest.getURI()" />
+        <watch expression="rawRequest" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
