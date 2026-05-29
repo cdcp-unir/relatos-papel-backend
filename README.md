@@ -13,7 +13,7 @@ Cada microservicio utiliza una base de datos independiente.
 | Microservicio       | Base de datos  | Motor      |
 | ------------------- | -------------- | ---------- |
 | `catalogue-service` | `catalogue_db` | PostgreSQL |
-| `orders-service`    | `orders_db`    | PostgreSQL |
+| `orders-service`    | `books_orders`    | PostgreSQL |
 
 Esta separación evita que un microservicio dependa directamente de las tablas del otro.
 
