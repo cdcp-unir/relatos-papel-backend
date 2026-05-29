@@ -2,9 +2,8 @@ version: "3"
 
 services:
 
-  postgres:
+  db1:
     image: postgres:15
-    container_name: postgres_db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
@@ -12,9 +11,23 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
       - ./database/catalogue/01_catalogue_ddl.sql:/docker-entrypoint-initdb.d/01_catalogue_ddl.sql
       - ./database/catalogue/02_catalogue_dml.sql:/docker-entrypoint-initdb.d/02_catalogue_dml.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  db2:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
       - ./database/orders/01_orders_ddl.sql:/docker-entrypoint-initdb.d/03_orders_ddl.sql
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U postgres" ]
@@ -46,14 +59,14 @@ services:
       dockerfile: Dockerfile
       context: ./back-end-books-orders
     environment:
-      - DB_URL=jdbc:postgresql://postgres:5432/orders_db
+      - DB_URL=jdbc:postgresql://db2:5432/orders_db
       - DB_DRIVER=org.postgresql.Driver
       - DB_USER=postgres
       - DB_PASSWORD=password
       - EUREKA_URL=http://eureka:8761/eureka
       - BOOKS_CATALOGUE_URL=http://catalogue-service/api/v1
     depends_on:
-      postgres:
+      db2:
         condition: service_healthy
       eureka:
         condition: service_started
@@ -63,14 +76,14 @@ services:
       dockerfile: Dockerfile
       context: ./back-end-books-orders
     environment:
-      - DB_URL=jdbc:postgresql://postgres:5432/orders_db
+      - DB_URL=jdbc:postgresql://db2:5432/orders_db
       - DB_DRIVER=org.postgresql.Driver
       - DB_USER=postgres
       - DB_PASSWORD=password
       - EUREKA_URL=http://eureka:8761/eureka
       - BOOKS_CATALOGUE_URL=http://catalogue-service/api/v1
     depends_on:
-      postgres:
+      db2:
         condition: service_healthy
       eureka:
         condition: service_started
@@ -80,14 +93,14 @@ services:
       dockerfile: Dockerfile
       context: ./back-end-books-orders
     environment:
-      - DB_URL=jdbc:postgresql://postgres:5432/orders_db
+      - DB_URL=jdbc:postgresql://db2:5432/orders_db
       - DB_DRIVER=org.postgresql.Driver
       - DB_USER=postgres
       - DB_PASSWORD=password
       - EUREKA_URL=http://eureka:8761/eureka
       - BOOKS_CATALOGUE_URL=http://catalogue-service/api/v1
     depends_on:
-      postgres:
+      db2:
         condition: service_healthy
       eureka:
         condition: service_started
@@ -97,13 +110,13 @@ services:
       dockerfile: Dockerfile
       context: ./back-end-books-catalogue
     environment:
-      - DB_URL=jdbc:postgresql://postgres:5432/catalogue_db
+      - DB_URL=jdbc:postgresql://db1:5432/catalogue_db
       - DB_DRIVER=org.postgresql.Driver
       - DB_USER=postgres
       - DB_PASSWORD=password
       - EUREKA_URL=http://eureka:8761/eureka
     depends_on:
-      postgres:
+      db1:
         condition: service_healthy
       eureka:
         condition: service_started
@@ -113,13 +126,13 @@ services:
       dockerfile: Dockerfile
       context: ./back-end-books-catalogue
     environment:
-      - DB_URL=jdbc:postgresql://postgres:5432/catalogue_db
+      - DB_URL=jdbc:postgresql://db1:5432/catalogue_db
       - DB_DRIVER=org.postgresql.Driver
       - DB_USER=postgres
       - DB_PASSWORD=password
       - EUREKA_URL=http://eureka:8761/eureka
     depends_on:
-      postgres:
+      db1:
         condition: service_healthy
       eureka:
         condition: service_started
