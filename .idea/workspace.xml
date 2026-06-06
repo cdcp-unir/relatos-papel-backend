@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Servicio de usuarios">
-      <change afterPath="$PROJECT_DIR$/back-end-users/Dockerfile" afterDir="false" />
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Ajustes para docker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-users/src/main/java/com/relatosdepapel/users/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-users/src/main/java/com/relatosdepapel/users/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-users/src/main/java/com/relatosdepapel/users/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-users/src/main/java/com/relatosdepapel/users/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end-users/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-users/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,7 +324,7 @@
       <workItem from="1780728356663" duration="284000" />
       <workItem from="1780728724724" duration="315000" />
       <workItem from="1780768748957" duration="3297000" />
-      <workItem from="1780772252938" duration="1432000" />
+      <workItem from="1780772252938" duration="5351000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -411,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780768925468</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Ajustes para docker">
+      <option name="closed" value="true" />
+      <created>1780776964275</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1780776964275</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +445,8 @@
     <MESSAGE value="Fix docker compose &amp; docker files errors" />
     <MESSAGE value="Add gateway" />
     <MESSAGE value="Servicio de usuarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="Servicio de usuarios" />
+    <MESSAGE value="Ajustes para docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajustes para docker" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
