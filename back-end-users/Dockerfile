@@ -1,0 +1,29 @@
+#
+# Build del proyecto (Multi-Stage)
+# --------------------------------
+#
+# Usamos una imagen de Maven para hacer build de proyecto con Java
+# Llamaremos a este sub-entorno "build"
+# Copiamos todo el contenido del repositorio
+# Ejecutamos el comando mvn clean package (Generara un archivo JAR para el despliegue)
+FROM maven:3.9.12-eclipse-temurin-25 AS build
+COPY . .
+RUN ls -la
+RUN mvn clean package -DskipTests
+
+# Usamos una imagen de Eclipse Temurin (sucesora de AdoptOpenJDK)
+# Exponemos el puerto que nuestro componente va a usar para escuchar peticiones
+# Copiamos desde "build" el JAR generado (la ruta de generacion es la misma que veriamos en local) y lo movemos y renombramos en destino como
+# Marcamos el punto de arranque de la imagen con el comando "java -jar app.jar" que ejecutará nuestro componente.
+FROM eclipse-temurin:25-jre
+EXPOSE 8080
+COPY --from=build /target/users-service-0.0.1-SNAPSHOT.jar app.jar
+
+ENV DB_URL=${DB_URL};
+ENV DB_DRIVER=${DB_DRIVER};
+ENV DB_USER=${DB_USER};
+ENV DB_PASSWORD=${DB_PASSWORD};
+ENV EUREKA_URL=${EUREKA_URL};
+ENV USERS_URL=${USERS_URL};
+
+ENTRYPOINT ["java", "-jar", "/app.jar"]
