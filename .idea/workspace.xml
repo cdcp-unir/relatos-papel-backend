@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Correccion de variables de entorno">
-      <change afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/filter/AuthenticationFilter.java" afterDir="false" />
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Cambios para gateway aceptar solo metodos autorizados">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -276,6 +275,9 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.catalogue1: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.eureka: Compose Deployment" />
       <item itemvalue="HTTP Request.createOrder | Crear orden" />
       <item itemvalue="HTTP Request.test | #1" />
       <item itemvalue="Spring Boot.GatewayApplication" />
@@ -283,9 +285,6 @@
       <item itemvalue="Spring Boot.eureka-service" />
       <item itemvalue="Spring Boot.gateway-service" />
       <item itemvalue="Spring Boot.orders-service" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.catalogue1: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.eureka: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
@@ -326,6 +325,9 @@
       <workItem from="1780768748957" duration="3297000" />
       <workItem from="1780772252938" duration="7048000" />
       <workItem from="1780783170143" duration="300000" />
+      <workItem from="1780785091295" duration="631000" />
+      <workItem from="1780797367864" duration="10000" />
+      <workItem from="1780873795902" duration="356000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -431,7 +433,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780782553136</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Cambios para gateway aceptar solo metodos autorizados">
+      <option name="closed" value="true" />
+      <created>1780785121133</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1780785121133</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,7 +475,8 @@
     <MESSAGE value="Ajustes para docker" />
     <MESSAGE value="Cambios en application" />
     <MESSAGE value="Correccion de variables de entorno" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion de variables de entorno" />
+    <MESSAGE value="Cambios para gateway aceptar solo metodos autorizados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios para gateway aceptar solo metodos autorizados" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
