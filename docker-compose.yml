@@ -42,6 +42,25 @@ services:
     networks:
       - relatos-net
 
+  db3:
+    image: postgres:15
+    container_name: user_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: users_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_user_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d users_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - relatos-net
+
   eureka:
     build:
       dockerfile: Dockerfile
@@ -170,6 +189,30 @@ services:
     networks:
       - relatos-net
 
+  users:
+    build:
+      dockerfile: Dockerfile
+      context: ./back-end-users
+    container_name: users-service
+    environment:
+      PORT: 8080
+      DB_URL: jdbc:postgresql://db3:5432/users_db
+      DB_DRIVER: org.postgresql.Driver
+      DB_USER: postgres
+      DB_PASSWORD: password
+      EUREKA_URL: http://eureka:8761/eureka/
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      db3:
+        condition: service_healthy
+      eureka:
+        condition: service_started
+      redis:
+        condition: service_started
+    networks:
+      - relatos-net
+
   gateway:
     build:
       dockerfile: Dockerfile
@@ -193,12 +236,23 @@ services:
         condition: service_started
       orders3:
         condition: service_started
+      users:
+        condition: service_started
+    networks:
+      - relatos-net
+
+  redis:
+    image: redis:7
+    container_name: relatos_redis
+    ports:
+      - "6379:6379"
     networks:
       - relatos-net
 
 volumes:
   postgres_catalogue_data:
   postgres_orders_data:
+  postgres_user_data:
 
 networks:
   relatos-net:
