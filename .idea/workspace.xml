@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Cambios para gateway aceptar solo metodos autorizados">
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.run/GatewayApplication.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.run/GatewayApplication.run.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-eureka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-eureka/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +110,8 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CommsServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UsersServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.catalogue-service.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.eureka-service.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.gateway-service.executor&quot;: &quot;Run&quot;,
@@ -164,10 +171,20 @@
     </option>
     <option name="configurationStatuses">
       <map>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <map>
+              <entry key="createOrder | Crear orden" value="STOPPED" />
+              <entry key="test | #1" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
         <entry key="SpringBootApplicationConfigurationType">
           <value>
             <map>
+              <entry key="CommsServiceApplication" value="STOPPED" />
               <entry key="GatewayApplication" value="STOPPED" />
+              <entry key="UsersServiceApplication" value="STOPPED" />
               <entry key="catalogue-service" value="STOPPED" />
               <entry key="eureka-service" value="STOPPED" />
               <entry key="orders-service" value="STOPPED" />
@@ -184,9 +201,23 @@
     <configuration name="test | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="CommsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="back-end-comms-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.comms_service.CommsServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="demo" />
+      <module name="gateway-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsersServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="users-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.users.UsersServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -205,7 +236,7 @@
       </method>
     </configuration>
     <configuration name="eureka-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="relatos-de-papel-eureka" />
+      <module name="eureka-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="relatos_de_papel_eureka.BackEndEurekaApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -280,6 +311,8 @@
       <item itemvalue="Docker.docker-compose.yml.eureka: Compose Deployment" />
       <item itemvalue="HTTP Request.createOrder | Crear orden" />
       <item itemvalue="HTTP Request.test | #1" />
+      <item itemvalue="Spring Boot.CommsServiceApplication" />
+      <item itemvalue="Spring Boot.UsersServiceApplication" />
       <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.catalogue-service" />
       <item itemvalue="Spring Boot.eureka-service" />
@@ -289,10 +322,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="HTTP Request.createOrder | Crear orden" />
         <item itemvalue="HTTP Request.test | #1" />
         <item itemvalue="Docker.docker-compose.yml.eureka: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.catalogue1: Compose Deployment" />
-        <item itemvalue="HTTP Request.createOrder | Crear orden" />
       </list>
     </recent_temporary>
   </component>
@@ -328,6 +361,11 @@
       <workItem from="1780785091295" duration="631000" />
       <workItem from="1780797367864" duration="10000" />
       <workItem from="1780873795902" duration="356000" />
+      <workItem from="1780874160340" duration="297000" />
+      <workItem from="1780968514707" duration="1419000" />
+      <workItem from="1780970998889" duration="89000" />
+      <workItem from="1780971095890" duration="3330000" />
+      <workItem from="1780974907293" duration="1095000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -441,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780785121133</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Servicio para web socket con gemini">
+      <option name="closed" value="true" />
+      <created>1780874236234</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1780874236234</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,20 +522,12 @@
     <MESSAGE value="Cambios en application" />
     <MESSAGE value="Correccion de variables de entorno" />
     <MESSAGE value="Cambios para gateway aceptar solo metodos autorizados" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios para gateway aceptar solo metodos autorizados" />
+    <MESSAGE value="Servicio para web socket con gemini" />
+    <option name="LAST_COMMIT_MESSAGE" value="Servicio para web socket con gemini" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="profile != null" />
