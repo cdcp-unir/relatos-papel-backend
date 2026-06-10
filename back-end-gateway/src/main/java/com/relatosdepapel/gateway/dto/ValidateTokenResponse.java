@@ -9,4 +9,7 @@ public class ValidateTokenResponse {
 
     private String jwt;
     private boolean valid;
+    private Integer userId;
+    private String email;
+    private String role;
 }

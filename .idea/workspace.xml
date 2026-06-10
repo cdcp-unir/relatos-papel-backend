@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="">
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Cambio de version de los proyectos a java 25">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.run/GatewayApplication.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.run/GatewayApplication.run.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-eureka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-eureka/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/dto/ValidateTokenResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/dto/ValidateTokenResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/filter/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/service/AuthValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/service/AuthValidationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-users/src/main/java/com/relatosdepapel/users/dto/ValidateTokenResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-users/src/main/java/com/relatosdepapel/users/dto/ValidateTokenResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-users/src/main/java/com/relatosdepapel/users/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-users/src/main/java/com/relatosdepapel/users/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,16 +40,23 @@
   &quot;lastFilter&quot;: {}
 }</component>
   <component name="GitHubPullRequestState">{
-    &quot;prStates&quot;: [
+  &quot;prStates&quot;: [
     {
-    &quot;id&quot;: {
-    &quot;id&quot;: &quot;PR_kwDOShhh-87dVedy&quot;,
-    &quot;number&quot;: 3
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOShhh-87dVedy&quot;,
+        &quot;number&quot;: 3
+      },
+      &quot;lastSeen&quot;: 1779331119081
     },
-    &quot;lastSeen&quot;: 1779331119081
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOShhh-87kL7iJ&quot;,
+        &quot;number&quot;: 19
+      },
+      &quot;lastSeen&quot;: 1780976258081
     }
-    ]
-    }</component>
+  ]
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/cdcp-unir/relatos-papel-backend.git&quot;,
@@ -365,7 +374,8 @@
       <workItem from="1780968514707" duration="1419000" />
       <workItem from="1780970998889" duration="89000" />
       <workItem from="1780971095890" duration="3330000" />
-      <workItem from="1780974907293" duration="1095000" />
+      <workItem from="1780974907293" duration="1429000" />
+      <workItem from="1781056822992" duration="53000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -487,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780874236234</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Cambio de version de los proyectos a java 25">
+      <option name="closed" value="true" />
+      <created>1780976228391</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1780976228391</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +541,8 @@
     <MESSAGE value="Correccion de variables de entorno" />
     <MESSAGE value="Cambios para gateway aceptar solo metodos autorizados" />
     <MESSAGE value="Servicio para web socket con gemini" />
-    <option name="LAST_COMMIT_MESSAGE" value="Servicio para web socket con gemini" />
+    <MESSAGE value="Cambio de version de los proyectos a java 25" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambio de version de los proyectos a java 25" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
