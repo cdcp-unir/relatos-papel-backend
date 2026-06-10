@@ -21,7 +21,7 @@ public class CreateOrderService {
     private final BooksCatalogueFacade booksCatalogueFacade;
 
     @Transactional
-    public CreateOrderResponseDto CreateOrder(CreateOrderRequestDto requestDto) {
+    public CreateOrderResponseDto CreateOrder(CreateOrderRequestDto requestDto, Integer userId) {
         List<RequestedBook> requestedBookList = requestDto.getItems();
 
         // validar que existan libros en la petición
@@ -66,7 +66,7 @@ public class CreateOrderService {
                 .orderDate(LocalDateTime.now())
                 .total(totalAmount)
                 .status(OrderStatus.EN_PROCESO)
-                .ownerId(1) // TODO: obtener id de usuario cuando tenga autenticación
+                .ownerId(userId)
                 .build();
 
         // Agregar items a la orden usando el método helper que mantiene la relación bidireccional

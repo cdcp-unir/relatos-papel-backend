@@ -13,13 +13,12 @@ public class AuthValidationService {
 
     private final WebClient webClient;
 
-    public Mono<Boolean> validateToken(String token) {
+    public Mono<ValidateTokenResponse> validateToken(String token) {
 
         return webClient.post()
                 .uri("http://users-service:8080/api/v1/auth/validate")
                 .bodyValue(new ValidateTokenRequest(token))
                 .retrieve()
-                .bodyToMono(ValidateTokenResponse.class)
-                .map(ValidateTokenResponse::isValid);
+                .bodyToMono(ValidateTokenResponse.class);
     }
 }

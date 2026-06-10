@@ -18,8 +18,8 @@ public class OrderController {
     private final GetOrderServices getOrderServices;
 
     @PostMapping()
-    public CreateOrderResponseDto CreateOrder(@RequestBody() CreateOrderRequestDto dto) {
-        return createOrderService.CreateOrder(dto);
+    public CreateOrderResponseDto CreateOrder(@RequestHeader("X-User-Id") Integer userId, @RequestBody() CreateOrderRequestDto dto) {
+        return createOrderService.CreateOrder(dto, userId);
     }
 
     @GetMapping("/users/{ownerId}/recent")

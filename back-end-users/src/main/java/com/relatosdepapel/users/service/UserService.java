@@ -69,7 +69,23 @@ public class UserService {
     public ValidateTokenResponse validateToken(String opaqueToken) {
         String jwt = redisService.getJwt(opaqueToken);
 
-        return new ValidateTokenResponse(jwt, jwt!=null);
+        if (jwt == null) {
+            return new ValidateTokenResponse(null, false, null, null, null);
+        }
+
+        Claims claims = jwtService.obtainClaims(jwt);
+
+        Integer userId = Integer.valueOf(claims.getSubject());
+        String email = claims.get("email", String.class);
+        String role = claims.get("role", String.class);
+
+        return new ValidateTokenResponse(
+                jwt,
+                true,
+                userId,
+                email,
+                role
+        );
     }
 
     public TokenResponse refreshToken(String opaqueToken) {
