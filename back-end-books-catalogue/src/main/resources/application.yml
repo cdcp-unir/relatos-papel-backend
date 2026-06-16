@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:0}
+  port: ${PORT:8080}
 
 spring:
   application:
@@ -7,8 +7,8 @@ spring:
 
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/catalogue_db}
-    username: ${DB_USER:postgres}
-    password: ${DB_PASSWORD:Adrian30@}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:admin}
     driver-class-name: ${DB_DRIVER:org.postgresql.Driver}
 
   jpa:

@@ -1,19 +1,26 @@
 server:
-  port: ${PORT:0}
+  port: ${PORT:8081}
 
 spring:
   application:
     name: orders-service
+    ##Rabbitmq configuracion
+  RabbitMQ:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:admin}
+    password: ${RABBITMQ_PASSWORD:admin}
+    virtual-host: ${RABBITMQ_VHOST:/}
 
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/books_orders}
+    url: ${DB_URL:jdbc:postgresql://localhost:5431/books_orders}
     driver-class-name: ${DB_DRIVER:org.postgresql.Driver}
-    username: ${DB_USER:postgres}
-    password: ${DB_PASSWORD:Adrian30@}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:admin}
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
     properties:
       hibernate:
@@ -29,7 +36,16 @@ eureka:
     prefer-ip-address: true
 
 management:
-  endpoints:
+  endpoint:
     web:
       exposure:
         include: health,info
+
+##Rabbitmq Configuracion de eventos
+rabbitmq:
+  exchange:
+    orders: pedido.creado
+  routing:
+    key:
+      order:
+        created: order.created
