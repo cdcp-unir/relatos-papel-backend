@@ -43,6 +43,7 @@ public class BookService {
     }
 
     public Page<Book> findAll(
+            String search,
             String title,
             String author,
             LocalDate publicationDate,
@@ -54,6 +55,7 @@ public class BookService {
     ) {
         return bookRepository.findAll(
                 BookSpecification.filter(
+                        search,
                         title,
                         author,
                         publicationDate,
@@ -64,6 +66,14 @@ public class BookService {
                 ),
                 pageable
         );
+    }
+
+    private String normalize(String value) {
+        if (value == null || value.trim().isEmpty()) {
+            return null;
+        }
+
+        return value.trim().toLowerCase();
     }
 
     public Book findByExternalId(UUID externalId) {

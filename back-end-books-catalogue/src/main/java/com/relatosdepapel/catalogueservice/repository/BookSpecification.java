@@ -11,6 +11,7 @@ public class BookSpecification {
     }
 
     public static Specification<Book> filter(
+            String search,
             String title,
             String author,
             LocalDate publicationDate,
@@ -21,6 +22,31 @@ public class BookSpecification {
     ) {
         return (root, query, criteriaBuilder) -> {
             var predicates = criteriaBuilder.conjunction();
+
+            if (search != null && !search.trim().isEmpty()) {
+                String searchValue = "%" + search.toLowerCase().trim() + "%";
+
+                var searchPredicate = criteriaBuilder.or(
+                        criteriaBuilder.like(
+                                criteriaBuilder.lower(root.get("title")),
+                                searchValue
+                        ),
+                        criteriaBuilder.like(
+                                criteriaBuilder.lower(root.get("author")),
+                                searchValue
+                        ),
+                        criteriaBuilder.like(
+                                criteriaBuilder.lower(root.get("category")),
+                                searchValue
+                        ),
+                        criteriaBuilder.like(
+                                criteriaBuilder.lower(root.get("isbn")),
+                                searchValue
+                        )
+                );
+
+                predicates = criteriaBuilder.and(predicates, searchPredicate);
+            }
 
             if (title != null && !title.trim().isEmpty()) {
                 predicates = criteriaBuilder.and(

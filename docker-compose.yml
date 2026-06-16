@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   db1:
     image: postgres:15
@@ -54,7 +52,7 @@ services:
     volumes:
       - postgres_user_data:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres -d users_db" ]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d users_db"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -213,6 +211,23 @@ services:
     networks:
       - relatos-net
 
+  comms:
+    build:
+      dockerfile: Dockerfile
+      context: ./back-end-comms-service
+    container_name: comms-service
+    environment:
+      PORT: 8080
+      EUREKA_URL: http://eureka:8761/eureka/
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+    ports:
+      - "8085:8080"
+    depends_on:
+      eureka:
+        condition: service_started
+    networks:
+      - relatos-net
+
   gateway:
     build:
       dockerfile: Dockerfile
@@ -237,6 +252,8 @@ services:
       orders3:
         condition: service_started
       users:
+        condition: service_started
+      comms:
         condition: service_started
     networks:
       - relatos-net
