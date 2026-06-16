@@ -75,7 +75,8 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
 
         return path.contains("/auth/token")
                 || path.contains("/auth/refresh")
-                || path.contains("/users");
+                || path.contains("/users")
+                || path.contains("/books");
     }
 
     @Override
