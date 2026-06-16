@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-    <module name="demo" />
+    <module name="gateway-service"/>
     <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.gateway.GatewayApplication" />
     <method v="2">
       <option name="Make" enabled="true" />

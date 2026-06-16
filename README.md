@@ -6,297 +6,14 @@ El proyecto implementa una arquitectura parcial de microservicios con **Java**, 
 
 ---
 
-## Tabla de contenidos
-
-- [Descripción general](#descripción-general)
-- [Arquitectura](#arquitectura)
-- [Estructura del repositorio](#estructura-del-repositorio)
-- [Tecnologías utilizadas](#tecnologías-utilizadas)
-- [Microservicios](#microservicios)
-- [Bases de datos](#bases-de-datos)
-- [Scripts DDL y DML](#scripts-ddl-y-dml)
-- [Configuración local](#configuración-local)
-- [Orden de arranque](#orden-de-arranque)
-- [Endpoints principales](#endpoints-principales)
-- [Comunicación entre microservicios](#comunicación-entre-microservicios)
-- [Eureka Server](#eureka-server)
-- [Cloud Gateway](#cloud-gateway)
-- [Pruebas recomendadas](#pruebas-recomendadas)
-- [Uso de inteligencia artificial](#uso-de-inteligencia-artificial)
-- [Notas de entrega](#notas-de-entrega)
-
----
-
-## Descripción general
-
-Este repositorio contiene el back-end parcial de **Relatos de Papel**, una aplicación orientada a la compra de libros físicos y digitales.
-
-La solución está compuesta por:
-
-- `back-end-books-catalogue`: microservicio de catálogo.
-- `back-end-books-orders`: microservicio operador de órdenes de compra.
-- `back-end-eureka`: servidor de descubrimiento Netflix Eureka.
-- `back-end-gateway`: servidor perimetral Spring Cloud Gateway.
-- `database`: scripts DDL y DML para reconstruir las bases de datos.
-
-Cada microservicio posee su propia base de datos relacional. `catalogue-service` utiliza `catalogue_db` y `orders-service` utiliza `orders_db`.
-
----
-
-## Arquitectura
-
-```txt
-Cliente / Postman / Front-end
-            |
-            v
-      Cloud Gateway
-            |
-    ---------------------
-    |                   |
-    v                   v
-catalogue-service   orders-service
-    ^                   |
-    |                   |
-    ---------------------
-      Comunicación HTTP
-      usando Eureka
-```
-
-El flujo principal de compra es:
-
-```txt
-Cliente
-  |
-  v
-orders-service
-  |
-  |-- consulta por HTTP a catalogue-service
-  |-- valida existencia del libro
-  |-- valida visibilidad
-  |-- valida stock disponible
-  |
-  v
-orders_db
-```
-
----
-
-## Estructura del repositorio
-
-```txt
-relatos-papel-backend/
-│
-├── back-end-books-catalogue/
-│   ├── src/
-│   ├── pom.xml
-│   ├── mvnw
-│   ├── mvnw.cmd
-│   └── README.md
-│
-├── back-end-books-orders/
-│   ├── src/
-│   ├── pom.xml
-│   ├── mvnw
-│   ├── mvnw.cmd
-│   └── README.md
-│
-├── back-end-eureka/
-│   ├── src/
-│   ├── pom.xml
-│   ├── mvnw
-│   ├── mvnw.cmd
-│   └── README.md
-│
-├── back-end-gateway/
-│   ├── src/
-│   ├── pom.xml
-│   ├── mvnw
-│   ├── mvnw.cmd
-│   └── README.md
-│
-├── database/
-│   ├── catalogue/
-│   │   ├── 01_catalogue_ddl.sql
-│   │   └── 02_catalogue_dml.sql
-│   │
-│   └── orders/
-│       ├── 01_orders_ddl.sql
-│       └── 02_orders_dml.sql
-│
-├── docker-compose.yml
-├── .gitignore
-└── README.md
-```
-
----
-
-## Tecnologías utilizadas
-
-- Java 17
-- Spring Boot 4.0.6
-- Spring Web
-- Spring WebFlux / WebClient
-- Spring Data JPA
-- Hibernate
-- Jakarta Validation
-- PostgreSQL
-- Maven
-- Netflix Eureka
-- Spring Cloud Gateway
-- Spring Cloud LoadBalancer
-- Docker / Docker Compose
-- Postman
-
----
-
-## Microservicios
-
-### catalogue-service
-
-Microservicio encargado de gestionar el catálogo de libros.
-
-Responsabilidades:
-
-- Crear libros.
-- Listar libros con filtros, paginación y ordenamiento.
-- Buscar libros por `externalId`.
-- Actualizar libros total o parcialmente.
-- Eliminar libros.
-- Permitir búsquedas por título, autor, fecha de publicación, categoría, ISBN, valoración y visibilidad.
-
-Puerto local sugerido:
-
-```txt
-8081
-```
-
-Nombre registrado en Eureka:
-
-```txt
-catalogue-service
-```
-
-Base de datos:
-
-```txt
-catalogue_db
-```
-
-Endpoint base:
-
-```txt
-/api/v1/books
-```
-
----
-
-### orders-service
-
-Microservicio operador encargado de registrar compras de libros.
-
-Responsabilidades:
-
-- Registrar órdenes de compra.
-- Consultar `catalogue-service` antes de registrar la compra.
-- Validar que el libro exista.
-- Validar que el libro esté visible.
-- Validar que exista stock suficiente.
-- Actualizar el stock del libro después de la compra.
-- Persistir el acuse de compra en su base de datos.
-- Recuperar órdenes recientes de un usuario.
-
-Puerto local sugerido:
-
-```txt
-8082
-```
-
-Nombre registrado en Eureka:
-
-```txt
-orders-service
-```
-
-Base de datos:
-
-```txt
-orders_db
-```
-
-Endpoint base:
-
-```txt
-/api/v1/orders
-```
-
----
-
-### eureka-server
-
-Servidor de descubrimiento de servicios basado en Netflix Eureka.
-
-Responsabilidades:
-
-- Registrar automáticamente los microservicios al arrancar.
-- Permitir que los microservicios se comuniquen usando nombres lógicos.
-- Evitar el uso de IP y puerto en la comunicación interna.
-
-Puerto local:
-
-```txt
-8761
-```
-
-Dashboard:
-
-```txt
-http://localhost:8761
-```
-
-Servicios esperados en Eureka:
-
-```txt
-CATALOGUE-SERVICE
-ORDERS-SERVICE
-CLOUD-GATEWAY
-```
-
----
-
-### cloud-gateway
-
-Servidor perimetral de la arquitectura.
-
-Responsabilidades:
-
-- Actuar como punto único de entrada al back-end.
-- Redirigir peticiones hacia `catalogue-service` y `orders-service`.
-- Usar Eureka para localizar dinámicamente los microservicios.
-- Evitar que el cliente acceda directamente a los puertos internos.
-
-Puerto local:
-
-```txt
-8080
-```
-
-Ejemplos de rutas:
-
-```txt
-/catalogue/** -> catalogue-service
-/orders/**    -> orders-service
-```
-
----
-
 ## Bases de datos
 
 Cada microservicio utiliza una base de datos independiente.
 
-| Microservicio | Base de datos | Motor |
-|---|---|---|
+| Microservicio       | Base de datos  | Motor      |
+| ------------------- | -------------- | ---------- |
 | `catalogue-service` | `catalogue_db` | PostgreSQL |
-| `orders-service` | `orders_db` | PostgreSQL |
+| `orders-service`    | `books_orders`    | PostgreSQL |
 
 Esta separación evita que un microservicio dependa directamente de las tablas del otro.
 
@@ -317,19 +34,16 @@ database/catalogue/01_catalogue_ddl.sql
 database/catalogue/02_catalogue_dml.sql
 ```
 
-- `01_catalogue_ddl.sql`: crea la base de datos y la tabla `books`.
-- `02_catalogue_dml.sql`: inserta más de 100 libros de prueba.
+* `01_catalogue_ddl.sql`: crea la base de datos y la tabla `books`.
+* `02_catalogue_dml.sql`: inserta más de 100 libros de prueba.
 
 ### Órdenes
 
 ```txt
 database/orders/01_orders_ddl.sql
-database/orders/02_orders_dml.sql
 ```
 
-- `01_orders_ddl.sql`: crea la base de datos y las tablas de órdenes.
-- `02_orders_dml.sql`: inserta datos iniciales o de prueba para órdenes.
-
+* `01_orders_ddl.sql`: crea la base de datos y las tablas de órdenes.
 ---
 
 ## Configuración local
@@ -344,7 +58,7 @@ src/main/resources/application.yml
 
 ```yaml
 server:
-  port: 8081
+  port: 0
 
 spring:
   application:
@@ -365,7 +79,7 @@ eureka:
 
 ```yaml
 server:
-  port: 8082
+  port: 0
 
 spring:
   application:
@@ -380,9 +94,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
-booksCatalogue:
-  url: http://catalogue-service/api/v1
 ```
 
 La propiedad importante es:
@@ -393,6 +104,121 @@ booksCatalogue:
 ```
 
 Esta URL usa el nombre lógico del microservicio registrado en Eureka, no `localhost:8081`.
+
+
+## Consideraciones importantes de configuración
+
+Antes de ejecutar el proyecto, se deben revisar algunos parámetros importantes para evitar errores de conexión entre los microservicios, PostgreSQL, Eureka y el Gateway.
+
+### 1. Cambiar credenciales de PostgreSQL
+
+Las credenciales de base de datos definidas en los archivos `application.yml` de cada microservicio deben coincidir con las credenciales configuradas en PostgreSQL o en `docker-compose.yml`.
+
+Ejemplo de configuración en un microservicio:
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalogue_db
+    username: postgres
+    password: TU_PASSWORD
+```
+
+En caso de usar Docker Compose, verificar también las variables del servicio PostgreSQL:
+
+```yaml
+environment:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: TU_PASSWORD
+  POSTGRES_DB: postgres
+```
+
+Es importante reemplazar `TU_PASSWORD` por la contraseña real utilizada en el entorno local o de pruebas.
+
+Si la contraseña de PostgreSQL no coincide entre `docker-compose.yml` y los archivos `application.yml`, los microservicios no podrán conectarse a sus respectivas bases de datos.
+
+---
+
+### 2. Verificar puertos cuando estén configurados en `0`
+
+Algunos microservicios pueden estar configurados inicialmente con:
+
+```yaml
+server:
+  port: 0
+```
+
+Cuando el puerto se establece en `0`, Spring Boot asigna automáticamente un puerto aleatorio disponible al iniciar el servicio.
+
+Esto es válido para servicios registrados en Eureka, porque Eureka permite descubrir dinámicamente en qué puerto se encuentra cada microservicio. Sin embargo, para hacer pruebas directas desde navegador, Postman o curl, se debe verificar el puerto real asignado.
+
+El puerto asignado puede verse en la consola del microservicio al iniciar, por ejemplo:
+
+```txt
+Tomcat started on port 54321
+```
+
+También puede verificarse desde el dashboard de Eureka:
+
+```txt
+http://localhost:8761
+```
+
+En Eureka se debe revisar la instancia registrada de cada servicio para confirmar el host y puerto real.
+
+---
+
+### 3. Diferencia entre acceso directo y acceso por Gateway
+
+Si un microservicio usa puerto aleatorio, no se recomienda depender de su puerto directo para las pruebas principales.
+
+En ese caso, lo recomendable es probar mediante el Gateway, por ejemplo:
+
+```http
+GET http://localhost:8080/catalogue/api/v1/books
+POST http://localhost:8080/orders/api/v1/orders
+```
+
+El Gateway se encarga de localizar los microservicios registrados en Eureka usando sus nombres lógicos:
+
+```txt
+catalogue-service
+orders-service
+```
+
+Por esta razón, aunque `catalogue-service` y `orders-service` estén usando puertos aleatorios, el cliente puede seguir consumiendo los servicios mediante el Gateway.
+
+---
+
+### 4. Verificar servicios registrados en Eureka
+
+Antes de probar las rutas del Gateway, se debe confirmar que Eureka muestre los servicios esperados:
+
+```txt
+CATALOGUE-SERVICE
+ORDERS-SERVICE
+CLOUD-GATEWAY
+```
+
+Si alguno no aparece registrado, el Gateway no podrá redirigir correctamente las peticiones hacia ese microservicio.
+
+---
+
+### 5. Recomendación para pruebas locales
+
+Para facilitar las pruebas manuales desde Postman, navegador o curl, se pueden usar puertos fijos durante el desarrollo:
+
+```yaml
+server:
+  port: 8081
+```
+
+```yaml
+server:
+  port: 8082
+```
+
+Y dejar los puertos aleatorios únicamente cuando se quiera simular un entorno más dinámico con descubrimiento de servicios mediante Eureka.
 
 ---
 
@@ -408,7 +234,7 @@ Para ejecutar correctamente la arquitectura en local, se recomienda iniciar los 
 5. cloud-gateway
 ```
 
-### Levantar bases de datos con Docker
+### Levantar bases de datos con Docker o directamente todo el backend
 
 ```bash
 docker compose up -d
@@ -470,249 +296,8 @@ POST http://localhost:8082/api/v1/orders
 GET  http://localhost:8082/api/v1/orders/users/{ownerId}/recent
 ```
 
-### Mediante cloud-gateway
-
-```http
-GET  http://localhost:8080/catalogue/api/v1/books
-POST http://localhost:8080/orders/api/v1/orders
-GET  http://localhost:8080/orders/api/v1/orders/users/{ownerId}/recent
-```
+> Nota: si `catalogue-service` u `orders-service` están configurados con `server.port: 0`, los puertos directos `8081` y `8082` pueden no aplicar. En ese caso, se debe verificar el puerto real en la consola del servicio o en el dashboard de Eureka. Para pruebas generales, se recomienda consumir los endpoints mediante el Cloud Gateway.
 
 ---
 
-## Comunicación entre microservicios
 
-`orders-service` se comunica con `catalogue-service` usando HTTP y el nombre lógico registrado en Eureka.
-
-Ejemplo:
-
-```txt
-http://catalogue-service/api/v1/books/{externalId}
-```
-
-Esto evita usar:
-
-```txt
-http://localhost:8081/api/v1/books/{externalId}
-```
-
-Para que funcione, `orders-service` usa un `WebClient.Builder` con `@LoadBalanced`.
-
-```java
-@Bean
-@LoadBalanced
-public WebClient.Builder webClientBuilder() {
-    return WebClient.builder();
-}
-```
-
----
-
-## Eureka Server
-
-Al iniciar los microservicios, el dashboard de Eureka debe mostrar:
-
-```txt
-CATALOGUE-SERVICE
-ORDERS-SERVICE
-CLOUD-GATEWAY
-```
-
-URL:
-
-```txt
-http://localhost:8761
-```
-
-En desarrollo local, si aparece el aviso de autopreservación, puede desactivarse con:
-
-```yaml
-eureka:
-  server:
-    enable-self-preservation: false
-```
-
----
-
-## Cloud Gateway
-
-El gateway funciona como entrada única al back-end.
-
-Ejemplo de configuración conceptual:
-
-```yaml
-spring:
-  cloud:
-    gateway:
-      routes:
-        - id: catalogue-service
-          uri: lb://catalogue-service
-          predicates:
-            - Path=/catalogue/**
-          filters:
-            - StripPrefix=1
-
-        - id: orders-service
-          uri: lb://orders-service
-          predicates:
-            - Path=/orders/**
-          filters:
-            - StripPrefix=1
-```
-
-Con esta configuración, una petición a:
-
-```txt
-http://localhost:8080/catalogue/api/v1/books
-```
-
-se redirige a:
-
-```txt
-catalogue-service/api/v1/books
-```
-
-Y una petición a:
-
-```txt
-http://localhost:8080/orders/api/v1/orders
-```
-
-se redirige a:
-
-```txt
-orders-service/api/v1/orders
-```
-
----
-
-## Pruebas recomendadas
-
-### Probar catálogo
-
-```http
-GET http://localhost:8081/api/v1/books
-```
-
-### Probar catálogo desde gateway
-
-```http
-GET http://localhost:8080/catalogue/api/v1/books
-```
-
-### Crear orden
-
-```http
-POST http://localhost:8082/api/v1/orders
-Content-Type: application/json
-```
-
-Body de ejemplo:
-
-```json
-{
-  "items": [
-    {
-      "externalId": "00000000-0000-0000-0000-000000000001",
-      "quantity": 1
-    }
-  ]
-}
-```
-
-### Crear orden desde gateway
-
-```http
-POST http://localhost:8080/orders/api/v1/orders
-Content-Type: application/json
-```
-
-### Consultar órdenes recientes
-
-```http
-GET http://localhost:8082/api/v1/orders/users/1/recent
-```
-
-Mediante gateway:
-
-```http
-GET http://localhost:8080/orders/api/v1/orders/users/1/recent
-```
-
-### Casos negativos
-
-Se recomienda probar:
-
-- Compra de libro inexistente.
-- Compra de libro oculto.
-- Compra con stock insuficiente.
-- Compra con cantidad menor o igual a cero.
-- Consulta de órdenes recientes de un usuario sin compras.
-
----
-
-## Uso de inteligencia artificial
-
-Durante el desarrollo de esta actividad se utilizó IA generativa como apoyo para tareas de diseño, implementación y documentación.
-
-El uso de IA se aplicó principalmente en:
-
-- Construcción inicial de entidades, DTOs, servicios y controladores.
-- Generación de scripts DDL y DML.
-- Inserción de datos de prueba para el catálogo.
-- Resolución de errores de Maven, JDK, rutas largas en Windows y configuración de IntelliJ.
-- Configuración de Eureka Client y comunicación entre microservicios.
-- Documentación técnica del proyecto.
-
-### Estimación del uso de IA
-
-| Métrica solicitada | Estimación aproximada |
-|---|---:|
-| Porcentaje de respuestas correctas o parcialmente correctas | 85 % |
-| Porcentaje de respuestas incorrectas o que requirieron corrección | 15 % |
-| Número aproximado de líneas de código generadas usando IA | 800 - 1200 líneas |
-| Estimación del tiempo ahorrado en codificación y documentación | 10 - 15 horas |
-
-Las respuestas generadas por IA fueron revisadas, adaptadas y probadas manualmente antes de integrarse al proyecto.
-
----
-
-## Notas de entrega
-
-La entrega debe incluir un único archivo ZIP con:
-
-```txt
-relatos-papel-backend/
-├── back-end-books-catalogue/
-├── back-end-books-orders/
-├── back-end-eureka/
-├── back-end-gateway/
-├── database/
-│   ├── catalogue/
-│   │   ├── 01_catalogue_ddl.sql
-│   │   └── 02_catalogue_dml.sql
-│   └── orders/
-│       ├── 01_orders_ddl.sql
-│       └── 02_orders_dml.sql
-└── README.md
-```
-
-No incluir:
-
-```txt
-target/
-.idea/
-*.iml
-out/
-logs/
-```
-
-La vídeo-memoria debe mostrar:
-
-- Arranque de Eureka, Gateway y microservicios.
-- Dashboard de Eureka con servicios registrados.
-- Operaciones REST de `catalogue-service`.
-- Operaciones REST de `orders-service`.
-- Comunicación entre `orders-service` y `catalogue-service`.
-- Pruebas desde Gateway.
-- Explicación del uso de IA en el desarrollo.
