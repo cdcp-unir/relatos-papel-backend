@@ -1,6 +1,7 @@
 package com.relatosdepapel.orders.repository;
 
 import com.relatosdepapel.orders.repository.model.Order;
+import com.relatosdepapel.orders.repository.model.OrderItem;
 import com.relatosdepapel.orders.repository.model.OrderStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

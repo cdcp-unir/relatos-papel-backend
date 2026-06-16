@@ -1,9 +1,35 @@
 server:
-  port: ${PORT:0}
+  port: ${PORT:8082}
 
 spring:
   application:
     name: comms-service
+
+    ##Rabbitmq configuracion
+  RabbitMQ:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:admin}
+    password: ${RABBITMQ_PASSWORD:admin}
+    virtual-host: ${RABBITMQ_VHOST:/}
+
+    ##Configuracion  mail
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: michael3125@gmail.com
+    password: shlw vlwf fyll ssev
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            trust: smtp.gmail.com
+
 
 eureka:
   client:
@@ -20,5 +46,23 @@ management:
       exposure:
         include: health,info
 
+## RabbitMQ Event Configuration
+rabbitmq:
+  queue:
+    mails:
+      order-created: mail.orden.creada
+  exchange:
+    orders: pedido.creado
+  routing:
+    key:
+      order:
+        created: order.created
+
+# Configuración de notificaciones por correo
+email:
+  notification:
+    to: ${NOTIFICATION_EMAIL:unir.supplies@gmail.com} # Cambia esto por el correo del destinatario
+    from: ${FROM_EMAIL:UNIR Supplies - Tu tienda de suministros <unir.supplies@gmail.com>}
+
 gemini:
-  api-key: ${GEMINI_API_KEY}
+  api-key: kjhkhk

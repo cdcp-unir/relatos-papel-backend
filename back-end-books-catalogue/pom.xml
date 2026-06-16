@@ -24,6 +24,13 @@
     </properties>
 
     <dependencies>
+        <!-- Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>4.1.0</version>
+            <scope>compile</scope>
+        </dependency>
         <!-- API REST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
