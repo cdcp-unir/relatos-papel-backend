@@ -84,6 +84,12 @@ services:
       DB_USER: postgres
       DB_PASSWORD: password
       EUREKA_URL: http://eureka:8761/eureka/
+
+      ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
+      ELASTICSEARCH_USER: ${ELASTICSEARCH_USER}
+      ELASTICSEARCH_PWD: ${ELASTICSEARCH_PWD}
+    ports:
+      - "8081:8080"
     depends_on:
       db1:
         condition: service_healthy
@@ -104,6 +110,12 @@ services:
       DB_USER: postgres
       DB_PASSWORD: password
       EUREKA_URL: http://eureka:8761/eureka/
+
+      ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
+      ELASTICSEARCH_USER: ${ELASTICSEARCH_USER}
+      ELASTICSEARCH_PWD: ${ELASTICSEARCH_PWD}
+    ports:
+      - "8082:8080"
     depends_on:
       db1:
         condition: service_healthy

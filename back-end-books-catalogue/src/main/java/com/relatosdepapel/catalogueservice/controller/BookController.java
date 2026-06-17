@@ -3,22 +3,17 @@ package com.relatosdepapel.catalogueservice.controller;
 import com.relatosdepapel.catalogueservice.dto.BookPatchRequest;
 import com.relatosdepapel.catalogueservice.dto.BookRequest;
 import com.relatosdepapel.catalogueservice.dto.BookResponse;
+import com.relatosdepapel.catalogueservice.dto.PaginatedResponse;
 import com.relatosdepapel.catalogueservice.entity.Book;
+import com.relatosdepapel.catalogueservice.service.BookSearchService;
 import com.relatosdepapel.catalogueservice.service.BookService;
 import jakarta.validation.Valid;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
-import com.relatosdepapel.catalogueservice.dto.PaginatedResponse;
-import org.springframework.data.domain.Page;
-import java.util.Set;
+
 @RestController
 @RequestMapping("api/v1/books")
 public class BookController {
@@ -26,9 +21,11 @@ public class BookController {
     private static final int MAX_PAGE_SIZE = 100;
 
     private final BookService bookService;
+    private final BookSearchService bookSearchService;
 
-    public BookController(BookService bookService) {
+    public BookController(BookService bookService, BookSearchService bookSearchService) {
         this.bookService = bookService;
+        this.bookSearchService = bookSearchService;
     }
 
     @PostMapping
@@ -36,10 +33,10 @@ public class BookController {
         Book created = bookService.create(request);
         return new BookResponse(created);
     }
+
     @GetMapping
     public PaginatedResponse<BookResponse> findAll(
             @RequestParam(required = false) String search,
-
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String author,
             @RequestParam(required = false)
@@ -48,7 +45,6 @@ public class BookController {
             @RequestParam(required = false) String isbn,
             @RequestParam(required = false) Integer rating,
             @RequestParam(required = false) Boolean visible,
-
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int limit,
             @RequestParam(defaultValue = "title") String sortBy,
@@ -57,44 +53,30 @@ public class BookController {
         int safePage = Math.max(page, 1);
         int safeLimit = Math.min(Math.max(limit, 1), MAX_PAGE_SIZE);
 
-        String safeSortBy = resolveSortField(sortBy);
-
-        Sort.Direction direction = "DESC".equalsIgnoreCase(sortDirection)
-                ? Sort.Direction.DESC
-                : Sort.Direction.ASC;
-
-        Pageable pageable = PageRequest.of(
-                safePage - 1,
-                safeLimit,
-                Sort.by(direction, safeSortBy)
-        );
-
-        Page<Book> result = bookService.findAll(
+        return bookSearchService.searchPaginated(
                 search,
                 title,
                 author,
-                publicationDate,
                 category,
                 isbn,
                 rating,
                 visible,
-                pageable
-        );
-
-        List<BookResponse> rows = result.getContent()
-                .stream()
-                .map(BookResponse::new)
-                .toList();
-
-        return new PaginatedResponse<>(
-                rows,
-                result.getTotalElements(),
                 safePage,
-                safeLimit,
-                result.getTotalPages(),
-                result.hasNext(),
-                result.hasPrevious()
+                safeLimit
         );
+    }
+
+    @PostMapping("/elastic/rebuild")
+    public String rebuildSearchIndex(
+            @RequestParam(defaultValue = "false") boolean recreateIndex
+    ) {
+        bookSearchService.rebuildIndex(recreateIndex);
+
+        if (recreateIndex) {
+            return "Índice de libros recreado y reconstruido correctamente";
+        }
+
+        return "Índice de libros reconstruido correctamente";
     }
 
     @GetMapping("/{externalId}")
@@ -124,25 +106,5 @@ public class BookController {
     @DeleteMapping("/{externalId}")
     public void delete(@PathVariable UUID externalId) {
         bookService.delete(externalId);
-    }
-    private String resolveSortField(String sortBy) {
-        Set<String> allowedFields = Set.of(
-                "title",
-                "author",
-                "publicationDate",
-                "category",
-                "isbn",
-                "rating",
-                "visible",
-                "stock",
-                "price",
-                "createdAt"
-        );
-
-        if (sortBy == null || !allowedFields.contains(sortBy)) {
-            return "title";
-        }
-
-        return sortBy;
     }
 }
