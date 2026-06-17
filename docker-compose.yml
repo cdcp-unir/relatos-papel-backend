@@ -25,8 +25,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: postgres
-    ports:
-      - "5433:5432"
     volumes:
       - postgres_orders_data:/var/lib/postgresql/data
       - ./database/orders/01_orders_ddl.sql:/docker-entrypoint-initdb.d/01_orders_ddl.sql
@@ -40,13 +38,11 @@ services:
 
   db3:
     image: postgres:15
-    container_name: user_db
+    container_name: relatos_db_users
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: users_db
-    ports:
-      - "5434:5432"
     volumes:
       - postgres_user_data:/var/lib/postgresql/data
     healthcheck:
@@ -189,7 +185,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./back-end-users
-    container_name: users-service
+    container_name: relatos_users
     environment:
       PORT: 8080
       DB_URL: jdbc:postgresql://db3:5432/users_db
@@ -213,7 +209,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./back-end-comms-service
-    container_name: comms-service
+    container_name: relatos_comms
     environment:
       PORT: 8080
       EUREKA_URL: http://eureka:8761/eureka/
@@ -259,8 +255,6 @@ services:
   redis:
     image: redis:7
     container_name: relatos_redis
-    ports:
-      - "6379:6379"
     networks:
       - relatos-net
 

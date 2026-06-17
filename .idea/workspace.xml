@@ -4,15 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Update docker compose file">
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Merge remote-tracking branch 'origin/main' into will&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;back-end-books-orders/src/main/resources/application.yaml&#10;#&#9;docker-compose.yml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/orders/01_orders_ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-comms-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-comms-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-users/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-users/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+      <option value="repository" />
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -34,17 +42,7 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GitHubPullRequestState">{
-  &quot;prStates&quot;: [
-    {
-      &quot;id&quot;: {
-        &quot;id&quot;: &quot;PR_kwDOShhh-87dVedy&quot;,
-        &quot;number&quot;: 3
-      },
-      &quot;lastSeen&quot;: 1779331119081
-    }
-  ]
-}</component>
+  <component name="GitHubPullRequestState"><![CDATA[{}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/cdcp-unir/relatos-papel-backend.git&quot;,
@@ -125,7 +123,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "V:/master_software/relatos-papel-backend/back-end-gateway",
+    "last_opened_file_path": "V:/master_software/relatos-papel-backend/back-end-books-catalogue",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -149,8 +147,9 @@
       <recent name="com.relatosdepapel.orders.facade" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="V:\master_software\relatos-papel-backend\back-end-gateway" />
       <recent name="V:\master_software\relatos-papel-backend\back-end-books-catalogue" />
+      <recent name="V:\master_software\relatos-papel-backend\back-end-books-orders" />
+      <recent name="V:\master_software\relatos-papel-backend\back-end-gateway" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="V:\master_software\relatos-papel-backend\orders" />
@@ -301,6 +300,7 @@
       <item itemvalue="Docker.docker-compose.yml.orders2: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.orders3: Compose Deployment" />
       <item itemvalue="HTTP Request.test | test books gateway" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.gateway-service" />
       <item itemvalue="Spring Boot.catalogue-service" />
       <item itemvalue="Spring Boot.eureka-service" />
@@ -456,7 +456,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780028370295</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Merge remote-tracking branch 'origin/main' into will&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;back-end-books-orders/src/main/resources/application.yaml&#10;#&#9;docker-compose.yml">
+      <option name="closed" value="true" />
+      <created>1781661576388</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1781661576388</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,6 +485,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Init ms project orders" />
     <MESSAGE value="Refactor de com y ejecución de servicios disponibles" />
     <MESSAGE value="Cambio de librería a postgresSQL" />
@@ -490,8 +500,10 @@
     <MESSAGE value="Fix gateway config" />
     <MESSAGE value="Update docker compose file" />
     <option name="LAST_COMMIT_MESSAGE" value="Update docker compose file" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
