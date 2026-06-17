@@ -7,6 +7,7 @@ import com.relatosdepapel.catalogueservice.exception.BadRequestException;
 import com.relatosdepapel.catalogueservice.exception.ResourceNotFoundException;
 import com.relatosdepapel.catalogueservice.repository.BookRepository;
 import com.relatosdepapel.catalogueservice.repository.BookSpecification;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -15,13 +16,11 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class BookService {
 
     private final BookRepository bookRepository;
-
-    public BookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
+    private final BookSearchService bookSearchService;
 
     public Book create(BookRequest request) {
         if (bookRepository.existsByIsbn(request.getIsbn())) {
@@ -39,7 +38,11 @@ public class BookService {
         book.setStock(request.getStock());
         book.setPrice(request.getPrice());
 
-        return bookRepository.save(book);
+        Book savedBook = bookRepository.save(book);
+
+        bookSearchService.indexBook(savedBook);
+
+        return savedBook;
     }
 
     public Page<Book> findAll(
@@ -68,14 +71,6 @@ public class BookService {
         );
     }
 
-    private String normalize(String value) {
-        if (value == null || value.trim().isEmpty()) {
-            return null;
-        }
-
-        return value.trim().toLowerCase();
-    }
-
     public Book findByExternalId(UUID externalId) {
         return bookRepository.findByExternalId(externalId)
                 .orElseThrow(() -> new ResourceNotFoundException("Libro no encontrado con externalId: " + externalId));
@@ -98,7 +93,11 @@ public class BookService {
         book.setStock(request.getStock());
         book.setPrice(request.getPrice());
 
-        return bookRepository.save(book);
+        Book savedBook = bookRepository.save(book);
+
+        bookSearchService.indexBook(savedBook);
+
+        return savedBook;
     }
 
     public Book partialUpdate(UUID externalId, BookPatchRequest request) {
@@ -144,10 +143,14 @@ public class BookService {
             book.setPrice(request.getPrice());
         }
 
-        return bookRepository.save(book);
+        Book savedBook = bookRepository.save(book);
+        bookSearchService.indexBook(savedBook);
+        return savedBook;
     }
+
     public void delete(UUID externalId) {
         Book book = findByExternalId(externalId);
+        bookSearchService.deleteBook(book);
         bookRepository.delete(book);
     }
 }
