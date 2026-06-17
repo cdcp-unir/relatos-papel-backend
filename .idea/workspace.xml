@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="Merge remote-tracking branch 'origin/main' into will&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;back-end-books-orders/src/main/resources/application.yaml&#10;#&#9;docker-compose.yml">
+    <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="add env variables">
+      <change afterPath="$PROJECT_DIR$/back-end-users/.env.railway" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-comms-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-comms-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-users/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-users/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +40,7 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GitHubPullRequestState"><![CDATA[{}]]></component>
+  <component name="GitHubPullRequestState">{}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/cdcp-unir/relatos-papel-backend.git&quot;,
@@ -85,68 +83,69 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CatalogueServiceApplication.executor": "Run",
-    "Docker.docker-compose.yml.catalogue1: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.db2: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.eureka: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.orders1: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.orders2: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.orders3: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "HTTP Request.createOrder | #1.executor": "Run",
-    "HTTP Request.createOrder | Crear orden.executor": "Run",
-    "HTTP Request.createOrder | Obtener libro 1.executor": "Run",
-    "HTTP Request.test | #1.executor": "Run",
-    "HTTP Request.test | #2.executor": "Run",
-    "HTTP Request.test | create order from gateway.executor": "Run",
-    "HTTP Request.test | test books gateway.executor": "Run",
-    "HTTP Request.test | test books.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Spring Boot.catalogue-service.executor": "Run",
-    "Spring Boot.eureka-service.executor": "Run",
-    "Spring Boot.gateway-service.executor": "Run",
-    "Spring Boot.orders-service.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "will",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "V:/master_software/relatos-papel-backend/back-end-books-catalogue",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2251462",
-    "run.configurations.included.in.services": "true",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CatalogueServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.catalogue1: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.db2: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.eureka: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.orders1: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.orders2: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.orders3: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.createOrder | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.createOrder | Crear orden.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.createOrder | Obtener libro 1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | create order from gateway.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | test books gateway.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | test books.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.catalogue-service.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.eureka-service.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.gateway-service.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.orders-service.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;will&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;V:/master_software/relatos-papel-backend/back-end-users&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2251462&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.relatosdepapel.orders.facade" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="V:\master_software\relatos-papel-backend\back-end-users" />
       <recent name="V:\master_software\relatos-papel-backend\back-end-books-catalogue" />
       <recent name="V:\master_software\relatos-papel-backend\back-end-books-orders" />
       <recent name="V:\master_software\relatos-papel-backend\back-end-gateway" />
@@ -464,7 +463,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781661576388</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add env variables">
+      <option name="closed" value="true" />
+      <created>1781669028495</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1781669028495</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,7 +506,8 @@
     <MESSAGE value="Refactor gateway deps" />
     <MESSAGE value="Fix gateway config" />
     <MESSAGE value="Update docker compose file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update docker compose file" />
+    <MESSAGE value="add env variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="add env variables" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
