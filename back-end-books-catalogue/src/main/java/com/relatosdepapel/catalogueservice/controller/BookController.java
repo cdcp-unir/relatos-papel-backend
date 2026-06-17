@@ -38,6 +38,8 @@ public class BookController {
     }
     @GetMapping
     public PaginatedResponse<BookResponse> findAll(
+            @RequestParam(required = false) String search,
+
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String author,
             @RequestParam(required = false)
@@ -68,6 +70,7 @@ public class BookController {
         );
 
         Page<Book> result = bookService.findAll(
+                search,
                 title,
                 author,
                 publicationDate,
@@ -77,10 +80,12 @@ public class BookController {
                 visible,
                 pageable
         );
+
         List<BookResponse> rows = result.getContent()
                 .stream()
                 .map(BookResponse::new)
                 .toList();
+
         return new PaginatedResponse<>(
                 rows,
                 result.getTotalElements(),

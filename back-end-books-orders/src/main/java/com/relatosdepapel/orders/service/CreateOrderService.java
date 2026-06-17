@@ -1,6 +1,7 @@
 package com.relatosdepapel.orders.service;
 
 import com.relatosdepapel.orders.controller.model.*;
+import com.relatosdepapel.orders.event.service.OrderEventService;
 import com.relatosdepapel.orders.facade.BooksCatalogueFacade;
 import com.relatosdepapel.orders.facade.model.BookDto;
 import com.relatosdepapel.orders.repository.OrderJpaRepository;
@@ -19,9 +20,10 @@ import java.util.*;
 public class CreateOrderService {
     private final OrderJpaRepository orderJpaRepository;
     private final BooksCatalogueFacade booksCatalogueFacade;
+    private final OrderEventService orderEventService;
 
     @Transactional
-    public CreateOrderResponseDto CreateOrder(CreateOrderRequestDto requestDto) {
+    public CreateOrderResponseDto CreateOrder(CreateOrderRequestDto requestDto, Integer userId) {
         List<RequestedBook> requestedBookList = requestDto.getItems();
 
         // validar que existan libros en la petición
@@ -66,7 +68,7 @@ public class CreateOrderService {
                 .orderDate(LocalDateTime.now())
                 .total(totalAmount)
                 .status(OrderStatus.EN_PROCESO)
-                .ownerId(1) // TODO: obtener id de usuario cuando tenga autenticación
+                .ownerId(userId)
                 .build();
 
         // Agregar items a la orden usando el método helper que mantiene la relación bidireccional
@@ -75,7 +77,7 @@ public class CreateOrderService {
         }
 
         // guardar la orden generada
-        orderJpaRepository.save(order);
+        Order saveOrder = orderJpaRepository.save(order);
 
 
         for (RequestedBook requestedBook : requestedBookList) {
@@ -87,6 +89,9 @@ public class CreateOrderService {
             booksCatalogueFacade.updateBookStock(requestedBook.getExternalId(), newStock);
 
         }
+
+        //Evento de order
+        orderEventService.PublishOrderCreatedEvent(saveOrder.getItems().get(0));
 
         return CreateOrderResponseDto.builder()
                 .name(order.getName())

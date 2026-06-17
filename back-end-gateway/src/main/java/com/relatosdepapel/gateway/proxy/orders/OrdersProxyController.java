@@ -18,10 +18,10 @@ public class OrdersProxyController {
 
     /**
      * Frontend:
-     * POST /proxy/orders/by-owner
+     * POST /proxy/orders/recent
      *
      * Gateway transcribe a:
-     * GET /api/v1/orders/owner/{ownerId}
+     * GET /api/v1/orders/users/{ownerId}/recent
      */
     @PostMapping("/recent")
     public Mono<ResponseEntity<String>> getOrdersByOwner(
