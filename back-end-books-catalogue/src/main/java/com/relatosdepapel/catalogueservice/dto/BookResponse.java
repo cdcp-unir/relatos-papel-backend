@@ -1,12 +1,18 @@
 package com.relatosdepapel.catalogueservice.dto;
 
 import com.relatosdepapel.catalogueservice.entity.Book;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Getter
+@Setter
+@AllArgsConstructor
 public class BookResponse {
 
     private UUID externalId;

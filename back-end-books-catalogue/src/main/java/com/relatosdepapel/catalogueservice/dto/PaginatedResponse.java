@@ -6,6 +6,7 @@ public class PaginatedResponse<T> {
 
     private List<T> data;
     private Meta meta;
+    private List<AggregationDetails> aggregations;
 
     public PaginatedResponse() {
     }
@@ -30,6 +31,28 @@ public class PaginatedResponse<T> {
         );
     }
 
+    public PaginatedResponse(
+            List<T> data,
+            long count,
+            int page,
+            int limit,
+            int totalPages,
+            boolean hasNext,
+            boolean hasPrevious,
+            List<AggregationDetails> aggregations
+    ) {
+        this.data = data;
+        this.meta = new Meta(
+                count,
+                page,
+                limit,
+                totalPages,
+                hasNext,
+                hasPrevious
+        );
+        this.aggregations = aggregations;
+    }
+
     public List<T> getData() {
         return data;
     }
@@ -44,6 +67,14 @@ public class PaginatedResponse<T> {
 
     public void setMeta(Meta meta) {
         this.meta = meta;
+    }
+
+    public List<AggregationDetails> getAggregations() {
+        return aggregations;
+    }
+
+    public void setAggregations(List<AggregationDetails> aggregations) {
+        this.aggregations = aggregations;
     }
 
     public static class Meta {

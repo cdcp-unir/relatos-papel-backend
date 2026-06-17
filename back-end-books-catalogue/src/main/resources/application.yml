@@ -28,6 +28,12 @@ eureka:
   instance:
     prefer-ip-address: true
 
+opensearch:
+  host: ${ELASTICSEARCH_HOST}
+  credentials:
+    user: ${ELASTICSEARCH_USER}
+    password: ${ELASTICSEARCH_PWD}
+
 management:
   endpoints:
     web:
