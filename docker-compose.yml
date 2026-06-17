@@ -51,6 +51,8 @@ services:
       - "5434:5432"
     volumes:
       - postgres_user_data:/var/lib/postgresql/data
+      - ./database/users/01_user_ddl.sql:/docker-entrypoint-initdb.d/01_user_ddl.sql
+      - ./database/users/02_user_dml.sql:/docker-entrypoint-initdb.d/02_user_dml.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d users_db"]
       interval: 10s
