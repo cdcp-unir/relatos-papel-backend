@@ -12,13 +12,13 @@ import org.springframework.beans.factory.annotation.Value;
 @RequiredArgsConstructor
 public class AuthValidationService {
 
-    private final WebClient webClient;
+    private final WebClient.Builder builder;
     @Value("${services.users.url}")
     private String usersServiceUrl;
 
     public Mono<ValidateTokenResponse> validateToken(String token) {
 
-        return webClient.post()
+        return builder.build().post()
                 .uri(usersServiceUrl + "/api/v1/auth/validate")
                 .bodyValue(new ValidateTokenRequest(token))
                 .retrieve()
