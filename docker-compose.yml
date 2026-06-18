@@ -252,6 +252,7 @@ services:
     environment:
       EUREKA_URL: http://eureka:8761/eureka/
       ALLOWED_ORIGINS: "*"
+      USERS_SERVICE_URL: http://users-service:8080
     depends_on:
       eureka:
         condition: service_started

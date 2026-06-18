@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
+import org.springframework.util.AntPathMatcher;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -17,6 +18,7 @@ import reactor.core.publisher.Mono;
 public class AuthenticationFilter implements GlobalFilter, Ordered {
 
     private final AuthValidationService authValidationService;
+    private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
     public AuthenticationFilter(AuthValidationService authValidationService) {
         this.authValidationService = authValidationService;
@@ -72,11 +74,11 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
     }
 
     private boolean isPublicEndpoint(String path) {
-
-        return path.contains("/auth/token")
-                || path.contains("/auth/refresh")
-                || path.contains("/users")
-                || path.contains("/books");
+        return pathMatcher.match("/users-service/api/v1/auth/token", path)
+                || pathMatcher.match("/users-service/api/v1/auth/refresh", path)
+                || pathMatcher.match("/users-service/api/v1/auth/validate", path)
+                || pathMatcher.match("/users-service/api/v1/users/register", path)
+                || pathMatcher.match("/books-service/api/v1/books/**", path);
     }
 
     @Override
