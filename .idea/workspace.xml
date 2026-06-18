@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/database/users/01_user_ddl.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/users/02_user_dml.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/filter/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/service/AuthValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/service/AuthValidationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +32,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-    &quot;lastFilter&quot;: {}
-    }</component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {}
+}]]></component>
   <component name="GitHubPullRequestState">{
     &quot;prStates&quot;: [
     {
@@ -45,12 +46,12 @@
     }
     ]
     }</component>
-  <component name="GithubPullRequestsUISettings">{
-    &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/cdcp-unir/relatos-papel-backend.git&quot;,
-    &quot;accountId&quot;: &quot;1ba8e8c4-f625-4c74-acfa-7381eebfb35a&quot;
-    }
-    }</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/cdcp-unir/relatos-papel-backend.git",
+    "accountId": "f4d631de-4a16-447a-a2c3-c969115eafe4"
+  }
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/back-end-books-orders/README.md" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" root0="FORCE_HIGHLIGHTING" />
@@ -88,65 +89,66 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BackEndEurekaApplication.executor": "Run",
-    "Application.CatalogueServiceApplication.executor": "Run",
-    "Application.CommsServiceApplication.executor": "Run",
-    "Application.OrdersApplication.executor": "Debug",
-    "HTTP Request.createOrder | #1.executor": "Run",
-    "HTTP Request.createOrder | Crear orden.executor": "Run",
-    "HTTP Request.createOrder | Obtener libro 1.executor": "Run",
-    "JUnit.All in eureka-service (1).executor": "Run",
-    "JUnit.All in eureka-service (2).executor": "Run",
-    "JUnit.All in eureka-service.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Spring Boot.BackEndEurekaApplication.executor": "Run",
-    "Spring Boot.CommsServiceApplication.executor": "Run",
-    "Spring Boot.DemoApplication.executor": "Run",
-    "Spring Boot.GatewayApplication.executor": "Run",
-    "Spring Boot.OrdersApplication.executor": "Debug",
-    "Spring Boot.catalogue-service.executor": "Run",
-    "Spring Boot.communication.executor": "Debug",
-    "Spring Boot.eureka-service.executor": "Run",
-    "Spring Boot.gateway.executor": "Run",
-    "Spring Boot.order-service.executor": "Run",
-    "Spring Boot.orders-service.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "cdcp",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/maikl/Documents/Proyectos Master/DesarrolloFullSTACK/Relatos de papel/BackendRelatos Papel/relatos-papel-backend/back-end-comms-service/src/main/java/com/relatosdepapel/comms_service/events",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BackEndEurekaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CatalogueServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CommsServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OrdersApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.createOrder | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.createOrder | Crear orden.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.createOrder | Obtener libro 1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in eureka-service (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in eureka-service (2).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in eureka-service.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BackEndEurekaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CommsServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.OrdersApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.catalogue-service.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.communication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.eureka-service.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.gateway.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.order-service.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.orders-service.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;cdcp&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/maikl/Documents/Proyectos Master/DesarrolloFullSTACK/Relatos de papel/BackendRelatos Papel/relatos-papel-backend/back-end-comms-service/src/main/java/com/relatosdepapel/comms_service/events&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.relatosdepapel.orders.facade" />
@@ -272,7 +274,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -309,8 +313,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.37" />
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
       </set>
     </attachedChunks>
   </component>
@@ -328,6 +332,7 @@
       <workItem from="1779251953863" duration="2998000" />
       <workItem from="1779255048382" duration="2438000" />
       <workItem from="1779319193174" duration="10272000" />
+      <workItem from="1781743264904" duration="2779000" />
     </task>
     <task id="LOCAL-00001" summary="Init ms project orders">
       <option name="closed" value="true" />
@@ -377,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779323926551</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Objetos sql para usuario">
+      <option name="closed" value="true" />
+      <created>1781671985208</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1781671985208</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +417,8 @@
     <MESSAGE value="env variables config" />
     <MESSAGE value="Add service repo and base classes" />
     <MESSAGE value="Add Service and Facade" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Service and Facade" />
+    <MESSAGE value="Objetos sql para usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Objetos sql para usuario" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -435,13 +449,13 @@
         <watch expression="saveOrder.getItems().get(0))" />
       </configuration>
       <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" line="34">
-        <watch expression="ordersExchange" />
+        <watch expression="orderCreatedRoutingKey" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" line="34">
         <watch expression="event" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" line="34">
-        <watch expression="orderCreatedRoutingKey" />
+        <watch expression="ordersExchange" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" line="34">
         <watch expression="orderCreatedRoutingKey" />

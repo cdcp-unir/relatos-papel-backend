@@ -49,3 +49,7 @@ management:
       exposure:
         include:
           - '*'
+
+services:
+  users:
+    url: ${USERS_SERVICE_URL:http://users-service:8080}
