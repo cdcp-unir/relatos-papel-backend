@@ -1,1 +1,17 @@
-POST http://localhost:8762/catalogue-service/v1/books
+## prueba para petición al docker
+POST http://192.168.1.3:8762/catalogue-service/api/v1/books
+Content-Type: application/json
+
+{
+  "targetMethod": "GET",
+  "queryParams": {}
+}
+
+###
+POST https://spring-cloud-gateway-production-bae0.up.railway.app/catalogue-service/api/v1/books
+Content-Type: application/json
+
+{
+  "targetMethod": "GET",
+  "queryParams": {}
+}

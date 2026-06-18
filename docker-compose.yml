@@ -86,10 +86,9 @@ services:
       DB_USER: postgres
       DB_PASSWORD: password
       EUREKA_URL: http://eureka:8761/eureka/
-
-      ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
-      ELASTICSEARCH_USER: ${ELASTICSEARCH_USER}
-      ELASTICSEARCH_PWD: ${ELASTICSEARCH_PWD}
+      ELASTICSEARCH_HOST: adaptable-magnolia-1q4vm9y0.us-east-1.bonsaisearch.net
+      ELASTICSEARCH_USER: 91bb0499c1
+      ELASTICSEARCH_PWD: 19b7e18c3c3cd1320b60
     ports:
       - "8081:8080"
     depends_on:
@@ -112,10 +111,9 @@ services:
       DB_USER: postgres
       DB_PASSWORD: password
       EUREKA_URL: http://eureka:8761/eureka/
-
-      ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
-      ELASTICSEARCH_USER: ${ELASTICSEARCH_USER}
-      ELASTICSEARCH_PWD: ${ELASTICSEARCH_PWD}
+      ELASTICSEARCH_HOST: adaptable-magnolia-1q4vm9y0.us-east-1.bonsaisearch.net
+      ELASTICSEARCH_USER: 91bb0499c1
+      ELASTICSEARCH_PWD: 19b7e18c3c3cd1320b60
     ports:
       - "8082:8080"
     depends_on:

@@ -10,7 +10,8 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
   instance:
-    hostname: ${EUREKA_HOST:localhost}
+    prefer-ip-address: ${EUREKA_PREFER_IP:true}
+    hostname: ${EUREKA_HOSTNAME:localhost}
   server:
     renewal-percent-threshold: 0.90
 
