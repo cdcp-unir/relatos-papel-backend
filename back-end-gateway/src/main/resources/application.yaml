@@ -1,7 +1,6 @@
 server:
   port: ${PORT:8762}
 
-## Classic Eureka configuration
 eureka:
   instance:
     prefer-ip-address: ${EUREKA_PREFER_IP:true}
@@ -12,41 +11,52 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
 
-## Enable service discovery (with Eureka)
 spring:
   application:
     name: gateway
+
   cloud:
     gateway:
       server:
         webflux:
-          # 1. Registro de rutas reactivas
           routes:
-            - id: comms-service-websocket
-              uri: lb://ws://COMMS-SERVICE
+            # Ruta HTTP para SockJS:
+            # /comms-service/ws/chat/info
+            # /comms-service/ws/chat/{server}/{session}/xhr
+            # etc.
+            - id: comms-service-sockjs-http
+              uri: lb://comms-service
               predicates:
-                - name: Path
-                  args:
-                    patterns: /comms-service/ws/**
+                - Path=/comms-service/ws/**
               filters:
-                - name: RewritePath
-                  args:
-                    regexp: /comms-service/?(?<remaining>.*)
-                    replacement: /${remaining}
+                - StripPrefix=1
+
+            # Ruta WebSocket real:
+            # /comms-service/ws/chat/{server}/{session}/websocket
+            - id: comms-service-websocket
+              uri: lb:ws://comms-service
+              predicates:
+                - Path=/comms-service/ws/**
+                - Header=Upgrade, websocket
+              filters:
+                - StripPrefix=1
+
           discovery:
             locator:
               enabled: true
               lower-case-service-id: true
+
           default-filters:
             - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
           globalcors:
             cors-configurations:
               '[/**]':
                 allowedOrigins: ${ALLOWED_ORIGINS:*}
                 allowedHeaders: "*"
                 allowedMethods:
+                  - GET
                   - POST
-                  - GET # Handshake del WebSocket
 
 management:
   endpoint:
