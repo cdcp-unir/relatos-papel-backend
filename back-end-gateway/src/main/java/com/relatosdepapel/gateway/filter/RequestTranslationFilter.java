@@ -42,14 +42,18 @@ public class RequestTranslationFilter implements GlobalFilter {
      * @return a Mono<Void> that indicates when request handling is complete
      */
     @Override
-    public Mono<Void> filter(
-            ServerWebExchange exchange,
-            GatewayFilterChain chain) {
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        String path = exchange.getRequest().getURI().getPath();
+        String upgradeHeader = exchange.getRequest().getHeaders().getFirst("Upgrade");
 
-        // By default, set the response status to 400. This will be overridden if the request is valid.
+        // BYPASS a la ruta de comms
+        if ("websocket".equalsIgnoreCase(upgradeHeader) || (path != null && path.contains("/comms-service/ws"))) {
+            log.info("Bypassing RequestTranslationFilter for WebSocket/SockJS connection at path: {}", path);
+            return chain.filter(exchange);
+        }
+
         exchange.getResponse().setStatusCode(HttpStatus.BAD_REQUEST);
 
-        // Simple check to see if the request has a content type and is a POST request
         if (exchange.getRequest().getHeaders().getContentType() == null || !exchange.getRequest().getMethod().equals(HttpMethod.POST)) {
             log.info("Request does not have a content type or is not a POST request");
             return exchange.getResponse().setComplete();
@@ -58,7 +62,6 @@ public class RequestTranslationFilter implements GlobalFilter {
                     .flatMap(dataBuffer -> {
                         GatewayRequest request = requestBodyExtractor.getRequest(exchange, dataBuffer);
                         ServerHttpRequest mutatedRequest = requestDecoratorFactory.getDecorator(request);
-                        //RouteToRequestUrlFilter writes the URI to the exchange attributes *before* any global filters run.
                         exchange.getAttributes().put(ServerWebExchangeUtils.GATEWAY_REQUEST_URL_ATTR, mutatedRequest.getURI());
                         if(request.getQueryParams() != null) {
                             request.getQueryParams().clear();
