@@ -20,16 +20,13 @@ import java.util.Locale;
 public class EmailService {
     private final JavaMailSender mailSender;
 
-    @Value("michael3125@hotmail.com")
-    private String defaultEmailTo;
-
     @Value("michael3125@gmail.com")
     private String emailFrom;
 
     public void sendOrderCreatedNotification(OrderCreatedEvent event){
         try{
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(defaultEmailTo);
+            message.setTo(event.getBody().getEmail());
             message.setFrom(emailFrom);
             message.setSubject("Nuevo pedido creado ");
             message.setText(buildEmailContent(event));

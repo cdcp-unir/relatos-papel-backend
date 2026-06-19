@@ -71,7 +71,7 @@ public class CreateOrderService {
                 .ownerId(userId)
                 .build();
 
-        // Agregar items a la orden usando el método helper que mantiene la relación bidireccional
+        // Agregar items a la orden usando el metodo helper que mantiene la relación bidireccional
         for (OrderItem item : orderItemList) {
             order.addItem(item);
         }
@@ -91,7 +91,7 @@ public class CreateOrderService {
         }
 
         //Evento de order
-        orderEventService.PublishOrderCreatedEvent(saveOrder.getItems().get(0));
+        orderEventService.PublishOrderCreatedEvent(saveOrder.getItems().get(0), requestDto.getEmail());
 
         return CreateOrderResponseDto.builder()
                 .name(order.getName())

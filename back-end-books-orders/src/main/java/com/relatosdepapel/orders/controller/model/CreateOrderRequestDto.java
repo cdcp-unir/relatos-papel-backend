@@ -34,4 +34,6 @@ public class CreateOrderRequestDto {
      */
     @JsonProperty("items")
     private List<RequestedBook> items;
+
+    private String email;
 }
