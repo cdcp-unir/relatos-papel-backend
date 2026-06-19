@@ -1,5 +1,4 @@
-\connect
-users_db;
+\connect users_db;
 
 INSERT INTO users (first_name,
                    last_name,
