@@ -1,6 +1,7 @@
 server:
   port: ${PORT:8762}
 
+## Classic Eureka configuration
 eureka:
   instance:
     prefer-ip-address: ${EUREKA_PREFER_IP:true}
@@ -17,38 +18,52 @@ spring:
 
   cloud:
     gateway:
+      httpclient:
+        pool:
+          max-idle-time: 30s
+
       server:
         webflux:
           routes:
-            # Ruta HTTP para SockJS:
-            # /comms-service/ws/chat/info
-            # /comms-service/ws/chat/{server}/{session}/xhr
-            # etc.
+            - id: comms-service-websocket
+              uri: lb://ws://comms-service
+              predicates:
+                - name: Path
+                  args:
+                    patterns: /comms-service/ws/**
+                - name: Header
+                  args:
+                    header: Upgrade
+                    regexp: (?i)websocket   # Insensible a mayúsculas/minúsculas
+              filters:
+                - name: StripPrefix
+                  args:
+                    parts: 1
+                - name: PreserveHostHeader  # Mantiene el host original en la red de Railway
+
+            # --- RUTA 2: HTTP DE SOCKJS (Maneja /info, /xhr, etc.) ---
             - id: comms-service-sockjs-http
               uri: lb://comms-service
               predicates:
-                - Path=/comms-service/ws/**
+                - name: Path
+                  args:
+                    patterns: /comms-service/ws/**
               filters:
-                - StripPrefix=1
+                - name: StripPrefix
+                  args:
+                    parts: 1
 
-            # Ruta WebSocket real:
-            # /comms-service/ws/chat/{server}/{session}/websocket
-            - id: comms-service-websocket
-              uri: lb:ws://comms-service
-              predicates:
-                - Path=/comms-service/ws/**
-                - Header=Upgrade, websocket
-              filters:
-                - StripPrefix=1
-
+          # 2. DISCOVERY LOCATOR
           discovery:
             locator:
               enabled: true
               lower-case-service-id: true
 
+          # 3. FILTROS POR DEFECTO
           default-filters:
             - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
 
+          # 4. CORS GLOBAL
           globalcors:
             cors-configurations:
               '[/**]':

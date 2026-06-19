@@ -101,7 +101,8 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
                 || pathMatcher.match("/users-service/api/v1/auth/refresh", path)
                 || pathMatcher.match("/users-service/api/v1/auth/validate", path)
                 || pathMatcher.match("/users-service/api/v1/users", path)
-                || pathMatcher.match("/catalogue-service/api/v1/books/**", path);
+                || pathMatcher.match("/catalogue-service/api/v1/books/**", path)
+                || pathMatcher.match("/comms-service/ws/**", path);
     }
 
     @Override
