@@ -25,23 +25,16 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
     }
 
     @Override
-    public Mono<Void> filter( ServerWebExchange exchange, GatewayFilterChain chain) {
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        ServerHttpRequest originalRequest = exchange.getRequest();
 
-        String path = exchange.getRequest()
-                .getURI()
-                .getPath();
+        String path = originalRequest.getURI().getPath();
 
         if (isPublicEndpoint(path)) {
             return chain.filter(exchange);
         }
 
-        String token = exchange.getRequest()
-                .getHeaders()
-                .getFirst(HttpHeaders.AUTHORIZATION);
-
-        if (token != null && token.startsWith("Bearer ")) {
-            token = token.substring(7);
-        }
+        String token = resolveToken(originalRequest);
 
         if (token == null || token.isBlank()) {
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
@@ -50,19 +43,21 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
 
         return authValidationService.validateToken(token)
                 .flatMap(response -> {
-
                     if (!response.isValid()) {
-                        exchange.getResponse()
-                                .setStatusCode(HttpStatus.UNAUTHORIZED);
-
-                        return exchange.getResponse()
-                                .setComplete();
+                        exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+                        return exchange.getResponse().setComplete();
                     }
 
-                    ServerHttpRequest request = exchange.getRequest()
+                    ServerHttpRequest request = originalRequest
                             .mutate()
-                            .header("X-User-Id",
-                                    response.getUserId().toString())
+                            .header("X-User-Id", response.getUserId().toString())
+                            /*
+                             * Importante para WebSocket:
+                             * si el token vino como query param access_token,
+                             * lo reinyectamos como Authorization para que el comms-service
+                             * también pueda leerlo si lo necesita.
+                             */
+                            .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
                             .build();
 
                     return chain.filter(
@@ -70,7 +65,35 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
                                     .request(request)
                                     .build()
                     );
+                })
+                .onErrorResume(error -> {
+                    log.error("Error validando token en gateway: {}", error.getMessage(), error);
+
+                    exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+                    return exchange.getResponse().setComplete();
                 });
+    }
+
+    private String resolveToken(ServerHttpRequest request) {
+        String authorization = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+
+        if (authorization != null && authorization.startsWith("Bearer ")) {
+            return authorization.substring(7);
+        }
+
+        if (isCommsWebSocketEndpoint(request.getURI().getPath())) {
+            String accessToken = request.getQueryParams().getFirst("access_token");
+
+            if (accessToken != null && !accessToken.isBlank()) {
+                return accessToken.trim();
+            }
+        }
+
+        return null;
+    }
+
+    private boolean isCommsWebSocketEndpoint(String path) {
+        return pathMatcher.match("/comms-service/ws/chat/**", path);
     }
 
     private boolean isPublicEndpoint(String path) {
