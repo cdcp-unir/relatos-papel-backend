@@ -18,6 +18,7 @@ private String orderName;
 private LocalDateTime orderDate;
 private BigDecimal total;
 private String status;
+private String email;
 private Integer ownerId;
 private List<OrderItemEvent> orderItems;
 }
