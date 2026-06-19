@@ -30,10 +30,10 @@ eureka:
     hostname: ${EUREKA_HOSTNAME:localhost}
 
 opensearch:
-  host: https://adaptable-magnolia-1q4vm9y0.us-east-1.bonsaisearch.net:443
+  host: ${ELASTICSEARCH_HOST}
   credentials:
-    user: 91bb0499c1
-    password: 19b7e18c3c3cd1320b60
+    user: ${ELASTICSEARCH_USER}
+    password: ${ELASTICSEARCH_PWD}
 
 management:
   endpoints:
