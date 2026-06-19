@@ -46,8 +46,10 @@ public class RequestTranslationFilter implements GlobalFilter {
         String path = exchange.getRequest().getURI().getPath();
         String upgradeHeader = exchange.getRequest().getHeaders().getFirst("Upgrade");
 
+        log.debug("Evaluating filter for path: {} with Upgrade header: {}", path, upgradeHeader);
+
         // BYPASS a la ruta de comms
-        if ("websocket".equalsIgnoreCase(upgradeHeader) || (path != null && path.contains("/comms-service/ws"))) {
+        if ("websocket".equalsIgnoreCase(upgradeHeader) || (path != null && path.contains("/ws"))) {
             log.info("Bypassing RequestTranslationFilter for WebSocket/SockJS connection at path: {}", path);
             return chain.filter(exchange);
         }
