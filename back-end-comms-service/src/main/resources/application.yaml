@@ -14,11 +14,13 @@ spring:
     virtual-host: ${RABBITMQ_VHOST:/}
 
     ##Configuracion  mail
+
+
   mail:
-    host: smtp.gmail.com
-    port: 587
-    username: michael3125@gmail.com
-    password: shlw vlwf fyll ssev
+    host: smtp.sendgrid.net
+    port: ${PUERTO_SENDGRIP:587}
+    username: apikey
+    password: ${SENDGRID_API_KEY}
     properties:
       mail:
         transport:
@@ -27,9 +29,9 @@ spring:
           auth: true
           starttls:
             enable: true
+            required: true
           ssl:
-            trust: smtp.gmail.com
-
+            trust: smtp.sendgrid.net
 
 eureka:
   client:
@@ -59,11 +61,11 @@ rabbitmq:
       order:
         created: order.created
 
+gemini:
+  api-key: ${GEMINI_API_KEY}
+
 # Configuración de notificaciones por correo
 email:
   notification:
     to: ${NOTIFICATION_EMAIL:unir.supplies@gmail.com} # Cambia esto por el correo del destinatario
     from: ${FROM_EMAIL:UNIR Supplies - Tu tienda de suministros <unir.supplies@gmail.com>}
-
-gemini:
-  api-key: kjhkhk

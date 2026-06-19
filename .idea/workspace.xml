@@ -6,10 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="3f1ee050-cbdc-42c2-9100-c523913e4d76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/filter/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/filter/AuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/service/AuthValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/java/com/relatosdepapel/gateway/service/AuthValidationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-gateway/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-catalogue/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/model/CreateOrderRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/controller/model/CreateOrderRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/model/EventBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/model/EventBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-comms-service/src/main/java/com/relatosdepapel/comms_service/events/model/EventBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-comms-service/src/main/java/com/relatosdepapel/comms_service/events/model/EventBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-comms-service/src/main/java/com/relatosdepapel/comms_service/events/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-comms-service/src/main/java/com/relatosdepapel/comms_service/events/service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-comms-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-comms-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end-gateway/src/test/java/com/example/gateway/DemoApplicationTests.java" beforeDir="false" />
+>>>>>>> d0900ea (ajuste mail)
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +101,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.BackEndEurekaApplication.executor&quot;: &quot;Run&quot;,
@@ -142,6 +155,62 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BackEndEurekaApplication.executor": "Run",
+    "Application.CatalogueServiceApplication.executor": "Run",
+    "Application.CommsServiceApplication.executor": "Run",
+    "Application.OrdersApplication.executor": "Debug",
+    "HTTP Request.createOrder | #1.executor": "Run",
+    "HTTP Request.createOrder | Crear orden.executor": "Run",
+    "HTTP Request.createOrder | Obtener libro 1.executor": "Run",
+    "JUnit.All in eureka-service (1).executor": "Run",
+    "JUnit.All in eureka-service (2).executor": "Run",
+    "JUnit.All in eureka-service.executor": "Run",
+    "JUnit.DemoApplicationTests.contextLoads.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.BackEndEurekaApplication.executor": "Run",
+    "Spring Boot.CommsServiceApplication.executor": "Run",
+    "Spring Boot.DemoApplication.executor": "Run",
+    "Spring Boot.Gateway.executor": "Run",
+    "Spring Boot.GatewayApplication.executor": "Run",
+    "Spring Boot.OrdersApplication.executor": "Debug",
+    "Spring Boot.catalogue-service.executor": "Run",
+    "Spring Boot.communication.executor": "Run",
+    "Spring Boot.eureka-service.executor": "Run",
+    "Spring Boot.gateway.executor": "Run",
+    "Spring Boot.order-service.executor": "Run",
+    "Spring Boot.orders-service.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/maikl/Documents/Proyectos Master/DesarrolloFullSTACK/Relatos de papel/BackendRelatos Papel/relatos-papel-backend/back-end-comms-service/src/main/java/com/relatosdepapel/comms_service/events",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> d0900ea (ajuste mail)
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -176,27 +245,30 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="Gateway" value="STOPPED" />
+              <entry key="GatewayApplication" value="FAILED" />
+              <entry key="catalogue-service" value="STOPPED" />
+              <entry key="communication" value="STOPPED" />
+              <entry key="eureka-service" value="STOPPED" />
+              <entry key="order-service" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager" selected="Application.BackEndEurekaApplication">
     <configuration name="BackEndEurekaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="relatos_de_papel_eureka.BackEndEurekaApplication" />
       <module name="eureka-service" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="relatos_de_papel_eureka.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CatalogueServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.relatosdepapel.catalogueservice.CatalogueServiceApplication" />
-      <module name="catalogue-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.relatosdepapel.catalogueservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -225,9 +297,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="DemoApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateway.GatewayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.relatosdepapel.gateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.relatosdepapel.gateway" />
+      <option name="MAIN_CLASS_NAME" value="com.relatosdepapel.gateway.DemoApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Gateway" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.gateway.GatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -259,13 +347,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="gateway" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="demo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.gateway.GatewayApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="order-service" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="orders-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.relatosdepapel.orders.OrdersApplication" />
@@ -289,24 +370,23 @@
     </configuration>
     <list>
       <item itemvalue="Application.BackEndEurekaApplication" />
-      <item itemvalue="Application.CatalogueServiceApplication" />
       <item itemvalue="Application.OrdersApplication" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="JUnit.DemoApplicationTests.contextLoads" />
       <item itemvalue="JUnit.All in eureka-service" />
+      <item itemvalue="Spring Boot.Gateway" />
       <item itemvalue="Spring Boot.communication" />
-      <item itemvalue="Spring Boot.gateway" />
       <item itemvalue="Spring Boot.order-service" />
-      <item itemvalue="Spring Boot.GatewayApplication" />
       <item itemvalue="Spring Boot.catalogue-service" />
       <item itemvalue="Spring Boot.eureka-service" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DemoApplicationTests.contextLoads" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Application.OrdersApplication" />
         <item itemvalue="Application.BackEndEurekaApplication" />
         <item itemvalue="JUnit.All in eureka-service" />
-        <item itemvalue="Application.CatalogueServiceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -437,8 +517,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/back-end-comms-service/src/main/java/com/relatosdepapel/comms_service/events/service/EmailService.java</url>
-          <line>30</line>
+          <line>27</line>
           <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -447,7 +532,22 @@
         <watch expression="bookDto.getStock()" />
         <watch expression="requestedBook.getQuantity()" />
         <watch expression="saveOrder.getItems().get(0))" />
+        <watch expression="event.getBody().getEmail()" />
+        <watch expression="event" />
+        <watch expression="event.getBody().getEmail())" />
       </configuration>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" line="93">
+        <watch expression="saveOrder.getItems().get(0)" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" line="93">
+        <watch expression="saveOrder.getItems().get(0))" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" line="34">
+        <watch expression="orderCreatedRoutingKey" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" line="34">
+        <watch expression="orderCreatedRoutingKey" />
+      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" line="34">
         <watch expression="orderCreatedRoutingKey" />
       </inline-watch>
@@ -455,19 +555,16 @@
         <watch expression="event" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" line="34">
+<<<<<<< HEAD
         <watch expression="ordersExchange" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" line="34">
         <watch expression="orderCreatedRoutingKey" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/event/service/OrderEventService.java" line="34">
+=======
+>>>>>>> d0900ea (ajuste mail)
         <watch expression="ordersExchange" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" line="93">
-        <watch expression="saveOrder.getItems().get(0))" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/back-end-books-orders/src/main/java/com/relatosdepapel/orders/service/CreateOrderService.java" line="93">
-        <watch expression="saveOrder.getItems().get(0)" />
       </inline-watch>
     </watches-manager>
   </component>

@@ -29,19 +29,19 @@ public class OrderEventService {
     private String orderCreatedRoutingKey;
 
 
-    public void PublishOrderCreatedEvent(OrderItem order) {
+    public void PublishOrderCreatedEvent(OrderItem order, String email) {
         try {
-            OrderCreatedEvent event = buildOrderCreatedEvent(order);
+            OrderCreatedEvent event = buildOrderCreatedEvent(order, email);
            rabbitTemplate.convertAndSend(ordersExchange, orderCreatedRoutingKey, event);
-           log.info("Evento de pedido creado publicado exitosamente. Order:{}, EventId: {}",
-            order.getOrder().getName(), event.getHeader().getEventId());
+           log.info("Evento de pedido creado publicado exitosamente. Order:{}, EventId: {}, Email {}",
+            order.getOrder().getName(), event.getHeader().getEventId(), email);
         } catch (Exception ex) {
             log.error("Error al publicar evento de pedido creado para order: {}", order.getOrder().getName(), ex);
         }
 
     }
 
-    private OrderCreatedEvent buildOrderCreatedEvent(OrderItem order) {
+    private OrderCreatedEvent buildOrderCreatedEvent(OrderItem order, String email) {
         String eventID = UUID.randomUUID().toString();
 
         EventHeader header = EventHeader.builder()
@@ -59,6 +59,7 @@ public class OrderEventService {
                 .orderItems(orderItemEvents)
                 .orderName(order.getOrder().getName())
                 .orderDate(order.getOrder().getOrderDate())
+                .email(email)
                 .total(order.getOrder().getTotal())
                 .build();
 
