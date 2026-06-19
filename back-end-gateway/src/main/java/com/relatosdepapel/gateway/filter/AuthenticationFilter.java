@@ -77,7 +77,7 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
         return pathMatcher.match("/users-service/api/v1/auth/token", path)
                 || pathMatcher.match("/users-service/api/v1/auth/refresh", path)
                 || pathMatcher.match("/users-service/api/v1/auth/validate", path)
-                || pathMatcher.match("/users-service/api/v1/users/register", path)
+                || pathMatcher.match("/users-service/api/v1/users", path)
                 || pathMatcher.match("/catalogue-service/api/v1/books/**", path);
     }
 
