@@ -17,9 +17,9 @@ spring:
 
 
   mail:
-    host: smtp.sendgrid.net
-    port: ${PUERTO_SENDGRIP:587}
-    username: apikey
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    username: ${MAIL_USER}
     password: ${SENDGRID_API_KEY}
     properties:
       mail:
@@ -31,7 +31,7 @@ spring:
             enable: true
             required: true
           ssl:
-            trust: smtp.sendgrid.net
+            trust: ${TRUST_MAIL}
 
 eureka:
   client:
