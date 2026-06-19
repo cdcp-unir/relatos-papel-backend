@@ -20,16 +20,16 @@ spring:
     host: ${MAIL_HOST}
     port: ${MAIL_PORT}
     username: ${MAIL_USER}
-    password: ${SENDGRID_API_KEY}
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         transport:
           protocol: smtp
         smtp:
-          auth: true
+          auth: ${MAIL_AUTH:false}
           starttls:
-            enable: true
-            required: true
+            enable: ${MAIL_STARTTLS:true}
+            required: ${MAIL_STARTTLS_REQUIRED:true}
           ssl:
             trust: ${TRUST_MAIL}
 
